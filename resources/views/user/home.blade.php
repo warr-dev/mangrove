@@ -50,15 +50,6 @@
 
 	@include('layouts.components.nav')
 
-	<!-- Opened Nav in Mobile, you can use javascript/jQuery -->
-	<div id="nav-opened" class="fixed left-0 right-0 bg-white hidden mx-2 mt-16 rounded-br rounded-bl shadow z-10">
-		<div class="p-2 divide-y divide-gray-600 flex flex-col">
-			<a href="#about" class="p-2 font-semibold hover:text-indigo-700">About</a>
-			<a href="#whyus" class="p-2 font-semibold hover:text-indigo-700">Why Us ?</a>
-			<a href="#showcase" class="p-2 font-semibold hover:text-indigo-700">Our Products</a>
-			<a href="#" class="p-2 font-semibold hover:text-indigo-700">Logout</a>
-		</div>
-	</div>
 
 	<header id="up" class="bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen relative">
 		<!-- Overlay Background + Center Control -->

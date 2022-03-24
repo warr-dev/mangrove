@@ -1,3 +1,6 @@
+@auth
+    <form id="frmlogout" method="post" action="{{route('logout')}}"> @csrf </form>
+@endauth
 <nav id="nav" class="fixed inset-x-0 top-0 flex flex-row justify-between z-10 text-white bg-transparent">
 
     <div class="p-4">
@@ -12,7 +15,6 @@
         <a href="#showcase" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Our
             Products</a>
         @auth
-            <form id="frmlogout" method="post" action="{{route('logout')}}"> @csrf </form>
             <a href="#" onclick="event.preventDefault();document.querySelector('#frmlogout').submit();" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Logout</a>
         @endauth
     </div>
@@ -27,3 +29,13 @@
         </svg>
     </div>
 </nav>
+<!-- Opened Nav in Mobile, you can use javascript/jQuery -->
+<div id="nav-opened" class="fixed left-0 right-0 bg-white hidden mx-2 mt-16 rounded-br rounded-bl shadow z-10">
+    <div class="p-2 divide-y divide-gray-600 flex flex-col">
+        <a href="#about" class="p-2 font-semibold hover:text-indigo-700">About</a>
+        <a href="#whyus" class="p-2 font-semibold hover:text-indigo-700">Why Us ?</a>
+        <a href="#showcase" class="p-2 font-semibold hover:text-indigo-700">Our Products</a>
+        <a href="#" onclick="event.preventDefault();document.querySelector('#frmlogout').submit();" class="p-2 font-semibold hover:text-indigo-700">Logout</a>
+    </div>
+</div>
+
