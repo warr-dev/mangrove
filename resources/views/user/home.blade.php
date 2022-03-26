@@ -55,8 +55,8 @@
 		<!-- Overlay Background + Center Control -->
 		<div class="h-screen bg-opacity-50 bg-black flex items-center justify-center" style="background:rgba(0,0,0,0.5);">
 			<div class="mx-2 text-center w-1/2 glass p-7 glass-10">
-				<h1 class="text-gray-500 font-bold text-2xl xs:text-4xl md:text-5xl p-2"><span class="text-white">Lorem Ipsum</span></h1>
-                <p class="text-gray-100 text-1xl xs:text-3xl md:text-4xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, a consectetur nisi nulla rem quidem ut, quod ipsa hic minima at iusto. Molestiae in labore expedita iusto iure, modi deleniti.</p>
+				<h1 class="text-gray-500 font-bold text-2xl xs:text-4xl md:text-5xl p-2"><span class="text-white">Welcome</span></h1>
+                <p class="text-gray-100 text-1xl xs:text-3xl md:text-4xl">Reticence and Endowment System for Silonay Mangrove</p>
                 
                 <a href="#about"><button class="p-2 my-5 mx-2 bg-transparent border-2 bg-indigo-200 bg-opacity-75 hover:bg-opacity-100 border-indigo-700 rounded hover:border-indigo-800 font-bold text-indigo-800 shadow-md transition duration-500 md:text-lg">Read More ..</button></a>
                 
@@ -67,8 +67,8 @@
       <section class="blog text-gray-700 body-font bg-green-200">
           <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Galery</h1>
-                <p class="lg:w-1/2 w-full leading-relaxed text-base">This section gives images of mangrove forest</p>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Gallery</h1>
+                <p class="lg:w-1/2 w-full leading-relaxed text-base">Images of Silonay Mangrove Ecopark</p>
             </div>
             <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
                 <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
@@ -172,10 +172,10 @@
       <section class="text-gray-700 body-font bg-green-200">
             <div class="container px-5 py-24 mx-auto">
               <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> News and Updates</h1>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Local News and Updates</h1>
                 <p class="lg:w-1/2 w-full leading-relaxed text-base">
-                  J'aime bien partager mes connaissances et des recherche intéressantes, pour le faire j'ai mis en place un blog personnel.
-                              Nous abordons plusieurs sujets intéressants et je donne quelques astuces et conseils aux jeunes développeurs pour mieux s'en sortir.          </p>
+                Oriental Mindoro advocates the concept of the Oriental Mindoro Loop/Circuit where travelers are encouraged to not only enjoy just one destination but to experience more than one tourism destination in the province.
+                 This campaigns tourists to enter in one destination and leave in another while experiencing everything in between.          </p>
               </div>
               <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
                 <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
@@ -184,11 +184,12 @@
                   <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
                     
                     <div class="header-content inline-flex ">
-                        <div class="category-title flex-1 text-sm"> date </div>
+                        <div class="category-title flex-1 text-sm"> May 21, 2011 </div>
                     </div>
-                    <div class="title-post font-medium">Title</div>
+                    <div class="title-post font-medium">Mangrove Forest in Calapan</div>
       
-                    <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis veritatis vel suscipit ex dolore possimus iure. 
+                    <div class="summary-post text-base text-justify">The concrete boardwalk at Silonay Mangrove Conservation Ecopark. This 41-hectare protected area, opened on November 13, 2013 (Oriental Mindoro Foundation Day), is located on the 87-hectare Silonay Island.
+ 
                       <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span class="">Read more...</span></button>
                     </div>
                    
@@ -200,11 +201,12 @@
                     <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
                       
                       <div class="header-content inline-flex ">
-                          <div class="category-title flex-1 text-sm"> date </div>
+                          <div class="category-title flex-1 text-sm"> December 15, 2012 </div>
                       </div>
-                      <div class="title-post font-medium">Title</div>
+                      <div class="title-post font-medium">Silonay Mangrove Conservation Ecopark</div>
         
-                      <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis veritatis vel suscipit ex dolore possimus iure. 
+                      <div class="summary-post text-base text-justify">It is a haven of 14 species of mangroves, fireflies, 2 species of bats, 29 species of migratory birds, fiddler crabs and various kinds of fish. Near the entrance is a mural of Silonay species done by environmental artist AG Saño and local students.
+ 
                         <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span class="">Read more...</span></button>
                       </div>
                      
@@ -216,11 +218,84 @@
                     <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
                       
                       <div class="header-content inline-flex ">
-                          <div class="category-title flex-1 text-sm"> date </div>
+                          <div class="category-title flex-1 text-sm"> April 20, 2016 </div>
                       </div>
-                      <div class="title-post font-medium">Title</div>
+                      <div class="title-post font-medium">A green intervention</div>
         
-                      <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis veritatis vel suscipit ex dolore possimus iure. 
+                      <div class="summary-post text-base text-justify">Some members of Sama-samang Nagkakaisang Pamayanan ng Silonay (L-R): Mr. Benecio “Bobby” Vergara (SNPS President), Mr. Moral Bool (hpneybee farm manager), Aldwin Simblante (eco-tour manager), Mr. Ricardo Ponsones (mangrove seedling nursery manager), Mr. Francisco Fortu (Silonay Barangay Captain) and Alma Bool (full-time volunteer)
+ 
+                        <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span class="">Read more...</span></button>
+                      </div>
+                     
+                    </div>
+                  </div>
+      
+              </div>
+            </div>
+          </section>
+    <div class="section">
+      
+          <section class="text-gray-700 body-font bg-green-200">
+            <div class="container px-5 py-24 mx-auto">
+              <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Advertisement</h1>
+                <p class="lg:w-1/2 w-full leading-relaxed text-base">
+                Clinging to coastlines in the tropics, mangrove forests cover a tiny fraction of the planet’s surface, but they provide so much for so many. Now, coastal development, 
+                unsustainable aquaculture and sea-level rise pose unprecedented threats to these fragile ecosystems.
+          </p>
+              </div>
+              <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                  <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"></div>
+      
+                  <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
+                    
+                    <div class="header-content inline-flex ">
+                        <div class="category-title flex-1 text-sm"> May 21, 2011 </div>
+                    </div>
+      
+                    <div class="summary-post text-base text-justify">Mangroves can be a bit salty
+                    Mangroves are the only species of trees in the world that can tolerate saltwater. 
+                    Their strategy for dealing with otherwise toxic levels of salt? Excrete it through their waxy leaves.</div>
+
+ 
+                      <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span class="">Read more...</span></button>
+                    </div>
+                   
+                  </div>
+                </div>
+                <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                    <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"></div>
+        
+                    <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
+                      
+                      <div class="header-content inline-flex ">
+                          <div class="category-title flex-1 text-sm"> December 15, 2012 </div>
+                      </div>
+                      <div class="summary-post text-base text-justify">Mangroves come in a variety of sizes
+                        Though estimates vary, there are at least 50 — and maybe up to 110 — mangrove species, 
+                        ranging in height from 2 to 10 meters, but all species feature oblong or oval-shaped leaves and
+                        share an affinity for brackish habitats.
+
+ 
+                        <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span class="">Read more...</span></button>
+                      </div>
+                     
+                    </div>
+                  </div>
+                  <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                    <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"></div>
+        
+                    <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
+                      
+                      <div class="header-content inline-flex ">
+                          <div class="category-title flex-1 text-sm"> April 20, 2016 </div>
+                      </div>
+                    
+                      <div class="summary-post text-base text-justify">Fish flock to mangroves
+                        Mangroves, specifically the underwater habitat their roots provide, offer critical nursing environments for juveniles of thousands of fish species, from 1-inch gobies to 10-foot sharks.
+
+ 
                         <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span class="">Read more...</span></button>
                       </div>
                      
@@ -235,9 +310,7 @@
     <section class="text-gray-700 body-font bg-green-200 p-5">
         <div class="flex flex-wrap w-full mb-20 mt-20 flex-col items-center text-center">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Feedback</h1>
-            <p class="lg:w-1/2 w-full leading-relaxed text-base">
-              J'aime bien partager mes connaissances et des recherche intéressantes, pour le faire j'ai mis en place un blog personnel.
-                          Nous abordons plusieurs sujets intéressants et je donne quelques astuces et conseils aux jeunes développeurs pour mieux s'en sortir.          </p>
+           
           </div>
         <div class="relative container px-5 py-24 mx-auto">
             <div class="absolute inset-2 bg-gray-300">
@@ -246,7 +319,7 @@
             <div class="container px-5 py-24 mx-auto flex">
             <div class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
                 <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Feedback</h2>
-                <p class="leading-relaxed mb-5 text-gray-600">Post-ironic portland shabby chic echo park, banjo fashion axe</p>
+                <p class="leading-relaxed mb-5 text-gray-600">Share your feedback and help us improve </p>
                 
                 <div class="relative mb-4">
                     <label for="comment" class="leading-7 text-sm text-gray-600">Rating</label>
@@ -280,7 +353,7 @@
                     </div>
                 </div>
                 <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
-                <p class="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
+                <p class="text-xs text-gray-500 mt-3">The comment form won't actually post anywhere as it only a demonstration, but if you click the "submit button" you'll see the form validation at work</p>
             </div>
             </div>
         </div>
@@ -753,8 +826,8 @@ const showMenu2 = (flag) => {
           <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Contact Us</h1>
             <p class="lg:w-1/2 w-full leading-relaxed text-base">
-              J'aime bien partager mes connaissances et des recherche intéressantes, pour le faire j'ai mis en place un blog personnel.
-                          Nous abordons plusieurs sujets intéressants et je donne quelques astuces et conseils aux jeunes développeurs pour mieux s'en sortir.          </p>
+                Need to get in touch with us? Either fill out the form with your inquiry or 
+                find the miraplesregine24@gmail.com you'd like to contact below.         </p>
           </div>
           <div class="relative flex items-top justify-center sm:items-center sm:pt-0">
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
@@ -762,10 +835,14 @@ const showMenu2 = (flag) => {
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="p-6 mr-2 bg-gray-100 sm:rounded-lg">
                             <h1 class="text-4xl sm:text-5xl text-gray-800 font-extrabold tracking-tight">
-                                Get in touch
+                                Our Address
                             </h1>
                             <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 mt-2">
-                                Fill in the form to start a conversation
+            
+                                Silonay Mangrove Conservation Ecopark: Sitio Singalong, Brgy. Silonay, Calapan City.  Open daily, 6AM – 6PM. 
+
+                                Admission: PhP50/head (PhP20 for students).
+
                             </p>
     
                             <div class="flex items-center mt-8 text-gray-600 dark:text-gray-400">
@@ -773,9 +850,9 @@ const showMenu2 = (flag) => {
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
-                                <div class="ml-4 text-md tracking-wide font-semibold w-40">
-                                    Acme Inc, Street, State,
-                                    Postal Code
+                                <div class="ml-4 text-md tracking-wide font-semibold w-60">
+                                       Silonay, Calapan City, Oriental Mindoro
+
                                 </div>
                             </div>
     
@@ -784,7 +861,8 @@ const showMenu2 = (flag) => {
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                                 </svg>
                                 <div class="ml-4 text-md tracking-wide font-semibold w-40">
-                                    +44 1234567890
+                                    09279501242
+
                                 </div>
                             </div>
     
@@ -793,7 +871,8 @@ const showMenu2 = (flag) => {
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
                                 <div class="ml-4 text-md tracking-wide font-semibold w-40">
-                                    info@acme.org
+                                    miraplesregine24@gmail.com
+
                                 </div>
                             </div>
                         </div>

@@ -45,6 +45,15 @@
                                 name="password_confirmation" required />
             </div>
 
+            <!-- Validation Code -->
+            <div class="mt-4">
+                <x-label for="enter_validation_code" :value="__('Enter validation code')" />
+
+                <x-input id="enter_validation_code" class="block mt-1 w-full"
+                                type="validation code"
+                                 required />
+            </div>
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}

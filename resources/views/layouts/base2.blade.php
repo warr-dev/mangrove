@@ -31,10 +31,11 @@
 		<li @click="menu = !menu" class="px-8 py-4 bg-gray-300 mb-20 mx-16">
 			<img src="https://poliweb.github.io/ing/PolIWeb_Development_Logo_Orang.svg" class="inline w-32 h-20 md:w-52 md:h-20" alt="">
 		</li>
-    <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">One</a></li>
-    <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Two</a></li>
-	 <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Block 3</a></li>
-	 <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Block 4</a></li>
+    <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Local News Update</a></li>
+    <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Registered Users</a></li>
+	 <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Reservation Requests</a></li>
+	 <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Donation Directory</a></li>
+   <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Events</a></li>
 	 <li class="text-lg py-2"><a id="btnlogout" href="#" class="px-2 hover:text-gray-200">Logout</a></li>
 	  
   </ul>
