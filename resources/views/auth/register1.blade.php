@@ -25,55 +25,92 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                 <section class="text-gray-600 body-font ">
-                    <div class="container xl:px-32 px-5 py-36 mx-auto flex flex-wrap items-center">
-                        <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-                        <h3 class="title-font font-bold lg:text-7xl text-6xl text-white text-center md:text-left ">RETICENCE AND ENDOWMENT SYSTEM FOR SILONAY MANGROVE</h3>
-                        {{-- <p class="leading-relaxed mt-4 lg:text-3xl text-2xl lg:max-w-xl font-medium  text-black text-center md:text-left ">Facebook helps you connect and share with the people in your life.</p> --}}
+                    <div class="container px-5 py-36 mx-auto flex flex-wrap items-center">
+                        <div class=" md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+                            <h3 class="title-font font-bold lg:text-7xl text-6xl text-white text-center md:text-left ">RETICENCE AND ENDOWMENT SYSTEM FOR SILONAY MANGROVE</h3>
+                            {{-- <p class="leading-relaxed mt-4 lg:text-3xl text-2xl lg:max-w-xl font-medium  text-black text-center md:text-left ">Facebook helps you connect and share with the people in your life.</p> --}}
                         </div>
-                        <div class="lg:w-2/6 md:w-1/2 bg-green-100 shadow-lg rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                        <div class="md:w-1/2 bg-green-100 shadow-lg rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
                             {{-- <form id="frmlogin"> --}}
-                                <h1 class="text-xl text-center pb-5 title-font font-bold">Sign Up</h1>
-                                <div class="py-3 flex justify-between items-center">
-                                    <label for="">using</label>
-                                    <div class="bg-gray-200 text-sm text-gray-500 leading-none border-2 border-gray-200 rounded-full inline-flex">
-                                        <button type="button" class="toggle inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 focus:text-blue-400 rounded-l-full px-4 py-2 activeselector">
-                                            Email
-                                        </button>
-                                        <button type="button" class="toggle inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 focus:text-blue-400 rounded-r-full px-4 py-2">
-                                            Number
-                                        </button>
+                                <h1 class="text-2xl text-center title-font font-bold">Sign Up</h1>
+                                <span class="text-center pb-5 title-font">Register now while places are available</span>
+                                
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div id="input-full_name">
+                                        <input type="text" value="{{old('full_name')}}"  name="full_name" placeholder="Enter Your Full Name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                                        @error('full_name')
+                                            <small class="text-red-500 p-l-5">{{$message}}</small>
+                                        @enderror
                                     </div>
-                                </div>
-                                
-                                
-                                <div class="relative mb-4" id="input-email">
-                                    <input type="text" value="{{old('email')}}"  name="email" placeholder="Email address" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                    @error('email')
+                                    
+                                    <div>
+                                        <input type="text" value="{{old('username')}}"  name="username" placeholder="Username" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                                        @error('username')
+                                            <small class="text-red-500 p-l-5">{{$message}}</small>
+                                        @enderror
+                                    </div>
+
+                                    <div id="input-address">
+                                        <input type="text" value="{{old('address')}}"  name="address" placeholder="Address" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                                        @error('address')
+                                            <small class="text-red-500 p-l-5">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                    
+                                    <div id="input-number">
+                                        <input type="text" value="{{old('phone')}}"  name="phone" placeholder="Phone Number" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                                        @error('phone')
+                                            <small class="text-red-500 p-l-5">{{$message}}</small>
+                                        @enderror
+                                    </div>
+
+                                    <div id="input-city">
+                                        <input type="text" value="{{old('city')}}"  name="city" placeholder="City" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                                        @error('city')
+                                            <small class="text-red-500 p-l-5">{{$message}}</small>
+                                        @enderror
+                                    </div>
+
+                                    <div id="input-zipcode">
+                                        <input type="text" value="{{old('zipcode')}}"  name="zipcode" placeholder="Zipcode" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                                        @error('zipcode')
+                                            <small class="text-red-500 p-l-5">{{$message}}</small>
+                                        @enderror
+                                    </div>
+
+                                    <div id="input-email" class="col-span-2">
+                                        <input type="text" value="{{old('email')}}"  name="email" placeholder="Email address" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                                        @error('email')
+                                            <small class="text-red-500 p-l-5">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="col-span-2">
+                                        <input type="password"  name="password" placeholder="Password" value="{{old('password')}}" class="w-full  bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200  outline-none text-lg text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                                        @error('password')
+                                            <small class="text-red-500 p-l-5">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="col-span-2">
+                                        <input type="password"  name="password_confirmation" placeholder="Confirm Password" value="{{old('password_confirmation')}}" class="w-full  bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200  outline-none text-lg text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                                    </div>
+                                    
+                                    <div class="main flex border rounded-full overflow-hidden m-4 select-none col-span-2">
+                                        <div class="title py-3 my-auto px-5 bg-green-500 text-white text-sm font-semibold mr-3">Gender</div>
+                                        <label class="flex radio p-2 px-4 cursor-pointer">
+                                            <input class="my-auto transform scale-125" type="radio" name="gender" value="male" checked/>
+                                            <div class="title px-2">male</div>
+                                        </label>
+                                    
+                                        <label class="flex radio p-2 px-4 cursor-pointer">
+                                            <input class="my-auto transform scale-125" type="radio" name="gender" value="female" />
+                                            <div class="title px-2">female</div>
+                                        </label>
+                                    </div>
+                                    @error('gender')
                                         <small class="text-red-500 p-l-5">{{$message}}</small>
                                     @enderror
                                 </div>
-                                <div class="relative mb-4" style="display: none" id="input-number">
-                                    <input type="text" value="{{old('phone')}}"  name="phone" placeholder="Phone Number" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                    @error('phone')
-                                        <small class="text-red-500 p-l-5">{{$message}}</small>
-                                    @enderror
-                                </div>
-                                <div class="relative mb-4">
-                                    <input type="text" value="{{old('username')}}"  name="username" placeholder="Username" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                    @error('username')
-                                        <small class="text-red-500 p-l-5">{{$message}}</small>
-                                    @enderror
-                                </div>
-                                <div class="relative mb-4">
-                                    <input type="password"  name="password" placeholder="Password" value="{{old('password')}}" class="w-full  bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200  outline-none text-lg text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                    @error('password')
-                                        <small class="text-red-500 p-l-5">{{$message}}</small>
-                                    @enderror
-                                </div>
-                                <div class="relative mb-4">
-                                    <input type="password"  name="password_confirmation" placeholder="Confirm Password" value="{{old('password_confirmation')}}" class="w-full  bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200  outline-none text-lg text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                </div>
-                                <button type="submit" class="text-white border-0 py-2 px-8 focus:outline-none font-medium  rounded text-xl bg-green-700 " >Register</button>
+                                <button type="submit" class="my-4 text-white border-0 py-2 px-8 focus:outline-none font-medium  rounded text-xl bg-green-700 " >Register</button>
                                 <p class="text-sm text-gray-500 py-5 text-center">Already have an account? <span class="text-blue-500"><a href="{{route('login')}}">Sign in</a></span></p>
                                 
                             {{-- </form> --}}
@@ -98,18 +135,6 @@
         </div>
 
         <script src="{{ asset('js/jq.js') }}"></script>
-        <script>
-            $('.toggle').click((e)=>{
-                $.each($('.toggle'),(ind,el)=>{
-                    el.classList.remove('activeselector')
-                })
-                e.target.classList.add('activeselector')
-                let active=e.target.innerText.toLowerCase();
-                $('#input-email').hide();
-                $('#input-number').hide();
-                $('#input-'+active).show();
-            })
-        </script>
     </body>
 </html>
 

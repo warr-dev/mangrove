@@ -19,7 +19,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
-        <img src="{{asset('mangrove.jpg')}}" alt="" class="background">
+        <img src="{{asset('images/bg.jpg')}}" alt="background" class="background">
         <div class="page">
             
         

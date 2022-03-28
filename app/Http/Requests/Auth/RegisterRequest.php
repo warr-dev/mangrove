@@ -29,6 +29,12 @@ class RegisterRequest extends FormRequest
             'email' => ['required_without:phone', 'email', 'max:255', 'unique:users','nullable'],
             'phone' => ['required_without:email', 'unique:users','nullable'  ],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+
+            'full_name'=>['required', 'string', 'max:255'],
+            'address'=>['required', 'string', 'max:255'],
+            'city'=>['required', 'string', 'max:255'],
+            'zipcode'=>['required', 'string', 'max:255'],
+            'gender'=>['required', 'string', 'max:255'],
         ];
     }
 }

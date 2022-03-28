@@ -24,6 +24,9 @@ Route::middleware(['myauth:admin'])
     ->namespace('App\Http\Controllers')
     ->group(function(){
         Route::get('/dashboard',['uses'=>'HomepageController@home','as'=>'home']);
+        Route::resource('user',UserController::class);
+        Route::resource('reservations',ReservationController::class);
+        Route::resource('events',EventController::class);
 });
 Route::middleware(['myauth:user'])
     ->name('user.')
