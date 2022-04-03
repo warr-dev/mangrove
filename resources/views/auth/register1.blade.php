@@ -21,6 +21,12 @@
     <body>
         <img src="{{asset('mangrove.jpg')}}" alt="" class="background">
         <div class="page">
+{{--             
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
+
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" /> --}}
             <div class="mycontent">
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
@@ -35,66 +41,21 @@
                                 <h1 class="text-2xl text-center title-font font-bold">Sign Up</h1>
                                 <span class="text-center pb-5 title-font">Register now while places are available</span>
                                 
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div id="input-full_name">
-                                        <input type="text" value="{{old('full_name')}}"  name="full_name" placeholder="Enter Your Full Name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                        @error('full_name')
-                                            <small class="text-red-500 p-l-5">{{$message}}</small>
-                                        @enderror
-                                    </div>
+                                <div class="grid grid-cols-6 gap-4">
+                                    <x-auth.input name="first_name" placeholder="First Name" class="col-span-2" autofocus />
+                                    <x-auth.input name="middle_name" placeholder="Middle Name" class="col-span-2" />
+                                    <x-auth.input name="last_name" placeholder="Last Name" class="col-span-2" />
+                                    <x-auth.select-input name="province" label="Province" class="col-span-6" />
+                                    <x-auth.select-input name="city" label="Select Province First" class="col-span-3" />
+                                    <x-auth.input name="zipcode" placeholder="Zip Code" class="col-span-3" id="zipcode" :disabled="false" />
+                                    <x-auth.input name="barangay" placeholder="Barangay" class="col-span-6" />
+                                    <x-auth.input name="number" placeholder="Enter Your Number" class="col-span-6" />
+                                    <x-auth.input name="email" placeholder="Enter Your Email" class="col-span-6" />
+                                    <x-auth.input name="username" placeholder="Enter Your Username" class="col-span-6" />
+                                    <x-auth.input name="password" placeholder="Password" class="col-span-6" type="password" />
+                                    <x-auth.input name="password_confirmation" placeholder="Confirm Your Password" class="col-span-6" type="password" />
                                     
-                                    <div>
-                                        <input type="text" value="{{old('username')}}"  name="username" placeholder="Username" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                        @error('username')
-                                            <small class="text-red-500 p-l-5">{{$message}}</small>
-                                        @enderror
-                                    </div>
-
-                                    <div id="input-address">
-                                        <input type="text" value="{{old('address')}}"  name="address" placeholder="Address" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                        @error('address')
-                                            <small class="text-red-500 p-l-5">{{$message}}</small>
-                                        @enderror
-                                    </div>
-                                    
-                                    <div id="input-number">
-                                        <input type="text" value="{{old('phone')}}"  name="phone" placeholder="Phone Number" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                        @error('phone')
-                                            <small class="text-red-500 p-l-5">{{$message}}</small>
-                                        @enderror
-                                    </div>
-
-                                    <div id="input-city">
-                                        <input type="text" value="{{old('city')}}"  name="city" placeholder="City" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                        @error('city')
-                                            <small class="text-red-500 p-l-5">{{$message}}</small>
-                                        @enderror
-                                    </div>
-
-                                    <div id="input-zipcode">
-                                        <input type="text" value="{{old('zipcode')}}"  name="zipcode" placeholder="Zipcode" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                        @error('zipcode')
-                                            <small class="text-red-500 p-l-5">{{$message}}</small>
-                                        @enderror
-                                    </div>
-
-                                    <div id="input-email" class="col-span-2">
-                                        <input type="text" value="{{old('email')}}"  name="email" placeholder="Email address" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                        @error('email')
-                                            <small class="text-red-500 p-l-5">{{$message}}</small>
-                                        @enderror
-                                    </div>
-                                    <div class="col-span-2">
-                                        <input type="password"  name="password" placeholder="Password" value="{{old('password')}}" class="w-full  bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200  outline-none text-lg text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                        @error('password')
-                                            <small class="text-red-500 p-l-5">{{$message}}</small>
-                                        @enderror
-                                    </div>
-                                    <div class="col-span-2">
-                                        <input type="password"  name="password_confirmation" placeholder="Confirm Password" value="{{old('password_confirmation')}}" class="w-full  bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200  outline-none text-lg text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                                    </div>
-                                    
-                                    <div class="main flex border rounded-full overflow-hidden m-4 select-none col-span-2">
+                                    <div class="main flex border rounded-full overflow-hidden m-4 select-none col-span-6">
                                         <div class="title py-3 my-auto px-5 bg-green-500 text-white text-sm font-semibold mr-3">Gender</div>
                                         <label class="flex radio p-2 px-4 cursor-pointer">
                                             <input class="my-auto transform scale-125" type="radio" name="gender" value="male" checked/>
@@ -109,6 +70,7 @@
                                     @error('gender')
                                         <small class="text-red-500 p-l-5">{{$message}}</small>
                                     @enderror
+                                   
                                 </div>
                                 <button type="submit" class="my-4 text-white border-0 py-2 px-8 focus:outline-none font-medium  rounded text-xl bg-green-700 " >Register</button>
                                 <p class="text-sm text-gray-500 py-5 text-center">Already have an account? <span class="text-blue-500"><a href="{{route('login')}}">Sign in</a></span></p>
@@ -135,6 +97,51 @@
         </div>
 
         <script src="{{ asset('js/jq.js') }}"></script>
+        <script>
+            var provinces=[];
+            $.ajax({
+                url: "/zipcodes.json",
+                type: "GET",
+                dataType: "json",
+                success: function(data){
+                    provinces=data.provinces;
+                    $('#province').html('');
+                    $('#province').append('<option value="">Select Province</option>');
+                    $.each(data.provinces, function(key, value){
+                        $('#province').append('<option value="'+key+'">'+key+'</option>');
+                    });
+                    @if(old('province'))
+                        $('#province').val('{{old('province')}}');
+                        $('#province')[0].dispatchEvent(new Event("change"))
+                    @endif
+                    
+                }
+            });
+            $('#city').html('');
+            let citylabel=$('#province').val()==''?'<option value="" >Select Province First</option>':'<option value="" >Select City</option>'
+            $('#city').append(citylabel);
+            $('#province').change(function(){
+                var val=$(this).val();
+                var cities=provinces[val];
+                $('#city').html('');
+                $('#city').append('<option >Select City</option>');
+                $.each(cities, function(key, value){
+                    $('#city').append('<option value="'+value+'">'+value+'</option>');
+                });
+                @if(old('city'))
+                    $('#city').val('{{old('city')}}');
+                    $('#city')[0].dispatchEvent(new Event("change"))
+                @endif
+            });
+            $('#city').change(function(){
+                var val=$(this).val();
+                var zipcode=Object.entries(provinces[$('#province').val()]).filter(function(zipcode){
+                    return zipcode[1]==val;
+                })[0];
+                $('#zipcode').val(zipcode[0]);
+            });
+
+        </script>
     </body>
 </html>
 

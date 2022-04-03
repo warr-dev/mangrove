@@ -1,0 +1,33 @@
+{
+  "provinces":{
+    "Oriental Mindoro":{
+      "5200": "Calapan",
+      "5201": "Baco",
+      "5202": "San Teodoro",
+      "5203": "Puerto Galera",
+      "5205": "Victoria",
+      "5206": "Pola",
+      "5207": "Socorro",
+      "5208": "Mansalay",
+      "5209": "Gloria",
+      "5210": "Bansud",
+      "5211": "Bongabon",
+      "5212": "Roxas",
+      "5214": "Bulalacao"
+    },
+    "Occidental Mindoro":{
+      "5100": "San Jose",
+      "5101": "Magsaysay",
+      "5102": "Calintaan",
+      "5103": "Rizal",
+      "5104": "Sablayan",
+      "5105": "Santa Cruz",
+      "5106": "Mamburao",
+      "5107": "Paluan",
+      "5108": "Abra de Ilog",
+      "5109": "Lubang",
+      "5110": "Tilik",
+      "5111": "Looc"
+    }
+  }
+}

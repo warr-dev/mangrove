@@ -1,9 +1,7 @@
 @extends('layouts.base2')
 
 @section('content')
-    <div class=" title-font font-bold  text-center text-7xl w-2/3 mx-auto p-5 text-white">
-        RETICENCE AND ENDOWMENT SYSTEM FOR SILONAY MANGROVE
-    </div>
+    @include('admin.components.header')
     <div class="mt-5 mx-20">
         <div class="bg-green-700 text-4xl text-white py-4 px-8">
             Users Management
@@ -15,25 +13,16 @@
                         <table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
                             <thead class="text-white">
                                 <tr class="bg-green-700 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                    <th class="p-3 text-left">Name</th>
                                     <th class="p-3 text-left">Email</th>
+                                    <th class="p-3 text-left">Name</th>
+                                    <th class="p-3 text-left">Age</th>
+                                    <th class="p-3 text-left">Gender</th>
+                                    <th class="p-3 text-left">Address</th>
+                                    <th class="p-3 text-left">Event</th>
+                                    <th class="p-3 text-left">Status</th>
+                                    <th class="p-3 text-left">Code</th>
                                     <th class="p-3 text-left" width="110px">Actions</th>
                                 </tr>
-                                <tr class="bg-green-700 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                    <th class="p-3 text-left">Name</th>
-                                    <th class="p-3 text-left">Email</th>
-                                    <th class="p-3 text-left" width="110px">Actions</th>
-                                </tr>
-                                <tr class="bg-green-700 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                  <th class="p-3 text-left">Name</th>
-                                  <th class="p-3 text-left">Email</th>
-                                  <th class="p-3 text-left" width="110px">Actions</th>
-                              </tr>
-                                <tr class="bg-green-700 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                  <th class="p-3 text-left">Name</th>
-                                  <th class="p-3 text-left">Email</th>
-                                  <th class="p-3 text-left" width="110px">Actions</th>
-                              </tr>
                             </thead>
                             <tbody class="flex-1 sm:flex-none">
                                 <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">

@@ -14,9 +14,56 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/my.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/alertify.min.css') }}">
+
+    @stack('head')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    
+    <style>
+      .animated {
+          -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+          -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+      }
+  
+      .animated.faster {
+          -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
+      }
+  
+      .fadeIn {
+          -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+      }
+  
+      .fadeOut {
+          -webkit-animation-name: fadeOut;
+          animation-name: fadeOut;
+      }
+  
+      @keyframes fadeIn {
+          from {
+              opacity: 0;
+          }
+  
+          to {
+              opacity: 1;
+          }
+      }
+  
+      @keyframes fadeOut {
+          from {
+              opacity: 1;
+          }
+  
+          to {
+              opacity: 0;
+          }
+      }
+  </style>
 </head>
 <body>
 
@@ -46,16 +93,22 @@
   </ul>
 <form id="frmlogout" method="post" action="{{route('logout')}}">@csrf</form>
 </div>
-<img src="{{asset('mangrove.jpg')}}" alt="mangrove" class="background">
+<img src="{{asset('images/bg.jpg')}}" alt="mangrove" class="background">
 
 @yield('content')
 
 <script src="{{ asset('js/jq.js') }}"></script>
+<script src="{{ asset('js/alertify.min.js') }}"></script>
 <script>
     $('#btnlogout').click((e)=>{
         e.preventDefault();
         $('#frmlogout')[0].submit()
     })
+    @if(session('message'))
+      alertify.success('{{session('message')}}')
+    @endif
 </script>
+<script src="{{ asset('js/my.js') }}"></script>
+@stack('script')
 </body>
 </html>
