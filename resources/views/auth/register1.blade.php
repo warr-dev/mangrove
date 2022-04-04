@@ -42,18 +42,18 @@
                                 <span class="text-center pb-5 title-font">Register now while places are available</span>
                                 
                                 <div class="grid grid-cols-6 gap-4">
-                                    <x-auth.input name="first_name" placeholder="First Name" class="col-span-2" autofocus />
-                                    <x-auth.input name="middle_name" placeholder="Middle Name" class="col-span-2" />
-                                    <x-auth.input name="last_name" placeholder="Last Name" class="col-span-2" />
+                                    <x-auth.input2 name="first_name" placeholder="First Name" class="col-span-2" autofocus />
+                                    <x-auth.input2 name="middle_name" placeholder="Middle Name" class="col-span-2" />
+                                    <x-auth.input2 name="last_name" placeholder="Last Name" class="col-span-2" />
                                     <x-auth.select-input name="province" label="Province" class="col-span-6" />
                                     <x-auth.select-input name="city" label="Select Province First" class="col-span-3" />
-                                    <x-auth.input name="zipcode" placeholder="Zip Code" class="col-span-3" id="zipcode" :disabled="false" />
-                                    <x-auth.input name="barangay" placeholder="Barangay" class="col-span-6" />
-                                    <x-auth.input name="number" placeholder="Enter Your Number" class="col-span-6" />
-                                    <x-auth.input name="email" placeholder="Enter Your Email" class="col-span-6" />
-                                    <x-auth.input name="username" placeholder="Enter Your Username" class="col-span-6" />
-                                    <x-auth.input name="password" placeholder="Password" class="col-span-6" type="password" />
-                                    <x-auth.input name="password_confirmation" placeholder="Confirm Your Password" class="col-span-6" type="password" />
+                                    <x-auth.input2 name="zipcode" placeholder="Zip Code" class="col-span-3" id="zipcode" :disabled="false" />
+                                    <x-auth.input2 name="barangay" placeholder="Barangay" class="col-span-6" />
+                                    <x-auth.input2 name="number" placeholder="Enter Your Number" class="col-span-6" />
+                                    <x-auth.input2 name="email" placeholder="Enter Your Email" class="col-span-6" />
+                                    <x-auth.input2 name="username" placeholder="Enter Your Username" class="col-span-6" />
+                                    <x-auth.input2 name="password" placeholder="Password" class="col-span-6" type="password" />
+                                    <x-auth.input2 name="password_confirmation" placeholder="Confirm Your Password" class="col-span-6" type="password" />
                                     
                                     <div class="main flex border rounded-full overflow-hidden m-4 select-none col-span-6">
                                         <div class="title py-3 my-auto px-5 bg-green-500 text-white text-sm font-semibold mr-3">Gender</div>
