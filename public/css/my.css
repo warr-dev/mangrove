@@ -68,3 +68,10 @@ img.background {
   th:not(:last-child) {
     border-bottom: 2px solid rgba(0, 0, 0, .1);
   }
+  hr.type_5 {
+    border: 0;
+    height: 55px;
+    background-image: url(https://www.formget.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2014/12/type_5.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }

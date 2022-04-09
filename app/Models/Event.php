@@ -29,4 +29,7 @@ class Event extends Model
             return 'upcoming';
         }
     }
+    protected $casts = [
+        'date'  => 'date:Y-m-d',
+    ];
 }

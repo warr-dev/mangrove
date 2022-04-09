@@ -33,7 +33,7 @@ class Input extends Component
     {
         return <<<'blade'
         <div class="relative mb-4" {{$attributes}}>
-            <input type="{{$type}}" value="{{old($name)}}"  name="{{$name}}" placeholder="{{$placeholder}}" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+            <input type="{{$type}}" value="{{old($name)}}" id="{{$id}}"  name="{{$name}}" placeholder="{{$placeholder}}" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
             @error($name)
                 <small class="text-red-500 p-l-5">{{$message}}</small>
             @enderror

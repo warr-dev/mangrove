@@ -1,5 +1,5 @@
 
-    <x-modal id="edituser">
+    <x-modal id="edituser" :scrollable="true">
         <x-slot name="header">
           <p class="text-2xl font-bold text-gray-500">Edit User</p>
         </x-slot>
@@ -21,16 +21,21 @@
                 <x-form.input name="password" label="Password"  type="password" />
                 <x-form.input name="password_confirmation" label="Confirm Your Password"  type="password" />
                 <div class="main flex border rounded-full overflow-hidden m-4 select-none col-span-6">
-                    <div class="title py-3 my-auto px-5 bg-green-500 text-white text-sm font-semibold mr-3">Gender</div>
-                    <label class="flex radio p-2 px-4 cursor-pointer">
-                        <input class="my-auto transform scale-125" type="radio" name="gender" value="male" checked/>
-                        <div class="title px-2">male</div>
-                    </label>
-                
-                    <label class="flex radio p-2 px-4 cursor-pointer">
-                        <input class="my-auto transform scale-125" type="radio" name="gender" value="female" />
-                        <div class="title px-2">female</div>
-                    </label>
+                    <div class="bg-green-500 flex items-center">
+                      <div class="title py-3 my-auto px-5 text-white text-sm font-semibold mr-3">Gender</div>
+                    </div>
+                    <div class="flex flex-col md:flex-row">
+                      <label class="flex radio p-2 px-4 cursor-pointer">
+                          <input class="my-auto transform scale-125" type="radio" name="gender" value="male" checked/>
+                          <div class="title px-2">male</div>
+                      </label>
+                  
+                      <label class="flex radio p-2 px-4 cursor-pointer">
+                          <input class="my-auto transform scale-125" type="radio" name="gender" value="female" />
+                          <div class="title px-2">female</div>
+                      </label>
+
+                    </div>
                 </div>
                 <small id="error-gender" class="text-red-500 p-l-5"></small>
             </div>

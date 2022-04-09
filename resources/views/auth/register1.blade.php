@@ -135,9 +135,12 @@
             });
             $('#city').change(function(){
                 var val=$(this).val();
+                // console.log(Object.entries(provinces[$('#province').val()]));
                 var zipcode=Object.entries(provinces[$('#province').val()]).filter(function(zipcode){
+                    // console.log(zipcode);
                     return zipcode[1]==val;
                 })[0];
+                console.log(zipcode[0]);
                 $('#zipcode').val(zipcode[0]);
             });
 

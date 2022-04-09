@@ -81,7 +81,7 @@
     @click.away="menu = false"
   class="flex flex-col w-full h-full bg-gray-800 text-gray-400 text-center z-10 fixed sm:px-3 sm:py-2  md:px-8 md:py-4 overflow-y-auto " style="display: none;">
 		<li @click="menu = !menu" class="px-8 py-4 bg-gray-300 mb-20 mx-16">
-			<img src="https://poliweb.github.io/ing/PolIWeb_Development_Logo_Orang.svg" class="inline w-32 h-20 md:w-52 md:h-20" alt="">
+			<img src="{{asset('images/logo2.png')}}" class="inline w-32 h-20 md:w-52 md:h-20" alt="">
 		</li>
     <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Local News Update</a></li>
     <li class="text-lg py-2"><a href="{{route('admin.user.index')}}" class="px-2 hover:text-gray-200">Registered Users</a></li>

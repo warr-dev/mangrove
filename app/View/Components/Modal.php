@@ -7,14 +7,16 @@ use Illuminate\View\Component;
 class Modal extends Component
 {
     public $id;
+    public $scrollable;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($id)
+    public function __construct($id,$scrollable=false)
     {
         $this->id=$id;
+        $this->scrollable=$scrollable;
     }
 
     /**

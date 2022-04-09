@@ -33,6 +33,7 @@ Route::middleware(['myauth:user'])
     ->namespace('App\Http\Controllers')
     ->group(function(){
         Route::get('/home',['uses'=>'HomepageController@home','as'=>'home']);
+        Route::get('/donation',['uses'=>'DonationController@index','as'=>'donation']);
 });
 
 

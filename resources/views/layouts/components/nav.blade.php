@@ -1,16 +1,18 @@
 @auth
     <form id="frmlogout" method="post" action="{{route('logout')}}"> @csrf </form>
 @endauth
-<nav id="nav" class="fixed inset-x-0 top-0 flex flex-row justify-between z-10 text-white bg-transparent">
+<nav id="nav" class="fixed inset-x-0 top-2 flex flex-row justify-between z-10 text-white bg-transparent">
 
     <div class="p-4">
-        <div class="font-extrabold tracking-widest text-xl"><a href="#" class="transition duration-500 hover:text-indigo-500">Home</a></div>
+        <div class="font-extrabold tracking-widest text-xl"><a href="{{route('user.home')}}" class="transition duration-500 hover:text-indigo-500">
+            <img src="/images/logo2.png" alt="logo" style="height:5rem">
+        </a></div>
     </div>
 
     <!-- Nav Items Working on Tablet & Bigger Sceen -->
-    <div class="p-4 hidden md:flex flex-row justify-between font-bold">
+    <div class="p-4 hidden md:flex flex-row justify-between font-bold" style="height: fit-content">
         <a id="hide-after-click" href="#about" class="mx-4 text-lg  border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">About</a>
-        <a href="#donation" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Donation
+        <a href="{{route('user.donation')}}" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Donation
             </a>
         <a href="#reservation" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Reservation
             </a>
@@ -34,10 +36,10 @@
     </div>
 </nav>
 <!-- Opened Nav in Mobile, you can use javascript/jQuery -->
-<div id="nav-opened" class="fixed left-0 right-0 bg-white hidden mx-2 mt-16 rounded-br rounded-bl shadow z-10">
+<div id="nav-opened" class="fixed left-0 right-0 top-0 bg-white hidden mx-2 mt-16 rounded-br rounded-bl shadow z-10">
     <div class="p-2 divide-y divide-gray-600 flex flex-col">
         <a href="#about" class="p-2 font-semibold hover:text-indigo-700">About</a>
-        <a href="#donation" class="p-2 font-semibold hover:text-indigo-700">Donation</a>
+        <a href="{{route('user.donation')}}" class="p-2 font-semibold hover:text-indigo-700">Donation</a>
         <a href="#reservation" class="p-2 font-semibold hover:text-indigo-700">Reservation</a>
         <a href="#event" class="p-2 font-semibold hover:text-indigo-700">Events</a>
         <a href="#contact" class="p-2 font-semibold hover:text-indigo-700">Contacts</a>

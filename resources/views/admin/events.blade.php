@@ -65,7 +65,7 @@
                                             <td class="border-grey-light border p-3 hover:font-medium">
                                                 <div class="grid grid-cols-1  gap-2">
                                                     <button type="button" data-eventid="{{$event->id}}" class="delevent bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Delete</button>
-                                                    <button type="button" onclick="openModal('modal-editevent')" data-eventid="{{$event->id}}"  class="bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Edit</button>
+                                                    <button type="button" onclick="openModal('modal-editevent');loadvalues({{$event->id}})" data-eventid="{{$event->id}}"  class="bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Edit</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -85,12 +85,13 @@
     
     <x-modal id="editevent">
         <x-slot name="header">
-          <p class="text-2xl font-bold text-gray-500">Edit User</p>
+          <p class="text-2xl font-bold text-gray-500">Edit Event</p>
         </x-slot>
           <form id="frm-editevent" method="POST"  class="w-full">
             <div class="">
               @csrf
               @method('put')
+                <input type="hidden" id="event_id">
                 <x-form.input name="title" label="Title" />
                 <x-form.input name="date" label="Date" type="date" />
                 <x-form.input name="venue" label="Venue" />
@@ -101,7 +102,7 @@
           
         <x-slot name="footer">
                   <div class="flex justify-end pt-2 space-x-8">
-            <button onclick="closeModal('modal-edituser')" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
+            <button onclick="closeModal('modal-editevent')" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
               Cancel
             </button>
             <button onclick="updateEvent(event)" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-green-600 hover:bg-green-700 focus:outline-none focus:shadow-outline-green">
@@ -158,5 +159,44 @@
                 });
             });
         });
+
+
+        const loadvalues=(id)=>{
+            $.ajax({
+                url: "{{route('admin.events.show', ':id')}}".replace(':id', id),
+                type: "GET",
+                data: {
+                    _token: "{{csrf_token()}}"
+                },
+                success: function(data){
+                    if(data.status == 'success'){
+                        console.log(data.event.date);
+                        $('#frm-editevent').find('input[name="title"]').val(data.event.title);
+                        $('#frm-editevent').find('input[name="date"]').val(data.event.date);
+                        $('#frm-editevent').find('input[name="venue"]').val(data.event.venue);
+                        $('#frm-editevent').find('textarea[name="description"]').val(data.event.description);
+                        // $('#frm-editevent').find('input[name="id"]').val(data.event.id);
+                        $('#frm-editevent').find('#event_id').val(data.event.id);
+                    }
+                },
+                error:(err)=>{
+                    showInputErrors(err);
+                }
+            });
+        }
+        const updateEvent=(e)=>{
+            e.preventDefault();
+            $.ajax({
+                url:'{{route('admin.events.update',':id')}}'.replace(':id', $('#frm-editevent').find('#event_id').val()),
+                type:'post',
+                data:$('#frm-editevent').serialize(),
+                success:(res)=>{
+                    if(res.message){
+                        alertify.success(res.message);
+                        location.reload();
+                    }
+                }
+            })
+        }
     </script>
 @endpush

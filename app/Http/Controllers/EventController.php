@@ -53,5 +53,13 @@ class EventController extends Controller
             'data'=>$event
         ],200);
     }
-
+    
+    public function show(Event $event)
+    {
+        return response([
+            'status'=>'success',
+            'message'=>'Event found successfully',
+            'event'=>$event
+        ],200);
+    }
 }
