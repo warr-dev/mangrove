@@ -37,7 +37,7 @@ Route::middleware(['myauth:user'])
     ->group(function(){
         Route::get('/home',['uses'=>'HomepageController@home','as'=>'home']);
         Route::get('/donation',['uses'=>'DonationController@addDonation','as'=>'donation']);
-        Route::get('/reservation',['uses'=>'ReservationController@index','as'=>'reservation']);
+        Route::get('/reservation',['uses'=>'ReservationController@addReservation','as'=>'reservation']);
 });
 
 
