@@ -27,13 +27,15 @@ Route::middleware(['myauth:admin'])
         Route::resource('user',UserController::class);
         Route::resource('reservations',ReservationController::class);
         Route::resource('events',EventController::class);
+        Route::resource('donations',DonationController::class);
 });
 Route::middleware(['myauth:user'])
     ->name('user.')
     ->namespace('App\Http\Controllers')
     ->group(function(){
         Route::get('/home',['uses'=>'HomepageController@home','as'=>'home']);
-        Route::get('/donation',['uses'=>'DonationController@index','as'=>'donation']);
+        Route::get('/donation',['uses'=>'DonationController@addDonation','as'=>'donation']);
+        Route::get('/reservation',['uses'=>'ReservationController@index','as'=>'reservation']);
 });
 
 

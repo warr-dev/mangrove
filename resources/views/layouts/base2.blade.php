@@ -86,7 +86,7 @@
     <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Local News Update</a></li>
     <li class="text-lg py-2"><a href="{{route('admin.user.index')}}" class="px-2 hover:text-gray-200">Registered Users</a></li>
 	 <li class="text-lg py-2"><a href="{{route('admin.reservations.index')}}" class="px-2 hover:text-gray-200">Reservation Requests</a></li>
-	 <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Donation Directory</a></li>
+	 <li class="text-lg py-2"><a href="{{route('admin.donations.index')}}" class="px-2 hover:text-gray-200">Donation Directory</a></li>
    <li class="text-lg py-2"><a href="{{route('admin.events.index')}}" class="px-2 hover:text-gray-200">Events</a></li>
 	 <li class="text-lg py-2"><a id="btnlogout" href="#" class="px-2 hover:text-gray-200">Logout</a></li>
 	  

@@ -37,7 +37,31 @@
         </div>
     </div>
     <div class="stepper-contents">
-
+        <div class="mt-8 p-4">
+            
+            <div class="flex justify-center items-center">
+                <div class="bg-gray-200 rounded-lg">
+                    <div class="inline-flex rounded-lg">
+                        <input type="radio" name="mode" id="onetime" checked class="hidden"/>
+                        <label for="onetime" class="radio text-center self-center py-2 px-4 rounded-lg cursor-pointer hover:opacity-75">One Time</label>
+                    </div>
+                    <div class="inline-flex rounded-lg">
+                        <input type="radio" name="mode" id="monthly" class="hidden"/>
+                        <label for="monthly" class="radio text-center self-center py-2 px-4 rounded-lg cursor-pointer hover:opacity-75">Monthly</label>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full mx-2 flex flex-col items-center svelte-1l8159u">
+                <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase w-full"> Amount</div>
+                <div class=" w-1/2 bg-white my-2 p-1 flex border border-gray-200 rounded">
+                    <input placeholder="Enter Amount" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> 
+                </div>
+            </div>
+            <div>
+                <input type="checkbox" name="coverfees" id="coverfees">
+                <label class="indent-1" for="coverfees">I'd Like to cover the transaction fees for my donation</label>
+            </div>
+        </div>
         <div class="mt-8 p-4">
             <div class="font-bold text-gray-600 text-xs leading-8 uppercase h-6 mx-2 mt-3">Full Name</div>
             <div class="flex flex-col md:flex-row">
@@ -52,19 +76,77 @@
             </div>
             <div class="flex flex-col md:flex-row">
                 <div class="w-full mx-2 flex-1 svelte-1l8159u">
-                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Username</div>
+                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Street Address</div>
                     <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                        <input placeholder="Just a hint.." class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
+                        <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
                 </div>
                 <div class="w-full mx-2 flex-1 svelte-1l8159u">
-                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Your Email</div>
+                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Address Line 2(optional)</div>
                     <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                        <input placeholder="jhon@doe.com" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
+                        <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row">
+                <div class="w-full mx-2 flex-1 svelte-1l8159u">
+                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Country</div>
+                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                        <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
+                </div>
+                <div class="w-full mx-2 flex-1 svelte-1l8159u">
+                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Postal Code</div>
+                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                        <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row">
+                <div class="w-full mx-2 flex-1 svelte-1l8159u">
+                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> City</div>
+                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                        <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
+                </div>
+                <div class="w-full mx-2 flex-1 svelte-1l8159u">
+                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Province</div>
+                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                        <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row">
+                <div class="w-full mx-2 flex-1 svelte-1l8159u">
+                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Email</div>
+                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                        <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
+                </div>
+                <div class="w-full mx-2 flex-1 svelte-1l8159u">
+                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Mobile Phone</div>
+                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                        <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
+                </div>
+            </div>
+            <div>
+                <input type="checkbox" name="signmeup" id="signmeup">
+                <label class="indent-1" for="signmeup">Yes, Sign me up for email updates</label>
+            </div>
+        </div>
+        <div class="mt-8 p-4">
+            <div class="flex flex-col md:flex-row">
+                <div class="w-full mx-2 flex-1 svelte-1l8159u">
+                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Gcash Number</div>
+                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                        <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
+                </div>
+                <div class="w-full mx-2 flex-1 svelte-1l8159u">
+                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Reference Number</div>
+                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                        <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
+                </div>
+            </div>
+            <div class="w-full mx-2 flex-1 svelte-1l8159u"  >
+                <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Add Photo</div>
+                <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                    <input type="file" name="photo" id="addphoto">
                 </div>
             </div>
         </div>
-        <div>content 2</div>
-        <div>content 3</div>
     </div>
         <div class="flex p-2 mt-4">
             {{-- <button class="text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
@@ -80,6 +162,12 @@
                 text-teal-100 
                 border duration-200 ease-in-out 
                 border-teal-600 transition">Next</button>
+                <button id="btn-submit" class="text-base  ml-2  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+                hover:bg-teal-600  
+                bg-teal-600 
+                text-teal-100 
+                border duration-200 ease-in-out 
+                border-teal-600 transition">Submit</button>
                 <button id="btn-prev" class="text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
                 hover:bg-gray-200  
                 bg-gray-100 
@@ -104,9 +192,7 @@
 
     $('#btn-next').click((e)=>{
         step++;
-        console.log('next');
         e.preventDefault();
-        console.log('step',step);
         checkButton();
         setActiveStep();
     })
@@ -114,13 +200,12 @@
     $('#btn-prev').click((e)=>{
         step--;
         e.preventDefault();
-        console.log('prev');
-        console.log('step',step);
         checkButton();
         setActiveStep();
     })
     const checkButton=()=>{
         const max=$('.stepper-steps').children('.step').length
+        $('#btn-submit')[0].style.display=step==(max-1)?'flex':'none';
         if(step>max) step=max
         if(step<0) step=0
         $('#btn-prev')[0].style.display=step==0?'none':'flex';
@@ -133,13 +218,22 @@
         })
         
         $.each($('.stepper-steps').children('.stepper-connector'),(i,el)=>{
-            console.log(i,el);
+            // console.log(i,el);
+                let n=$(el).next()?.children();
             if(i<step){
-                el.classList.add='text-teal-600'
-                el.classList.remove='text-gray-300'
+                console.log(el,'active');
+                $(el).addClass('border-teal-600')
+                $(el).removeClass('border-gray-300')
+                $(el).next()?.addClass(['text-white']).removeClass('text-gray-500')
+                $(n[0]).addClass(['border-teal-600','bg-teal-600']).removeClass('border-gray-300')
+                $(n[1]).addClass('text-teal-600').removeClass('text-gray-500')
             }else{
-                el.classList.remove='text-teal-600'
-                el.classList.add='text-gray-300'
+                console.log(el,'inactive');
+                $(el).removeClass('border-teal-600')
+                $(el).addClass('border-gray-300')
+                $(el).next()?.removeClass(['text-white']).addClass('text-gray-500')
+                $(n[0]).removeClass(['border-teal-600','bg-teal-600']).addClass('border-gray-300')
+                $(n[1]).removeClass('text-teal-600').addClass('text-gray-500')
             }
         })
         // $('.stepper-contents').children().forEach((element,ind) => {
