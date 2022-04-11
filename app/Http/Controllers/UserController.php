@@ -54,4 +54,25 @@ class UserController extends Controller
             'message'=>'updated successfully'
         ]);
     }
+    public function approve(User $user)
+    {
+        $user->status='approved';
+        $user->save();
+        return response([
+            'status'=>'success',
+            'user'=>$user,
+            'message'=>'User was Approved!'
+        ]);
+    }
+    
+    public function decline(User $user)
+    {
+        $user->status='declined';
+        $user->save();
+        return response([
+            'status'=>'success',
+            'user'=>$user,
+            'message'=>'User was Declined!'
+        ]);
+    }
 }

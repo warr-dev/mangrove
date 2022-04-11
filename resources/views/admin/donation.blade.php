@@ -4,81 +4,9 @@
     @include('admin.components.header')
     <div class="mt-5 mx-20">
         <div class="bg-green-700 text-4xl text-white py-4 px-8">
-            Events
+            Donations
         </div>
         <div class="content">
-            <div class="flex items-center justify-center">
-                <div class="container p-4">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <div class="
-                                    my-5
-                                    p-6
-                                    pt-0
-                                    bg-gray-200
-                                    justify-center
-                                    items-center
-                                    rounded-lg
-                                    w-full
-                                    filter
-                                    drop-shadow-2xl
-                                ">
-                            <div class="flex p-1 sm:mt-2 border-black justify-center font-bold">
-                                Add Events
-                            </div>
-                            <div class="mt-3  sm:mt-5">
-                                <form id="frmaddevent">
-                                    <div class="bg-white p-5">
-                                        @csrf
-                                        <x-form.input name="title" label="Title" />
-                                        <x-form.input name="date" label="Date" type="date" />
-                                        <x-form.input name="venue" label="Venue" />
-                                        <x-form.input name="description" label="Description" type="textarea" />
-
-                                    <div class="flex justify-start mt-4">
-                                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">
-                                            Add
-                                        </button>
-                                    </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div>
-                            
-                            <table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
-                                <thead class="text-white">
-                                    <tr class="bg-green-700 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                        <th class="p-3 text-left">Title</th>
-                                        <th class="p-3 text-left">Date</th>
-                                        <th class="p-3 text-left">Venue</th>
-                                        <th class="p-3 text-left">Status</th>
-                                        <th class="p-3 text-left" width="110px">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="flex-1 sm:flex-none">
-                                    @forelse ($events as $event)
-                                        <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                                            <td class="border-grey-light border hover:bg-gray-100 p-3">{{$event->title}}</td>
-                                            <td class="border-grey-light border hover:bg-gray-100 p-3">{{$event->date}}</td>
-                                            <td class="border-grey-light border hover:bg-gray-100 p-3">{{$event->venue}}</td>
-                                            <td class="border-grey-light border hover:bg-gray-100 p-3">{{$event->getStatus()}}</td>
-                                            <td class="border-grey-light border p-3 hover:font-medium">
-                                                <div class="grid grid-cols-1  gap-2">
-                                                    <button type="button" data-eventid="{{$event->id}}" class="delevent bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Delete</button>
-                                                    <button type="button" onclick="openModal('modal-editevent');loadvalues({{$event->id}})" data-eventid="{{$event->id}}"  class="bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Edit</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @empty
-                                        <tr><td colspan="5" class="text-center font-bold text-lg">No data... </td></tr>
-                                    @endforelse
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
             
         </div>
     </div>
