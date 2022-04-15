@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDonationsTable extends Migration
+class CreateReservationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateDonationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('donations', function (Blueprint $table) {
+        Schema::create('reservation', function (Blueprint $table) {
             $table->id();
+            $table->date('date_visit');
+            $table->unsignedInteger('session_id');
+            $table->unsignedInteger('no_of_pax');
             $table->unsignedInteger('user_id');
-            $table->string('mode');
-            $table->decimal('amount');
-            $table->boolean('cover_fees');
-            $table->string('gcash_number');
-            $table->string('reference_number');
-            $table->string('photo');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreateDonationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donations');
+        Schema::dropIfExists('reservation');
     }
 }

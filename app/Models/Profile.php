@@ -20,4 +20,5 @@ class Profile extends Model
         'gender',
         'user_id'
     ];
+
 }

@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return redirect()->route('login');
+// Route::get('/', function () {
+//     // return view('welcome');
+//     return redirect()->route('login');
+// });
+Route::namespace('App\Http\Controllers')
+    ->group(function(){
+        Route::get('/donation',['uses'=>'DonationController@addDonation','as'=>'donation']);
+        Route::get('/reservation',['uses'=>'ReservationController@addReservation','as'=>'reservation']);
+        Route::get('/',['uses'=>'HomepageController@landing','as'=>'landing']);
 });
 
 Route::middleware(['myauth:admin'])
@@ -36,8 +42,8 @@ Route::middleware(['myauth:user'])
     ->namespace('App\Http\Controllers')
     ->group(function(){
         Route::get('/home',['uses'=>'HomepageController@home','as'=>'home']);
-        Route::get('/donation',['uses'=>'DonationController@addDonation','as'=>'donation']);
-        Route::get('/reservation',['uses'=>'ReservationController@addReservation','as'=>'reservation']);
+        // Route::get('/donation',['uses'=>'DonationController@addDonation','as'=>'donation']);
+        // Route::get('/reservation',['uses'=>'ReservationController@addReservation','as'=>'reservation']);
 });
 
 

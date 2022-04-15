@@ -60,4 +60,13 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
     
+    public function getFullName()
+    {
+        $profile=$this->profile;
+        return ucwords(
+            $profile->first_name.' '.
+            ($profile->middle_name?ucfirst($profile->middle_name)[0].'. ':'').
+            $profile->last_name
+        );
+    }
 }
