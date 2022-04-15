@@ -42,7 +42,7 @@
 		} */
       /* Default background by https://www.pexels.com/@knownasovan */
       header {
-        background:url('{{asset('mangrove.jpg')}}');}
+        background:url('{{asset('images/bg.jpg')}}');}
 	</style>
 </head>
 
@@ -82,7 +82,7 @@
                         <div id="slider" class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
 
                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                            <img src="{{asset('mangrove.jpg')}}" alt="black chair and white table" class="object-cover object-center galery-item  rounded-2xl" />
+                            <img src="{{asset('images/1.jpg')}}" alt="black chair and white table" class="object-cover object-center galery-item  rounded-2xl" />
                             <div class="bg-opacity-30 absolute w-full h-full p-6">
                             <div><span class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900 px-2 py-1 glass">Catalog 1</span></div>
                             <div class="flex h-full items-end pb-6">
@@ -92,7 +92,7 @@
                         </div>
                         
                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                            <img src="{{asset('mangrove2.jpg')}}" alt="black chair and white table" class="object-cover object-center galery-item rounded-2xl" />
+                            <img src="{{asset('images/2.jpg')}}" alt="black chair and white table" class="object-cover object-center galery-item rounded-2xl" />
                             <div class="bg-opacity-30 absolute w-full h-full p-6">
                             <div><span class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900 px-2 py-1 glass">Catalog 1</span></div>
                             <div class="flex h-full items-end pb-6">
@@ -102,7 +102,7 @@
                         </div>
                         
                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                            <img src="{{asset('mangrove3.jpg')}}" alt="black chair and white table" class="object-cover object-center galery-item rounded-2xl" />
+                            <img src="{{asset('images/3.jpg')}}" alt="black chair and white table" class="object-cover object-center galery-item rounded-2xl" />
                             <div class="bg-opacity-30 absolute w-full h-full p-6">
                             <div><span class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900 px-2 py-1 glass">Catalog 1</span></div>
                             <div class="flex h-full items-end pb-6">
@@ -112,7 +112,7 @@
                         </div>
                         
                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                            <img src="{{asset('mangrove4.jpg')}}" alt="black chair and white table" class="object-cover object-center galery-item rounded-2xl" />
+                            <img src="{{asset('images/4.jpeg')}}" alt="black chair and white table" class="object-cover object-center galery-item rounded-2xl" />
                             <div class="bg-opacity-30 absolute w-full h-full p-6">
                             <div><span class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900 px-2 py-1 glass">Catalog 1</span></div>
                             <div class="flex h-full items-end pb-6">
@@ -122,7 +122,7 @@
                         </div>
                         
                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                            <img src="{{asset('mangrove2.jpg')}}" alt="black chair and white table" class="object-cover object-center galery-item rounded-2xl" />
+                            <img src="{{asset('images/7.jpg')}}" alt="black chair and white table" class="object-cover object-center galery-item rounded-2xl" />
                             <div class="bg-opacity-30 absolute w-full h-full p-6">
                             <div><span class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900 px-2 py-1 glass">Catalog 1</span></div>
                             <div class="flex h-full items-end pb-6">
@@ -179,7 +179,7 @@
               </div>
               <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
                 <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-                  <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"></div>
+                  <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(images/Silonay.jpg"></div>
       
                   <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
                     
@@ -196,7 +196,7 @@
                   </div>
                 </div>
                 <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-                    <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"></div>
+                    <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(images/8.jpg"></div>
         
                     <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
                       
@@ -213,7 +213,7 @@
                     </div>
                   </div>
                   <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-                    <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"></div>
+                    <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(images/DSCF2611.webp"></div>
         
                     <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
                       
