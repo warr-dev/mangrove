@@ -60,7 +60,12 @@ class LoginRequest extends FormRequest
                 'login' => trans('auth.failed'),
             ]);
         }
-
+        if(Auth::user()->status=='pending'){
+            Auth::guard('web')->logout();
+            throw ValidationException::withMessages([
+                'login' => 'account pending for approval',
+            ]);
+        }
         RateLimiter::clear($this->throttleKey());
     }
 

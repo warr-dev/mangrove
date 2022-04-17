@@ -18,10 +18,11 @@ class CreateDonationsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('mode');
             $table->decimal('amount');
-            $table->boolean('cover_fees');
+            $table->boolean('cover_fees')->default(false);
             $table->string('gcash_number');
             $table->string('reference_number');
-            $table->string('photo');
+            $table->string('photo')->nullable();
+            $table->string('transaction_type')->default('App\Models\Guest');
             $table->timestamps();
         });
     }

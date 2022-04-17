@@ -10,6 +10,14 @@
         alertify.error( err.responseJSON?.message)
     }
 
+    const notifInputErrors=(err)=>{
+        err.responseJSON?.errors && (
+            Object.entries(err.responseJSON.errors).forEach(([key,value])=>{
+                alertify.error(value.join())
+            })
+        )
+    }
+
 
     const openModal=(name)=>{
         const modal=$('#'+name)[0];

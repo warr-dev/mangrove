@@ -69,4 +69,8 @@ class User extends Authenticatable
             $profile->last_name
         );
     }
+    public function donation()
+    {
+        return $this->morphOne(Donations::class, 'donator');
+    }
 }

@@ -53,11 +53,12 @@ class RegisteredUserController extends Controller
                 ]))){
                     event(new Registered($user));
             
-                    Auth::login($user);
+                    // Auth::login($user);
                     DB::commit();
             
                     // return redirect(RouteServiceProvider::HOME);
-                    return redirect()->route(auth()->user()->usertype.'.home');
+                    // return redirect()->route(auth()->user()->usertype.'.home');
+                    return redirect()->route('login')->with('message','Registration Successful, wait for approval of account');
                 }
             }
         }

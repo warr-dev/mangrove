@@ -7,42 +7,56 @@
             Donations
         </div>
         <div class="content">
+
+            <div class="flex items-center justify-center">
+                <div class="container p-4">
+                    <div class="grid grid-cols-1 gap-4">
+                        <table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+                            <thead class="text-white">
+                                <tr class="bg-green-700 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                    <th class="p-3 text-left">Name</th>
+                                    <th class="p-3 text-left">Mode</th>
+                                    <th class="p-3 text-left">Amount</th>
+                                    <th class="p-3 text-left">w/ Fees</th>
+                                    <th class="p-3 text-left">Gcash #</th>
+                                    <th class="p-3 text-left">ref #</th>
+                                    {{-- <th class="p-3 text-left" width="250px">Actions</th> --}}
+                                </tr>
+                            </thead>
+                            <tbody class="flex-1 sm:flex-none">
+                                @forelse ($donations as $donation)
+                                    <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0 hover:bg-gray-100 ">
+                                        <td class="border-grey-light border p-3">{{$donation->donator->getFullName()}}</td>
+                                        <td class="border-grey-light border p-3">{{$donation->mode}}</td>
+                                        <td class="border-grey-light border p-3">{{$donation->amount}}</td>
+                                        <td class="border-grey-light border p-3">{{$donation->cover_fees?'yes':'no'}}</td>
+                                        <td class="border-grey-light border p-3">{{$donation->gcash_number}}</td>
+                                        <td class="border-grey-light border p-3">{{$donation->reference_number}}</td>
+                                        {{-- <td class="border-grey-light border p-3">
+                                            <x-table.badge type="success" label="active" />
+                                            {{$donation->status}}
+                                        </td> --}}
+                                        {{-- <td class="border-grey-light border p-3 hover:font-medium">
+                                            <div class="grid grid-cols-1  lg:grid-cols-2 gap-4">
+                                                <button type="button" data-userid="{{$donation->id}}" class="decline-user bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Decline</button>
+                                                <button type="button" data-userid="{{$donation->id}}" class="approve-user bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Approve</button>
+                                            </div>
+                                        </td> --}}
+                                    </tr>
+                                @empty
+                                    <tr><td colspan="4" class="text-center font-bold text-lg">No data... </td></tr>
+                                @endforelse
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             
         </div>
     </div>
     
-    <x-modal id="editevent">
-        <x-slot name="header">
-          <p class="text-2xl font-bold text-gray-500">Edit Event</p>
-        </x-slot>
-          <form id="frm-editevent" method="POST"  class="w-full">
-            <div class="">
-              @csrf
-              @method('put')
-                <input type="hidden" id="event_id">
-                <x-form.input name="title" label="Title" />
-                <x-form.input name="date" label="Date" type="date" />
-                <x-form.input name="venue" label="Venue" />
-                <x-form.input name="description" label="Description" type="textarea" />
-                
-            </div>
-          </form>
-          
-        <x-slot name="footer">
-                  <div class="flex justify-end pt-2 space-x-8">
-            <button onclick="closeModal('modal-editevent')" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
-              Cancel
-            </button>
-            <button onclick="updateEvent(event)" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-green-600 hover:bg-green-700 focus:outline-none focus:shadow-outline-green">
-              Update
-            </button>
-                      {{-- <button
-                          class="px-4 bg-gray-200 p-3 rounded text-black hover:bg-gray-300 font-semibold" onclick="modalClose('modal-addgradesection')">Cancel</button>
-                      <button
-                          class="px-4 bg-blue-500 p-3 ml-3 rounded-lg text-white hover:bg-teal-400">Confirm</button> --}}
-                  </div>
-        </x-slot>
-      </x-modal>
+   
 @endsection
 
 @push('script')

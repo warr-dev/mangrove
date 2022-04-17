@@ -19,6 +19,9 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
+        @if (session('message'))
+        <script>alert({{ session('message') }});</script>
+        @endif
         <img src="{{asset('images/bg.jpg')}}" alt="background" class="background">
         <div class="page">
             

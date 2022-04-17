@@ -7,6 +7,7 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/alertify.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/my.css') }}">
     
     <!-- Fonts -->
@@ -55,6 +56,8 @@
     @yield('content')
 	@include('layouts.components.footer')
   <script src="{{ asset('js/jq.js') }}"></script>
+  <script src="{{ asset('js/alertify.min.js') }}"></script>
+  <script src="{{ asset('js/my.js') }}"></script>
 <script>
     $('#nav-open').click((e)=>{
         $('#nav-opened').fadeToggle('slow')

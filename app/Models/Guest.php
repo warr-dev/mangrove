@@ -5,37 +5,34 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reservation extends Model
+class Guest extends Model
 {
     use HasFactory;
-    protected $table='reservation';
-    
+
     protected $fillable=[
-        'user_id',
-        'date_visit',
-        'session_id',
-        'no_of_pax',
         'first_name',
+        'middle_name',
         'last_name',
+        'province',
+        'city',
+        'zipcode',
+        'barangay',
         'email',
-        'phone',
-        'event_id',
-        'address',
+        'phone'
     ];
-    public function event()
-    {
-        return $this->belongsTo(Event::class);
+    protected $table='guest';
+
+    public function donation(){
+        return $this->morphOne(Donations::class, 'donator');
     }
-    public function session()
-    {
-        return $this->belongsTo(Session::class);
-    }
-    
+ 
     public function getFullName()
     {
         return ucwords(
             $this->first_name.' '.
+            ($this->middle_name?ucfirst($this->middle_name)[0].'. ':'').
             $this->last_name
         );
     }
+    
 }

@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::namespace('App\Http\Controllers')
     ->group(function(){
-        Route::get('/donation',['uses'=>'DonationController@addDonation','as'=>'donation']);
+        Route::get('/adddonations',['uses'=>'DonationController@addDonation','as'=>'adddonations']);
+        Route::resource('donations',DonationController::class);
         Route::get('/reservation',['uses'=>'ReservationController@addReservation','as'=>'reservation']);
         Route::get('/',['uses'=>'HomepageController@landing','as'=>'landing']);
 });
@@ -43,7 +44,8 @@ Route::middleware(['myauth:user'])
     ->group(function(){
         Route::get('/home',['uses'=>'HomepageController@home','as'=>'home']);
         // Route::get('/donation',['uses'=>'DonationController@addDonation','as'=>'donation']);
-        // Route::get('/reservation',['uses'=>'ReservationController@addReservation','as'=>'reservation']);
+        Route::get('/reservation',['uses'=>'ReservationController@addReservation','as'=>'reservation']);
+        Route::post('/reservation',['uses'=>'ReservationController@store','as'=>'reservation.store']);
 });
 
 
