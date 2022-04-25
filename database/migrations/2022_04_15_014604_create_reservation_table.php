@@ -25,6 +25,7 @@ class CreateReservationTable extends Migration
             $table->string('phone');
             $table->unsignedInteger('event_id');
             $table->string('address');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

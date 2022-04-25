@@ -21,6 +21,7 @@ class Reservation extends Model
         'phone',
         'event_id',
         'address',
+        'status'
     ];
     public function event()
     {

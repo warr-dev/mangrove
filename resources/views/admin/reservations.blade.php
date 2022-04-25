@@ -19,7 +19,8 @@
                                     <th class="p-3 text-left">Session</th>
                                     <th class="p-3 text-left">No of Pax</th>
                                     <th class="p-3 text-left">Event</th>
-                                    {{-- <th class="p-3 text-left" width="110px">Actions</th> --}}
+                                    <th class="p-3 text-left">Status</th>
+                                    <th class="p-3 text-left" width="110px">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="flex-1 sm:flex-none">
@@ -31,9 +32,17 @@
                                         <td class="p-3 text-left">{{ $reservation->session->name }}</td>
                                         <td class="p-3 text-left">{{ $reservation->no_of_pax }}</td>
                                         <td class="p-3 text-left">{{ $reservation->event->title }}</td>
-                                        {{-- <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Delete</td> --}}
+                                        <td class="p-3 text-left">{{ $reservation->status }}</td>
+                                        
+                                        <td class="border-grey-light border p-3 hover:font-medium">
+                                            <div class="grid grid-cols-1  gap-2">
+                                                <button type="button" data-reservationid="{{$reservation->id}}" class="cancel-reservation delevent bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Cancel</button>
+                                                <button type="button" data-reservationid="{{$reservation->id}}" class="confirm-reservation bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Confirm</button>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 @empty
-                                    
+                                    <tr><td colspan="8" class="text-center font-bold text-lg">No data... </td></tr>
                                 @endforelse
                                 
                             </tbody>
@@ -45,3 +54,50 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $('.cancel-reservation').click(e=>{
+            let id = $(e.target).data('reservationid');
+            let url = `{{route('admin.reservations.cancel', ':id')}}`.replace(':id', id);
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    _method: 'PUT'
+                },
+                success: function(data){
+                    if(data.message ){
+                        alertify.success(data.message);
+                        window.location.reload();
+                    }
+                },
+                error:(err)=>{
+                    showInputErrors(err);
+                }
+            });
+        })
+        $('.confirm-reservation').click(e=>{
+            let id = $(e.target).data('reservationid');
+            let url = `{{route('admin.reservations.confirm', ':id')}}`.replace(':id', id);
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    _method: 'PUT'
+                },
+                success: function(data){
+                    if(data.message ){
+                        alertify.success(data.message);
+                        window.location.reload();
+                    }
+                },
+                error:(err)=>{
+                    showInputErrors(err);
+                }
+            });
+        })
+    </script>
+@endpush

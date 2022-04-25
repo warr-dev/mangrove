@@ -109,6 +109,6 @@
     @endif
 </script>
 <script src="{{ asset('js/my.js') }}"></script>
-@stack('script')
+@stack('scripts')
 </body>
 </html>

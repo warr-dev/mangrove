@@ -54,7 +54,7 @@
 
     </div>
 @endsection
-@push('script')
+@push('scripts')
     <script>
         $('.deluser').click(function(e){
             if(confirm('Arer you sure to delete?')) {

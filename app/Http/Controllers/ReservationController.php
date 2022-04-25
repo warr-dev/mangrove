@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Session;
 use App\Models\Event;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ReservationMail;
 
 class ReservationController extends Controller
 {
@@ -39,6 +41,24 @@ class ReservationController extends Controller
         return response([
             'data'=>$reservation,
             'message'=>'Reservation Successfully Added'
+        ],200);
+    }
+    public function confirm(Reservation $reservation)
+    {
+        $reservation->update(['status'=>'confirmed']);
+        
+        $d=Mail::to($reservation->email)->send(new ReservationMail($reservation));
+        return response([
+            'data'=>$reservation,
+            'message'=>'Reservation Successfully Confirmed'
+        ],200);
+    }
+    public function cancel(Reservation $reservation)
+    {
+        $reservation->update(['status'=>'cancelled']);
+        return response([
+            'data'=>$reservation,
+            'message'=>'Reservation Successfully Cancelled'
         ],200);
     }
 }
