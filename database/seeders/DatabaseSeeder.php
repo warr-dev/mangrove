@@ -30,9 +30,21 @@ class DatabaseSeeder extends Seeder
             'user_id'=>$user->id,
             'first_name'=>'admin',
             'last_name'=>'admin',
+          ]);
+        $user=User::create([
+                'username'=>'regine',
+                'email'=>'miraplesregine24@.com',
+                'usertype'=>'user',
+                'password' => Hash::make('regine'),
+                'status'=>'approved'
+            ]);
+            Profile::create([
+                'user_id'=>$user->id,
+                'first_name'=>'regine',
+                'last_name'=>'regine',
         ]);
-        Session::create(['name'=>'session 1']);
-        Session::create(['name'=>'session 2']);
-        Session::create(['name'=>'session 3']);
+        Session::create(['name'=>'8:00am-12:00am']);
+        Session::create(['name'=>'1:00pm-5:00pm']);
+        
     }
 }
