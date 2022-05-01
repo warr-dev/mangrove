@@ -21,7 +21,11 @@ class Reservation extends Model
         'phone',
         'event_id',
         'address',
-        'status'
+        'status',
+        'gcash_account_name',
+        'gcash_number',
+        'reference_number',
+        'photo',
     ];
     public function event()
     {

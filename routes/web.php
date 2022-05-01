@@ -44,7 +44,7 @@ Route::middleware(['myauth:user'])
     ->name('user.')
     ->namespace('App\Http\Controllers')
     ->group(function(){
-        Route::get('/home',['uses'=>'HomepageController@home','as'=>'home']);
+        Route::get('/home',['uses'=>'HomepageController@landing','as'=>'home']);
         // Route::get('/donation',['uses'=>'DonationController@addDonation','as'=>'donation']);
         Route::get('/reservation',['uses'=>'ReservationController@addReservation','as'=>'reservation']);
         Route::post('/reservation',['uses'=>'ReservationController@store','as'=>'reservation.store']);

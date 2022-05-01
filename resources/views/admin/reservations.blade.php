@@ -7,6 +7,7 @@
             Reservations Management
         </div>
         <div class="content">
+            {{-- <button type="button" class="cancel-reservation delevent bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Cancel</button> --}}
             <div class="flex items-center justify-center">
                 <div class="container p-5">
                     <div class="grid grid-cols-1 gap-4">

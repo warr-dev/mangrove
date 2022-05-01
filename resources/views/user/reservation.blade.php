@@ -2,7 +2,7 @@
 
 
 @section('content')
-<form id="frm-reserve">@csrf
+{{-- <form id="frm-reserve">@csrf
 <div class="content bg-white md:mx-10 lg:mx-20 text-gray-700 p-7 text-center" style="background-color:rgba(217, 246, 222, 0.6)" >
     <h1 class="text-xl font-black uppercase">Online Reservation Form</h1>
 
@@ -30,29 +30,11 @@
     <div class="flex flex-col md:flex-row">
         <x-form.input2 name="first_name" placeholder="First Name" />
         <x-form.input2 name="last_name" placeholder="Last Name" />
-        {{-- <div class="w-full flex-1 mx-2 svelte-1l8159u">
-            <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                <input placeholder="First Name" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
-        </div>
-        <div class="w-full flex-1 mx-2 svelte-1l8159u">
-            <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                <input placeholder="Last Name" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
-        </div> --}}
     </div>
     <div class="flex flex-col md:flex-row">
         
         <x-form.input2 name="email" label="Email" />
         <x-form.input2 name="phone" label="Phone Number" />
-        {{-- <div class="w-full mx-2 flex-1 svelte-1l8159u">
-            <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Email</div>
-            <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
-        </div>
-        <div class="w-full mx-2 flex-1 svelte-1l8159u">
-            <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Mobile Number</div>
-            <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
-        </div> --}}
     </div>
     <div class="flex flex-col md:flex-row">
         
@@ -70,16 +52,6 @@
             </div>
             <div class="w-full text-left ml-4"> <small id="error-province" class="text-red-500 p-l-5 indent-1"></small></div>
         </div>
-        {{-- <div class="w-full mx-2 flex-1 svelte-1l8159u">
-            <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Address</div>
-            <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
-        </div>
-        <div class="w-full mx-2 flex-1 svelte-1l8159u">
-            <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Events/Activities</div>
-            <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                <input placeholder="" class="p-1 px-2 appearance-none outline-none w-full text-gray-800"> </div>
-        </div> --}}
     </div>
 
 
@@ -97,14 +69,15 @@
         </div>
     </div>
 </div>
-</form>
+</form> --}}
+@include('user.components.reservation-form')
 @endsection
 
 @push('scripts')
     <script>
         $('#frm-reserve').on('submit', function(e){
             e.preventDefault();
-            $('#btn-submit').attr('disabled', true);
+            // $('#btn-submit').attr('disabled', true);
             $('#btn-submit').html('<span class="spinner-border spinner-border-sm mr-2"></span> Processing...');
             $.ajax({
                 url: "{{ route('user.reservation.store') }}",
