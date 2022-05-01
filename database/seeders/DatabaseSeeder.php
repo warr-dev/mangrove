@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
           ]);
         $user=User::create([
                 'username'=>'regine',
-                'email'=>'miraplesregine24@.com',
+                'email'=>'miraplesregine24@gmail.com',
                 'usertype'=>'user',
                 'password' => Hash::make('regine'),
                 'status'=>'approved'
