@@ -30,6 +30,7 @@ class ReservationMail extends Mailable
      */
     public function build()
     {
+        $reservation=$this->reservation;
         return $this->view('mails.reservation',compact('reservation'));
     }
 }
