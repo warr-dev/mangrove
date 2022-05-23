@@ -73,4 +73,8 @@ class User extends Authenticatable
     {
         return $this->morphOne(Donations::class, 'donator');
     }
+    public static function countPending()
+    {
+        return User::where('usertype','user')->where('status','pending')->count();
+    }
 }

@@ -43,4 +43,9 @@ class Reservation extends Model
             $this->last_name
         );
     }
+    public static function countPending()
+    {
+        return self::where('status','pending')->count();
+    }
+    
 }

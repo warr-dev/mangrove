@@ -19,8 +19,9 @@
                                     <th class="p-3 text-left">Amount</th>
                                     <th class="p-3 text-left">w/ Fees</th>
                                     <th class="p-3 text-left">Gcash #</th>
-                                    <th class="p-3 text-left">ref #</th>
-                                    {{-- <th class="p-3 text-left" width="250px">Actions</th> --}}
+                                    <th class="p-3 text-left">Ref #</th>
+                                    <th class="p-3 text-left">Status</th>
+                                    <th class="p-3 text-left" width="250px">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="flex-1 sm:flex-none">
@@ -32,16 +33,16 @@
                                         <td class="border-grey-light border p-3">{{$donation->cover_fees?'yes':'no'}}</td>
                                         <td class="border-grey-light border p-3">{{$donation->gcash_number}}</td>
                                         <td class="border-grey-light border p-3">{{$donation->reference_number}}</td>
-                                        {{-- <td class="border-grey-light border p-3">
-                                            <x-table.badge type="success" label="active" />
+                                        <td class="border-grey-light border p-3">
+                                            {{-- <x-table.badge type="success" label="active" /> --}}
                                             {{$donation->status}}
-                                        </td> --}}
-                                        {{-- <td class="border-grey-light border p-3 hover:font-medium">
+                                        </td>
+                                        <td class="border-grey-light border p-3 hover:font-medium">
                                             <div class="grid grid-cols-1  lg:grid-cols-2 gap-4">
-                                                <button type="button" data-userid="{{$donation->id}}" class="decline-user bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Decline</button>
-                                                <button type="button" data-userid="{{$donation->id}}" class="approve-user bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Approve</button>
+                                                <button type="button" data-donationid="{{$donation->id}}" class="reject-donation bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Reject</button>
+                                                <button type="button" data-donationid="{{$donation->id}}" class="confirm-donation bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Confirm</button>
                                             </div>
-                                        </td> --}}
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr><td colspan="4" class="text-center font-bold text-lg">No data... </td></tr>
@@ -61,84 +62,47 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function(){
-            $('.delevent').click(function(){
-                var id = $(this).data('eventid');
-                $.ajax({
-                    url: "{{route('admin.events.destroy', ':id')}}".replace(':id', id),
-                    type: "delete",
-                    data: {
-                        _token: "{{csrf_token()}}"
-                    },
-                    success: function(data){
-                        if(data.status == 'success'){
-                            alertify.success(data.message);
-                            location.reload();
-                        }
-                    },
-                    error:(err)=>{
-                        console.log(err);
-                        showInputErrors(err);
-                    }
-                });
-            });
-            $('#frmaddevent').submit(function(e){
-                e.preventDefault();
-                $.ajax({
-                    url: "{{route('admin.events.store')}}",
-                    type: "POST",
-                    data: $(this).serialize(),
-                    success: function(data){
-                        if(data.status == 'success'){
-                            alertify.success(data.message);
-                            location.reload();
-                        }
-                    },
-                    error:(err)=>{
-                        console.log(err);
-                        showInputErrors(err);
-                    }
-                });
-            });
-        });
-
-
-        const loadvalues=(id)=>{
+        $('.reject-donation').click(e=>{
+            let id = $(e.target).data('donationid');
+            let url = `{{route('admin.donations.reject', ':id')}}`.replace(':id', id);
             $.ajax({
-                url: "{{route('admin.events.show', ':id')}}".replace(':id', id),
-                type: "GET",
+                url: url,
+                type: 'POST',
                 data: {
-                    _token: "{{csrf_token()}}"
+                    _token: '{{ csrf_token() }}',
+                    _method: 'PUT'
                 },
                 success: function(data){
-                    if(data.status == 'success'){
-                        console.log(data.event.date);
-                        $('#frm-editevent').find('input[name="title"]').val(data.event.title);
-                        $('#frm-editevent').find('input[name="date"]').val(data.event.date);
-                        $('#frm-editevent').find('input[name="venue"]').val(data.event.venue);
-                        $('#frm-editevent').find('textarea[name="description"]').val(data.event.description);
-                        // $('#frm-editevent').find('input[name="id"]').val(data.event.id);
-                        $('#frm-editevent').find('#event_id').val(data.event.id);
+                    if(data.message ){
+                        alertify.success(data.message);
+                        window.location.reload();
                     }
                 },
                 error:(err)=>{
                     showInputErrors(err);
                 }
             });
-        }
-        const updateEvent=(e)=>{
-            e.preventDefault();
+        })
+        $('.confirm-donation').click(e=>{
+            let id = $(e.target).data('donationid');
+            let url = `{{route('admin.donations.confirm', ':id')}}`.replace(':id', id);
             $.ajax({
-                url:'{{route('admin.events.update',':id')}}'.replace(':id', $('#frm-editevent').find('#event_id').val()),
-                type:'post',
-                data:$('#frm-editevent').serialize(),
-                success:(res)=>{
-                    if(res.message){
-                        alertify.success(res.message);
-                        location.reload();
+                url: url,
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    _method: 'PUT'
+                },
+                success: function(data){
+                    if(data.message ){
+                        alertify.success(data.message);
+                        window.location.reload();
                     }
+                },
+                error:(err)=>{
+                    showInputErrors(err);
                 }
-            })
-        }
+            });
+        })
     </script>
 @endpush

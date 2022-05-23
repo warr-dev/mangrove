@@ -17,7 +17,8 @@ class Donations extends Model
         'gcash_number',
         'reference_number',
         'photo',
-        'transaction_type'
+        'transaction_type',
+        'status'
     ];
     
     /**
@@ -31,4 +32,9 @@ class Donations extends Model
     protected $casts=[
         'cover_fees'=>'boolean'
     ];
+    
+    public static function countPending()
+    {
+        return self::with('donator')->where('status','pending')->count();
+    }
 }

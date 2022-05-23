@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\DonationMail;
 use Illuminate\Http\Request;
 use App\Models\Donations;
 use App\Models\Guest;
@@ -11,6 +12,9 @@ use App\Models\Profile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Psr\Log\NullLogger;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ReservationMail;
 
 class DonationController extends Controller
 {
@@ -60,10 +64,31 @@ class DonationController extends Controller
                 'transaction_type'=>auth()->check()?'App\Models\User':'App\Models\Guest'
             ]
         ));
+        // $d=Mail::to($donation->donator->email)->send(new DonationMail($donation));
         return response([
             'status'=>'success',
             'message'=>'added successfully'
         ]);
+        
+    }
+    
+    public function confirm(Donations $donation)
+    {
+        $donation->update(['status'=>'confirmed']);
+        
+        $d=Mail::to($donation->donator->email)->send(new donationMail($donation));
+        return response([
+            'data'=>$donation,
+            'message'=>'Donation Successfully Confirmed'
+        ],200);
+    }
+    public function reject(Donations $donation)
+    {
+        $donation->update(['status'=>'rejected']);
+        return response([
+            'data'=>$donation,
+            'message'=>'Donation Successfully Rejected'
+        ],200);
     }
 }
 

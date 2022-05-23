@@ -26,7 +26,7 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         $data=$this->validate($request,[
-            'date_visit'=>['required','date',new DuplicateCount(5)],
+            'date_visit'=>['required','date',new DuplicateCount(5,$request->session_id??1)],
             'session_id'=>['required','numeric'],
             'no_of_pax'=>['required','numeric'],
             'first_name'=>['required','string'],
@@ -35,7 +35,7 @@ class ReservationController extends Controller
             'phone'=>['required','numeric'],
             'address'=>['required','string'],
             'event_id'=>['required','numeric'],
-            'gcash_account_name'=>['required','string'],
+            'gcash_account_name'=>['required','string'],,
             'gcash_number'=>['required','numeric'],
             'reference_number'=>['required','numeric'],
             'photo'=>[],

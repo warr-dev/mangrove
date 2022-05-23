@@ -84,9 +84,26 @@
 			<img src="{{asset('images/logo2.png')}}" class="inline w-32 h-20 md:w-52 md:h-20" alt="">
 		</li>
     <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Local News Update</a></li>
-    <li class="text-lg py-2"><a href="{{route('admin.user.index')}}" class="px-2 hover:text-gray-200">Registered Users</a></li>
-	 <li class="text-lg py-2"><a href="{{route('admin.reservations.index')}}" class="px-2 hover:text-gray-200">Reservation Requests</a></li>
-	 <li class="text-lg py-2"><a href="{{route('admin.donations.index')}}" class="px-2 hover:text-gray-200">Donation Directory</a></li>
+    <li class="text-lg py-2">
+        <a href="{{route('admin.user.index')}}" class="px-2 hover:text-gray-200">Registered Users</a>
+        @if(App\Models\User::countPending()>0)
+            <span class="inline-block rounded-full text-white bg-red-500 px-2 py-1 text-xs font-bold mr-3">{{App\Models\User::countPending()}}</span>
+        @endif
+    </li>
+	 <li class="text-lg py-2">
+            <a href="{{route('admin.reservations.index')}}" class="px-2 hover:text-gray-200">Reservation Requests</a>
+         
+            @if(App\Models\Reservation::countPending()>0)
+                <span class="inline-block rounded-full text-white bg-red-500 px-2 py-1 text-xs font-bold mr-3">{{App\Models\Reservation::countPending()}}</span>
+            @endif
+    </li>
+	    <li class="text-lg py-2">
+            <a href="{{route('admin.donations.index')}}" class="px-2 hover:text-gray-200">Donation Directory</a>
+            
+            @if(App\Models\Donations::countPending()>0)
+                <span class="inline-block rounded-full text-white bg-red-500 px-2 py-1 text-xs font-bold mr-3">{{App\Models\Donations::countPending()}}</span>
+            @endif
+        </li>
    <li class="text-lg py-2"><a href="{{route('admin.events.index')}}" class="px-2 hover:text-gray-200">Events</a></li>
 	 <li class="text-lg py-2"><a id="btnlogout" href="#" class="px-2 hover:text-gray-200">Logout</a></li>
 	  
