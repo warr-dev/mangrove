@@ -60,7 +60,7 @@
                         <div class="w-full text-left ml-4"> <small id="error-province"
                                 class="text-red-500 p-l-5 indent-1"></small></div>
                     </div>
-                    <x-form.input2 type="number" name="no_of_pax" label="Number of Pax" />
+                    {{-- <x-form.input2 type="number" name="no_of_pax" label="Number of Pax" /> --}}
 
                 </div>
                 <div class="flex items-center gap-5 px-4 py-2"><span class="text-xl">Representative</span>

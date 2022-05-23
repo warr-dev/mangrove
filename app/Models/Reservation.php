@@ -14,7 +14,7 @@ class Reservation extends Model
         'user_id',
         'date_visit',
         'session_id',
-        'no_of_pax',
+        // 'no_of_pax',
         'first_name',
         'last_name',
         'email',

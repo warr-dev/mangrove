@@ -18,7 +18,7 @@
                                     <th class="p-3 text-left">Name</th>
                                     <th class="p-3 text-left">Date of Visit</th>
                                     <th class="p-3 text-left">Session</th>
-                                    <th class="p-3 text-left">No of Pax</th>
+                                    {{-- <th class="p-3 text-left">No of Pax</th> --}}
                                     <th class="p-3 text-left">Event</th>
                                     <th class="p-3 text-left">Status</th>
                                     <th class="p-3 text-left" width="110px">Actions</th>
@@ -29,9 +29,9 @@
                                     <tr class="flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
                                         <td class="p-3 text-left">{{ $reservation->email }}</td>
                                         <td class="p-3 text-left">{{ $reservation->getFullName() }}</td>
-                                        <td class="p-3 text-left">{{ $reservation->date_of_visit }}</td>
+                                        <td class="p-3 text-left">{{ $reservation->date_visit }}</td>
                                         <td class="p-3 text-left">{{ $reservation->session->name }}</td>
-                                        <td class="p-3 text-left">{{ $reservation->no_of_pax }}</td>
+                                        {{-- <td class="p-3 text-left">{{ $reservation->no_of_pax }}</td> --}}
                                         <td class="p-3 text-left">{{ $reservation->event->title }}</td>
                                         <td class="p-3 text-left">{{ $reservation->status }}</td>
                                         
