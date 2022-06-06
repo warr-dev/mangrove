@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddStatusDonationTable extends Migration
+class CreateGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddStatusDonationTable extends Migration
      */
     public function up()
     {
-        Schema::table('donations', function (Blueprint $table) {
-            $table->string('status')->default('pending');
+        Schema::create('galleries', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('description');
+            $table->string('image');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddStatusDonationTable extends Migration
      */
     public function down()
     {
-        Schema::table('donations', function (Blueprint $table) {
-            $table->dropColumn('status');
-        });
+        Schema::dropIfExists('galleries');
     }
 }

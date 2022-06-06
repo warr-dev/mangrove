@@ -17,6 +17,7 @@ class CreateDonationsTable extends Migration
             $table->id();
             $table->unsignedInteger('user_id');
             $table->string('mode');
+            $table->string('status')->default('pending');
             $table->decimal('amount');
             $table->boolean('cover_fees')->default(false);
             $table->string('gcash_number');

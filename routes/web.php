@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Gallery;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,7 @@ Route::middleware(['myauth:admin'])
         Route::resource('reservations',ReservationController::class);
         Route::resource('events',EventController::class);
         Route::resource('donations',DonationController::class);
+        Route::resource('gallery',GalleryController::class);
 });
 Route::middleware(['myauth:user'])
     ->name('user.')

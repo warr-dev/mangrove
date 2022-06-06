@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Session;
 use App\Models\Event;
+use App\Models\Payments;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReservationMail;
 use App\Rules\DuplicateCount;
@@ -14,9 +15,11 @@ class ReservationController extends Controller
 {
     public function addReservation()
     {
+        // dd(Reservation::with(['pax','payment'])->get());
         $sessions=Session::all();
         $events=Event::all();
-        return view('user.reservation',compact('sessions','events'));
+        $classes=['student','senior','foreign'];
+        return view('user.reservation',compact('sessions','events','classes'));
     }
     public function index()
     {
@@ -39,10 +42,30 @@ class ReservationController extends Controller
             'gcash_number'=>['required','numeric'],
             'reference_number'=>['required','numeric'],
             'photo'=>[],
+            'birth_date'=>['required','array'],
+            'birth_date.*'=>['required'],
+            'class'=>['required','array'],
+            'class.*'=>['required',],
+            'name'=>['required','array'],
+            'name.*'=>['required',],
         ]);
         $data['user_id']=auth()->user()->id;
         $reservation = new Reservation($data);
         $reservation->save();
+        foreach($request->birth_date as $key=>$birth_date){
+            $reservation->pax()->create([
+                'birth_date'=>$birth_date,
+                'class'=>$request->class[$key],
+                'name'=>$request->name[$key],
+            ]);
+        }
+        Payments::create([
+            'transaction_id'=>$reservation->id,
+            'gcash_account_name'=>$request->gcash_account_name,
+            'gcash_number'=>$request->gcash_number,
+            'reference_number'=>$request->reference_number,
+            'photo'=>$request->file('photo')->store('payments/reservations','public')
+        ]);
         return response([
             'data'=>$reservation,
             'message'=>'Reservation Successfully Added'

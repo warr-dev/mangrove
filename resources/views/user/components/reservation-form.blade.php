@@ -20,6 +20,24 @@
                 </div>
                 <div class="stepper-connector flex-auto border-t-2 transition duration-500 ease-in-out border-teal-600">
                 </div>
+                
+                <div class="flex items-center text-gray-500 relative step">
+                    <div
+                        class="rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 border-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-database ">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                        </svg>
+                    </div>
+                    <div
+                        class="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-gray-500">
+                        Pax</div>
+                </div>
+                <div class="stepper-connector flex-auto border-t-2 transition duration-500 ease-in-out border-teal-600">
+                </div>
 
                 <div class="flex items-center text-gray-500 relative step">
                     <div
@@ -99,6 +117,42 @@
                 </div>
 
             </div>
+            
+            <div class="mt-8 p-4">
+                <div id="paxes">
+                    <div class="flex flex-col md:flex-row">
+                        <x-form.input2 name="name[0]" label="Name" />
+                        <div class="w-full mx-2 flex-1 svelte-1l8159u">
+                            <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Classification
+                            </div>
+                            <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                                <select class="p-1 px-2 appearance-none outline-none w-full text-gray-800" name="class[0]">
+                                    @forelse ($classes as $class)
+                                        <option value="{{ $class }}">{{ Str::ucfirst($class) }}</option>
+                                    @empty
+                                        <option value="">No Class Available</option>
+                                    @endforelse
+                                </select>
+                            </div>
+                            <div class="w-full text-left ml-4"> <small id="error-province"
+                                    class="text-red-500 p-l-5 indent-1"></small></div>
+                        </div>
+                        <x-form.input2 name="birth_date[0]" label="Birth Date" type="date" />
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row p-4">
+                    <button id="add-pax" type="button"
+                        class="text-base  ml-2  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+                        hover:bg-teal-600  
+                        bg-teal-600 
+                        text-teal-100 
+                        border duration-200 ease-in-out 
+                        border-teal-600 transition">Add More</button>
+                </div>
+                
+            </div>
+            
             <div class="mt-8 p-4">
                 <div class="flex flex-col md:flex-row">
                     <x-form.input2 name="gcash_account_name" label="Gcash Account Name" />
@@ -199,6 +253,35 @@
         }
         checkButton();
         setActiveStep();
-
+        let paxes=1;
+        const addPax=()=>{
+            const pax = `
+            <div class="flex flex-col md:flex-row" id="pax${paxes}">
+                <x-form.input2 name="name[${paxes}]" label="Name" />
+                <div class="w-full mx-2 flex-1 svelte-1l8159u">
+                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Classification
+                    </div>
+                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                        <select class="p-1 px-2 appearance-none outline-none w-full text-gray-800" name="class[${paxes}]">
+                            @forelse ($classes as $class)
+                                <option value="{{ $class }}">{{ Str::ucfirst($class) }}</option>
+                            @empty
+                                <option value="">No Class Available</option>
+                            @endforelse
+                        </select>
+                    </div>
+                    <div class="w-full text-left ml-4"> <small id="error-province"
+                            class="text-red-500 p-l-5 indent-1"></small></div>
+                </div>
+                <x-form.input2 name="birth_date[${paxes}]" label="Birth Date" type="date" />
+                <button type="button" class="p-4 text-red-500" onclick="deletePax(${paxes})">X</button>
+            </div>`;
+            $('#paxes').append(pax);
+            paxes++;
+        };
+        const deletePax=(id)=> {
+            $('#pax'+id).remove();
+          }  
+        $('#add-pax').click(addPax);
     </script>
 @endpush

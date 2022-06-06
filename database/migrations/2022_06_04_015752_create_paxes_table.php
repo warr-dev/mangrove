@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RemovePaxOnReservationTable extends Migration
+class CreatePaxesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class RemovePaxOnReservationTable extends Migration
      */
     public function up()
     {
-        Schema::table('reservation', function (Blueprint $table) {
-            $table->dropColumn(['no_of_pax']);
+        Schema::create('paxes', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedInteger('reservation_id');
+            $table->string('name');
+            $table->string('class');
+            $table->date('birth_date');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ class RemovePaxOnReservationTable extends Migration
      */
     public function down()
     {
-        Schema::table('reservation', function (Blueprint $table) {
-            $table->unsignedInteger('no_of_pax');
-        });
+        Schema::dropIfExists('paxes');
     }
 }

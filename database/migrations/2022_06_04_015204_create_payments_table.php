@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPaymentInReservationTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class AddPaymentInReservationTable extends Migration
      */
     public function up()
     {
-        Schema::table('reservation', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedInteger('transaction_id');
+            $table->string('transaction_type')->default('App\Models\Reservation');
             $table->string('gcash_account_name');
             $table->string('gcash_number');
             $table->string('reference_number');
             $table->string('photo')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -28,8 +32,6 @@ class AddPaymentInReservationTable extends Migration
      */
     public function down()
     {
-        Schema::table('reservation', function (Blueprint $table) {
-            $table->dropColumn(['gcash_account_name','gcash_number','reference_number','photo']);
-        });
+        Schema::dropIfExists('payments');
     }
 }

@@ -22,10 +22,10 @@ class Reservation extends Model
         'event_id',
         'address',
         'status',
-        'gcash_account_name',
-        'gcash_number',
-        'reference_number',
-        'photo',
+        // 'gcash_account_name',
+        // 'gcash_number',
+        // 'reference_number',
+        // 'photo',
     ];
     public function event()
     {
@@ -46,6 +46,14 @@ class Reservation extends Model
     public static function countPending()
     {
         return self::where('status','pending')->count();
+    }
+    public function pax()
+    {
+        return $this->hasMany(Pax::class);
+    }
+    public function payment()
+    {
+        return $this->hasOne(Payments::class,'transaction_id');
     }
     
 }

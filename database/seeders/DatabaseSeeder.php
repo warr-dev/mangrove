@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use \App\Models\User;
 use \App\Models\Profile;
 use \App\Models\Session;
+use \App\Models\Event;
 
 class DatabaseSeeder extends Seeder
 {
@@ -45,6 +46,11 @@ class DatabaseSeeder extends Seeder
         ]);
         Session::create(['name'=>'8:00am-12:00am']);
         Session::create(['name'=>'1:00pm-5:00pm']);
-        
+        Event::create([
+            'title'=>'Event 1',
+            'date'=>date('Y-m-d',strtotime('+1 week')),
+            'venue'=>'venue 1',
+            'description'=> 'description 1',
+            ]);
     }
 }

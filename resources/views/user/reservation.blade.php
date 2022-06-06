@@ -76,13 +76,17 @@
 @push('scripts')
     <script>
         $('#frm-reserve').on('submit', function(e){
+            let fd=new FormData(this);
             e.preventDefault();
             // $('#btn-submit').attr('disabled', true);
             $('#btn-submit').html('<span class="spinner-border spinner-border-sm mr-2"></span> Processing...');
             $.ajax({
                 url: "{{ route('user.reservation.store') }}",
                 type: "POST",
-                data: $(this).serialize(),
+                data: fd,
+                enctype: 'multipart/form-data',
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,   // tell jQuery not to set contentType
                 success: function(data){
                     $('#btn-submit').attr('disabled', false);
                     $('#btn-submit').html('Submit');

@@ -18,7 +18,7 @@ class CreateReservationTable extends Migration
             $table->unsignedInteger('user_id');
             $table->date('date_visit');
             $table->unsignedInteger('session_id');
-            $table->unsignedInteger('no_of_pax');
+            // $table->unsignedInteger('no_of_pax');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');

@@ -20,6 +20,7 @@ class DonationController extends Controller
 {
     public function addDonation()
     {
+        // dd(Donations::all());
         return view('donation');
     }
     public function index()
@@ -37,7 +38,7 @@ class DonationController extends Controller
             'coverfees'=>'',
             'gcash_number'=>['required','numeric'],
             'reference_number'=>'required',
-            // 'photo'=>'required',
+            'photo'=>'',
         ];
         $user_id=null;
         if(!auth()->check()){
@@ -59,7 +60,7 @@ class DonationController extends Controller
         }
         $donation=Donations::create(array_merge($data,
             [
-                // 'photo'=>$request->file('photo')->store('donations','public'),
+                'photo'=>$request->file('photo')->store('payments/donations','public'),
                 'user_id'=>$user_id,
                 'transaction_type'=>auth()->check()?'App\Models\User':'App\Models\Guest'
             ]
