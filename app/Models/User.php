@@ -77,4 +77,8 @@ class User extends Authenticatable
     {
         return User::where('usertype','user')->where('status','pending')->count();
     }
+    public function displayName()
+    {
+        return $this->profile->first_name.' '.ucFirst($this->profile->last_name[0]).'.';
+    }
 }

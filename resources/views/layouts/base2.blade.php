@@ -85,7 +85,8 @@
 		</li>
         
         <li class="text-lg py-2"><a href="{{route('admin.gallery.index')}}" class="px-2 hover:text-gray-200">Gallery</a></li>
-        <li class="text-lg py-2"><a href="#" class="px-2 hover:text-gray-200">Local News Update</a></li>
+        <li class="text-lg py-2"><a  href="{{route('admin.localnews.index')}}" class="px-2 hover:text-gray-200">Local News Update</a></li>
+        <li class="text-lg py-2"><a  href="{{route('admin.advertisement.index')}}" class="px-2 hover:text-gray-200">Advertisements</a></li>
         <li class="text-lg py-2">
             <a href="{{route('admin.user.index')}}" class="px-2 hover:text-gray-200">Registered Users</a>
             @if(App\Models\User::countPending()>0)

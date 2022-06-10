@@ -18,6 +18,25 @@ use Illuminate\Support\Facades\Route;
 //     // return view('welcome');
 //     return redirect()->route('login');
 // });
+Route::get('routes', function() {
+    $routeCollection = Route::getRoutes();
+    echo "<table style='width:100%'>";
+    echo "<tr>";
+        echo "<td width='10%'><h4>HTTP Method</h4></td>";
+        echo "<td width='10%'><h4>Route</h4></td>";
+        echo "<td width='10%'><h4>Name</h4></td>";
+        echo "<td width='80%'><h4>Corresponding Action</h4></td>";
+    echo "</tr>";
+    foreach ($routeCollection as $value) {
+        echo "<tr>";
+            echo "<td>" . $value->methods()[0] . "</td>";
+            echo "<td>" . $value->uri() . "</td>";
+            echo "<td>" .$value->getName() . "</td>";
+            echo "<td>" . $value->getActionName() . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+});
 Route::namespace('App\Http\Controllers')
     ->group(function(){
         Route::get('/adddonations',['uses'=>'DonationController@addDonation','as'=>'adddonations']);
@@ -43,6 +62,8 @@ Route::middleware(['myauth:admin'])
         Route::resource('events',EventController::class);
         Route::resource('donations',DonationController::class);
         Route::resource('gallery',GalleryController::class);
+        Route::resource('localnews',LocalNewsController::class);
+        Route::resource('advertisement',AdvertisementController::class);
 });
 Route::middleware(['myauth:user'])
     ->name('user.')
@@ -52,6 +73,7 @@ Route::middleware(['myauth:user'])
         // Route::get('/donation',['uses'=>'DonationController@addDonation','as'=>'donation']);
         Route::get('/reservation',['uses'=>'ReservationController@addReservation','as'=>'reservation']);
         Route::post('/reservation',['uses'=>'ReservationController@store','as'=>'reservation.store']);
+        Route::post('/feedback',['uses'=>'ReviewController@store','as'=>'feedback.store']);
 });
 
 
