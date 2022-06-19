@@ -1,4 +1,5 @@
 <div>
-    <p>Hi, your reservation was confirmed</p>
+    <p>Hi, WELCOME TO RES SILONAY MANGROVE :
+        We are happy to informed you that your reservation was successfully confirmed</p>
     <p style="text-align: right">{{config('app.name')}}</p>
 </div>

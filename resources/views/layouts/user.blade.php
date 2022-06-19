@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>F</title>
+	<title>RES Silonay Mangrove</title>
     
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">

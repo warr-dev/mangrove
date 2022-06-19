@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Advisory;
 use App\Models\Gallery;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +65,7 @@ Route::middleware(['myauth:admin'])
         Route::resource('gallery',GalleryController::class);
         Route::resource('localnews',LocalNewsController::class);
         Route::resource('advertisement',AdvertisementController::class);
+        Route::resource('advisory',AdvisoryController::class);
 });
 Route::middleware(['myauth:user'])
     ->name('user.')

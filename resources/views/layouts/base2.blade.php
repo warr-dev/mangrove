@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'RES Silonay Mangrove') }}</title>
 
     
         <!-- Fonts -->
@@ -86,6 +86,7 @@
         
         <li class="text-lg py-2"><a href="{{route('admin.gallery.index')}}" class="px-2 hover:text-gray-200">Gallery</a></li>
         <li class="text-lg py-2"><a  href="{{route('admin.localnews.index')}}" class="px-2 hover:text-gray-200">Local News Update</a></li>
+        <li class="text-lg py-2"><a  href="{{route('admin.advisory.index')}}" class="px-2 hover:text-gray-200">Advisory</a></li>
         <li class="text-lg py-2"><a  href="{{route('admin.advertisement.index')}}" class="px-2 hover:text-gray-200">Advertisements</a></li>
         <li class="text-lg py-2">
             <a href="{{route('admin.user.index')}}" class="px-2 hover:text-gray-200">Registered Users</a>

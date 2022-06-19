@@ -19,7 +19,7 @@ class LocalNewsController extends Controller
         $validations=[
             'date'=>'required|date',
             'title'=>'required|max:255',
-            'details'=>'required|max:255|min:10',
+            'details'=>'required|max:2000 |min:10',
             'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:6000',
         ];
         $data=$request->validate($validations);

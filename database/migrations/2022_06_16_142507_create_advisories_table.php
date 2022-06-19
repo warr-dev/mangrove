@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLocalNewsTable extends Migration
+class CreateAdvisoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateLocalNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('local_news', function (Blueprint $table) {
+        Schema::create('advisories', function (Blueprint $table) {
             $table->id();
             $table->date('date');
             $table->string('title');
-            $table->string('details', 2000);
+            $table->string('details',1000);
             $table->string('image');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreateLocalNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('local_news');
+        Schema::dropIfExists('advisories');
     }
 }

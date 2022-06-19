@@ -154,6 +154,8 @@
             </div>
             
             <div class="mt-8 p-4">
+               <div class="flex justify-center" > <img src="/images/gcash.png" alt="gcash" srcset="" height="15vh" style="height:15vh"></div> 
+               <h1>09279501242</h1>
                 <div class="flex flex-col md:flex-row">
                     <x-form.input2 name="gcash_account_name" label="Gcash Account Name" />
                     <x-form.input2 name="gcash_number" label="Gcash Number" />

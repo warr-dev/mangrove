@@ -20,6 +20,8 @@
                                     <th class="p-3 text-left">Session</th>
                                     {{-- <th class="p-3 text-left">No of Pax</th> --}}
                                     <th class="p-3 text-left">Event</th>
+                                    <th class="p-3 text-left">Gcash #</th>
+                                    <th class="p-3 text-left">Reference No.</th>
                                     <th class="p-3 text-left">Status</th>
                                     <th class="p-3 text-left" width="110px">Actions</th>
                                 </tr>
@@ -33,6 +35,8 @@
                                         <td class="p-3 text-left">{{ $reservation->session->name }}</td>
                                         {{-- <td class="p-3 text-left">{{ $reservation->no_of_pax }}</td> --}}
                                         <td class="p-3 text-left">{{ $reservation->event->title }}</td>
+                                        <td class="p-3 text-left">{{ $reservation->payment->gcash_number}}</td>
+                                        <td class="p-3 text-left">{{ $reservation->payment->reference_number}}</td>
                                         <td class="p-3 text-left">{{ $reservation->status }}</td>
                                         
                                         <td class="border-grey-light border p-3 hover:font-medium">

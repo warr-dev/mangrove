@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Gallery;
 use App\Models\LocalNews;
 use App\Models\Advertisement;
+use App\Models\Advisory;
 use App\Models\Review;
 
 class HomepageController extends Controller
@@ -18,9 +19,10 @@ class HomepageController extends Controller
     {
         $galleries=Gallery::all();
         $news=LocalNews::all();
+        $advisories=Advisory::all();
         $advertisements=Advertisement::all();
         $reviews=Review::orderBy('created_at','desc')->limit(3)->get();
-        return view('home',compact('galleries','news','advertisements','reviews'));
+        return view('home',compact('galleries','news','advertisements','reviews', 'advisories'));
 
     }
 }

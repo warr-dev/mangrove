@@ -17,7 +17,7 @@ class CreateAdvertisementsTable extends Migration
             $table->id();
             $table->date('date');
             $table->string('title');
-            $table->string('details');
+            $table->string('details', 2000);
             $table->string('image');
             $table->timestamps();
         });

@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>F</title>
+    <title>RES Silonay Mangrove</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -197,13 +197,13 @@
             </div>
         </section>
     </div>
+    
 
-        <div class="section">
+    <div class="section">
             <section class="text-gray-700 body-font bg-green-200">
                 <div class="container px-5 py-24 mx-auto">
                     <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Local News and
-                            Updates
+                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Advisory
                         </h1>
                         <p class="lg:w-1/2 w-full leading-relaxed text-base">
                             Oriental Mindoro advocates the concept of the Oriental Mindoro Loop/Circuit where travelers
@@ -216,21 +216,21 @@
 
                     <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
 
-                        @foreach ($news as $item)
+                        @foreach ($advisories as $advisory)
                             <div
                                 class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
                                 <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center"
-                                    style="background-image: url({{ asset('storage/' . $item->image) }})"></div>
+                                    style="background-image: url({{ asset('storage/' . $advisory->image) }})"></div>
 
                                 <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
 
                                     <div class="header-content inline-flex ">
-                                        <div class="category-title flex-1 text-sm"> {{ $item->date->format('F j, Y') }}
+                                        <div class="category-title flex-1 text-sm"> {{ $advisory->date->format('F j, Y') }}
                                         </div>
                                     </div>
-                                    <div class="title-post font-medium">{{ $item->title }}</div>
+                                    <div class="title-post font-medium">{{ $advisory->title }}</div>
 
-                                    <div class="summary-post text-base text-justify">{{ $item->details }}
+                                    <div class="summary-post text-base text-justify">{{ $advisory->details }}
 
                                         <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span
                                                 class="">Read more...</span></button>
@@ -1032,9 +1032,9 @@
 
                                             Silonay Mangrove Conservation Ecopark: Sitio Singalong, Brgy. Silonay,
                                             Calapan
-                                            City.  Open daily, 6AM – 6PM.
+                                            City.  Open daily, 8AM – 5PM.
 
-                                            Admission: PhP50/head (PhP20 for students).
+                                            Admission: PhP50/head (PhP20 for students/senior/pwd, Php10 resident ).
 
                                         </p>
 
@@ -1074,36 +1074,11 @@
                                                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                             </svg>
                                             <div class="ml-4 text-md tracking-wide font-semibold w-40">
-                                                miraplesregine24@gmail.com
+                                                silonaymangrove@gmail.com
 
                                             </div>
                                         </div>
                                     </div>
-
-                                    <form class="p-6 flex flex-col justify-center">
-                                        <div class="flex flex-col">
-                                            <label for="name" class="hidden">Full Name</label>
-                                            <input type="name" name="name" id="name" placeholder="Full Name"
-                                                class="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
-                                        </div>
-
-                                        <div class="flex flex-col mt-2">
-                                            <label for="email" class="hidden">Email</label>
-                                            <input type="email" name="email" id="email" placeholder="Email"
-                                                class="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
-                                        </div>
-
-                                        <div class="flex flex-col mt-2">
-                                            <label for="tel" class="hidden">Number</label>
-                                            <input type="tel" name="tel" id="tel" placeholder="Telephone Number"
-                                                class="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
-                                        </div>
-
-                                        <button type="submit"
-                                            class="md:w-32 bg-indigo-600 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-indigo-500 transition ease-in-out duration-300">
-                                            Submit
-                                        </button>
-                                    </form>
                                 </div>
                             </div>
                         </div>

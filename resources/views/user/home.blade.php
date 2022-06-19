@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>F</title>
+	<title>RES Silonay Mangrove</title>
     
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -839,7 +839,7 @@ const showMenu2 = (flag) => {
                             </h1>
                             <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 mt-2">
             
-                                Silonay Mangrove Conservation Ecopark: Sitio Singalong, Brgy. Silonay, Calapan City.  Open daily, 6AM – 6PM. 
+                                Silonay Mangrove Conservation Ecopark: Sitio Singalong, Brgy. Silonay, Calapan City.  Open daily, 8AM – 5PM. 
 
                                 Admission: PhP50/head (PhP20 for students).
 

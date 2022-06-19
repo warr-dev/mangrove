@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Advertisement;
+use App\Models\Advisory;
 
-class AdvertisementController extends Controller
+class AdvisoryController extends Controller
 {
-    
     public function index()
     {
-        $advertisements=Advertisement::all();
-        return view('admin.advertisement',compact('advertisements'));
+        $advisories=Advisory::all();
+        return view('admin.advisory',compact('advisories'));
     }
     public function store(Request $request)
     {
@@ -22,25 +21,25 @@ class AdvertisementController extends Controller
             'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:6000',
         ];
         $data=$request->validate($validations);
-        $data['image']=$request->file('image')->store('advertisement','public');
-        $advertisement=Advertisement::create($data);
+        $data['image']=$request->file('image')->store('advisory','public');
+        $advisories=Advisory::create($data);
         return response([
-            'data'=>$advertisement,
-            'message'=>'Advertisement Added Successfully',
+            'data'=>$advisories,
+            'message'=>'Advisory Added Successfully',
             'status'=>'success'
         ],201);
     }
-    public function destroy(Advertisement $advertisement)
+    public function destroy(Advisory $advisory)
     {
-        $advertisement->delete();
+        $advisory->delete();
         return response([
-            'data'=>$advertisement,
-            'message'=>'Advertisement Deleted Successfully',
+            'data'=>$advisory,
+            'message'=>'Advisory Deleted Successfully',
             'status'=>'success'
         ],200);
     }
     
-    public function update(Advertisement $advertisement,Request $request)
+    public function update(Advisory $advisory,Request $request)
     {
         $validations=[
             'date'=>'required|date',
@@ -50,11 +49,11 @@ class AdvertisementController extends Controller
         ];
         $data=$request->validate($validations);
         if($request->file('image'))
-            $data['image']=$request->file('image')->store('advertisement','public');
-        $advertisement->update($data);
+            $data['image']=$request->file('image')->store('advisory','public');
+        $advisory->update($data);
         return response([
-            'data'=>$advertisement,
-            'message'=>'Advertisement Updated Successfully',
+            'data'=>$advisory,
+            'message'=>'Advisory Updated Successfully',
             'status'=>'success'
         ],200);
     }

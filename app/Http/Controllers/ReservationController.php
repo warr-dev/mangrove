@@ -18,7 +18,7 @@ class ReservationController extends Controller
         // dd(Reservation::with(['pax','payment'])->get());
         $sessions=Session::all();
         $events=Event::all();
-        $classes=['student','senior','foreign'];
+        $classes=[ 'regular','student','senior','foreign','resident'];
         return view('user.reservation',compact('sessions','events','classes'));
     }
     public function index()
