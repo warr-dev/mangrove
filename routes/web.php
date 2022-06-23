@@ -58,6 +58,7 @@ Route::middleware(['myauth:admin'])
         Route::put('/donation/{donation}/reject',['uses'=>'DonationController@reject','as'=>'donations.reject']);
         Route::put('/reservations/{reservation}/confirm',['uses'=>'ReservationController@confirm','as'=>'reservations.confirm']);
         Route::put('/reservations/{reservation}/cancel',['uses'=>'ReservationController@cancel','as'=>'reservations.cancel']);
+        Route::post('/reservations/reserve',['uses'=>'ReservationController@reserve','as'=>'reservations.reserve']);
         Route::resource('user',UserController::class);
         Route::resource('reservations',ReservationController::class);
         Route::resource('events',EventController::class);

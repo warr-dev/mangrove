@@ -75,7 +75,7 @@
                                 @endforelse
                             </select>
                         </div>
-                        <div class="w-full text-left ml-4"> <small id="error-province"
+                        <div class="w-full text-left ml-4"> <small id="error-session_id"
                                 class="text-red-500 p-l-5 indent-1"></small></div>
                     </div>
                     {{-- <x-form.input2 type="number" name="no_of_pax" label="Number of Pax" /> --}}
@@ -111,7 +111,7 @@
                                 @endforelse
                             </select>
                         </div>
-                        <div class="w-full text-left ml-4"> <small id="error-province"
+                        <div class="w-full text-left ml-4"> <small id="error-event_id"
                                 class="text-red-500 p-l-5 indent-1"></small></div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                                     @endforelse
                                 </select>
                             </div>
-                            <div class="w-full text-left ml-4"> <small id="error-province"
+                            <div class="w-full text-left ml-4"> <small id="error-class.*"
                                     class="text-red-500 p-l-5 indent-1"></small></div>
                         </div>
                         <x-form.input2 name="birth_date[0]" label="Birth Date" type="date" />

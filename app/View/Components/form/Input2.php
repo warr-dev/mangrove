@@ -44,7 +44,7 @@ class Input2 extends Component
                     <input type="{{$type}}" placeholder="{{$placeholder}}" id="{{$id}}" name="{{$name}}" class="p-1 px-2 appearance-none outline-none w-full text-gray-800">
                 </div>
             </div>
-            <div class="w-full text-left ml-4"> <small id="error-{{$name}}" class="text-red-500 p-l-5 indent-1"></small></div>
+            <div class="w-full text-left ml-4"> <small id="error-{{$name}}" class="text-red-500 p-l-5 indent-1 error-{{$name}}"></small></div>
         </div>
 
 blade;

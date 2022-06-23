@@ -6,7 +6,7 @@
 }
 </style>
 <div id="modal-{{$id}}"  class="modal fixed w-full inset-0 z-50 overflow-hidden flex justify-center @if(!$scrollable) items-center @endif max-h-100 animated faster" style="background: rgba(0,0,0,.7);display:none;">
-		<div class="border border-blue-500 shadow-lg modal-container bg-white lg:w-7/12 w-11/12 mx-auto rounded-xl shadow-lg z-50 overflow-y-auto rounded-t-lg sm:rounded-lg sm:m-4 sm:max-w-xl">
+		<div class="border border-blue-500 shadow-lg modal-container bg-white lg:w-7/12 w-11/12 mx-auto rounded-xl shadow-lg z-50 overflow-y-auto rounded-t-lg sm:rounded-lg sm:m-4 sm:max-w-xl" style="max-height: 100%">
 			<div class="modal-content py-4 text-left px-6">
 				<!--Title-->
 				<div class="flex justify-between items-center pb-3">
