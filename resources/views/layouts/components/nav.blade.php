@@ -18,8 +18,6 @@
             <a href="{{route('user.reservation')}}" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Reservation
             </a>
         @endif
-        <a href="#events" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Events
-            </a>
         <a href="#advisory" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Advisory
             </a>
         <a href="#contacts" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Contacts
