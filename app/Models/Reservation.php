@@ -55,5 +55,26 @@ class Reservation extends Model
     {
         return $this->hasOne(Payments::class,'transaction_id');
     }
+    public static function getCounts($date,$withTotal=false)
+    {
+        $counters=[];
+        $paxesCount=Pax::join('reservation','paxes.reservation_id','reservation.id')
+            
+            ->selectRaw('count(*) as count,class')
+            ->groupBy('paxes.class');
+        if(!is_array($date))
+            $paxesCount=$paxesCount->where('reservation.date_visit',$date);
+        else
+            $paxesCount=$paxesCount->whereBetween('reservation.date_visit',$date);
+        $paxesCount=$paxesCount->get()->toArray();
+        $total=0;
+        foreach($paxesCount as $paxCount)
+        {
+            $total+=$paxCount['count'];
+            $counters[$paxCount['class']]=$paxCount['count'];
+        }
+        if($withTotal && $paxesCount) $counters['total']=$total;
+        return $counters;
+    }
     
 }

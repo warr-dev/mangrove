@@ -52,9 +52,9 @@
                             <h3 class="text-3xl font-bold text-gray-700">{{$counters['users']}}</h3>
                            
                         </div>
-                        <span class="block text-center text-gray-500">Compared to last week 13</span>
+                        {{-- <span class="block text-center text-gray-500">Compared to last week 13</span> --}}
                     </div>
-                    <table class="mt-6 -mb-2 w-full text-gray-600">
+                    {{-- <table class="mt-6 -mb-2 w-full text-gray-600">
                         <tbody>
                             <tr>
                                 <td class="py-2">Tailored ui</td>
@@ -114,7 +114,7 @@
                                 </td>   
                             </tr>
                         </tbody>
-                    </table>   
+                    </table>    --}}
                 </div>
             </div>
             
@@ -126,9 +126,9 @@
                         <div class="mt-2 flex justify-center gap-4">
                             <h3 class="text-3xl font-bold text-gray-700">{{$counters['donations']['sum']}}</h3>
                         </div>
-                        <span class="block text-center text-gray-500">Compared to last week 13</span>
+                        {{-- <span class="block text-center text-gray-500">Compared to last week 13</span> --}}
                     </div>
-                    <table class="mt-6 -mb-2 w-full text-gray-600">
+                    {{-- <table class="mt-6 -mb-2 w-full text-gray-600">
                         <tbody>
                             <tr>
                                 <td class="py-2">Tailored ui</td>
@@ -188,7 +188,7 @@
                                 </td>   
                             </tr>
                         </tbody>
-                    </table>   
+                    </table>    --}}
                 </div>
             </div>
               
@@ -200,9 +200,9 @@
                         <div class="mt-2 flex justify-center gap-4">
                             <h3 class="text-3xl font-bold text-gray-700">{{$counters['reservations']}}</h3>
                         </div>
-                        <span class="block text-center text-gray-500">Compared to last week 13</span>
+                        {{-- <span class="block text-center text-gray-500">Compared to last week 13</span> --}}
                     </div>
-                    <table class="mt-6 -mb-2 w-full text-gray-600">
+                    {{-- <table class="mt-6 -mb-2 w-full text-gray-600">
                         <tbody>
                             <tr>
                                 <td class="py-2">Tailored ui</td>
@@ -262,15 +262,17 @@
                                 </td>   
                             </tr>
                         </tbody>
-                    </table>   
+                    </table>    --}}
                 </div>
             </div>
             
             <div class="col-span-2">
                 <div class="lg:h-full py-8 px-6 text-gray-600 rounded-xl border border-gray-200 bg-white">
-                     
                     <div class="bg-white">
                         <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="flex justify-end px-4">
+                        <button type="button" onclick="location.href='{{route('admin.report')}}'" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Print Report</button>
                     </div>
                 </div>
             </div>
@@ -287,14 +289,14 @@ const myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         labels: [
-           @foreach (array_keys($classes) as $item)
+           @foreach (array_keys($classBD) as $item)
             '{{ $item }}',
             @endforeach 
         ],
         datasets: [{
             label: 'Reservations class breakdown',
             data: [
-                {{implode(',',array_values($classes))}}
+                {{implode(',',array_values($classBD))}}
             ],
             backgroundColor: [
             'rgb(255, 99, 132)',
