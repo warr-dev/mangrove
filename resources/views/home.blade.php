@@ -89,8 +89,8 @@
                             <button aria-label="slide backward"
                                 class="glass p-2 absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
                                 id="prev">
-                                <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
@@ -121,8 +121,8 @@
                             <button aria-label="slide forward"
                                 class="glass p-2 absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
                                 id="next">
-                                <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
@@ -197,212 +197,222 @@
             </div>
         </section>
     </div>
-    
+
 
     <div class="section">
-            <section class="text-gray-700 body-font bg-green-200">
-                <div class="container px-5 py-24 mx-auto">
-                    <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Advisory
-                        </h1>
-                        <p class="lg:w-1/2 w-full leading-relaxed text-base">
-                            Oriental Mindoro advocates the concept of the Oriental Mindoro Loop/Circuit where travelers
-                            are
-                            encouraged to not only enjoy just one destination but to experience more than one tourism
-                            destination in the province.
-                            This campaigns tourists to enter in one destination and leave in another while experiencing
-                            everything in between. </p>
-                    </div>
+        <section class="text-gray-700 body-font bg-green-200">
+            <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Advisory
+                    </h1>
+                    <p class="lg:w-1/2 w-full leading-relaxed text-base">
+                        Oriental Mindoro advocates the concept of the Oriental Mindoro Loop/Circuit where travelers
+                        are
+                        encouraged to not only enjoy just one destination but to experience more than one tourism
+                        destination in the province.
+                        This campaigns tourists to enter in one destination and leave in another while experiencing
+                        everything in between. </p>
+                </div>
 
-                    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
 
-                        @foreach ($advisories as $advisory)
-                            <div
-                                class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-                                <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center"
-                                    style="background-image: url({{ asset('storage/' . $advisory->image) }})"></div>
+                    @foreach ($advisories as $advisory)
+                        <div
+                            class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                            <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center"
+                                style="background-image: url({{ asset('storage/' . $advisory->image) }})"></div>
 
-                                <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
+                            <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
 
-                                    <div class="header-content inline-flex ">
-                                        <div class="category-title flex-1 text-sm"> {{ $advisory->date->format('F j, Y') }}
-                                        </div>
+                                <div class="header-content inline-flex ">
+                                    <div class="category-title flex-1 text-sm">
+                                        {{ $advisory->date->format('F j, Y') }}
                                     </div>
-                                    <div class="title-post font-medium">{{ $advisory->title }}</div>
-
-                                    <div class="summary-post text-base text-justify">{{ $advisory->details }}
-
-                                        <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span
-                                                class="">Read more...</span></button>
-                                    </div>
-
                                 </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </section>
-        </div>
-        
-        <d  iv class="section">
-            <section class="text-gray-700 body-font bg-green-200">
-                <div class="container px-5 py-24 mx-auto">
-                    <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Advertisements
-                        </h1>
-                        <p class="lg:w-1/2 w-full leading-relaxed text-base">
-                            Clinging to coastlines in the tropics, mangrove forests cover a tiny fraction of the
-                            planet’s surface, but they provide so much for so many. Now, coastal development,
-                            unsustainable aquaculture and sea-level rise pose unprecedented threats to these fragile
-                            ecosystems.
-                        </p>
-                    </div>
+                                <div class="title-post font-medium">{{ $advisory->title }}</div>
 
-                    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                                <div class="summary-post text-base text-justify">{{ $advisory->details }}
 
-                        @foreach ($advertisements as $advertisement)
-                            <div
-                                class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-                                <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center"
-                                    style="background-image: url({{ asset('storage/' . $advertisement->image) }})"></div>
-
-                                <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
-
-                                    <div class="header-content inline-flex ">
-                                        <div class="category-title flex-1 text-sm"> {{ $advertisement->date->format('F j, Y') }}
-                                        </div>
-                                    </div>
-                                    <div class="title-post font-medium">{{ $advertisement->title }}</div>
-
-                                    <div class="summary-post text-base text-justify">{{ $advertisement->details }}
-
-                                        <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span
-                                                class="">Read more...</span></button>
-                                    </div>
-
+                                    <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span
+                                            class="">Read more...</span></button>
                                 </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </section>
-        </d>
-        <div class="section">
-            <section class="text-gray-700 body-font bg-green-200 p-5">
-                <div class="flex flex-wrap w-full mb-20 mt-20 flex-col items-center text-center">
-                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Feedback</h1>
 
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="relative container px-5 py-24 mx-auto" style="min-height: 50vh">
-                    <div class="absolute inset-2 bg-gray-300">
-                        <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map"
-                        scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.1870182601187!2d121.2228045153274!3d13.400743708940759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bce924d79eb7db%3A0x7e70b7ec879e2169!2sSilonay%20Mangrove%20Conservation%20Ecopark!5e0!3m2!1sen!2sph!4v1654743921857!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        {{-- <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map"
+            </div>
+        </section>
+    </div>
+
+    <div class="section">
+        <section class="text-gray-700 body-font bg-green-200">
+            <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Advertisements
+                    </h1>
+                    <p class="lg:w-1/2 w-full leading-relaxed text-base">
+                        Clinging to coastlines in the tropics, mangrove forests cover a tiny fraction of the
+                        planet’s surface, but they provide so much for so many. Now, coastal development,
+                        unsustainable aquaculture and sea-level rise pose unprecedented threats to these fragile
+                        ecosystems.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+
+                    @foreach ($advertisements as $advertisement)
+                        <div
+                            class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                            <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center"
+                                style="background-image: url({{ asset('storage/' . $advertisement->image) }})">
+                            </div>
+
+                            <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
+
+                                <div class="header-content inline-flex ">
+                                    <div class="category-title flex-1 text-sm">
+                                        {{ $advertisement->date->format('F j, Y') }}
+                                    </div>
+                                </div>
+                                <div class="title-post font-medium">{{ $advertisement->title }}</div>
+
+                                <div class="summary-post text-base text-justify">{{ $advertisement->details }}
+
+                                    <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span
+                                            class="">Read more...</span></button>
+                                </div>
+
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="section">
+        <section class="text-gray-700 body-font bg-green-200 p-5">
+            <div class="flex flex-wrap w-full mb-20 mt-20 flex-col items-center text-center">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Feedback</h1>
+
+            </div>
+            <div class="relative container px-5 py-24 mx-auto" style="min-height: 50vh">
+                <div class="absolute inset-2 bg-gray-300">
+                    <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0"
+                        title="map" scrolling="no"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.1870182601187!2d121.2228045153274!3d13.400743708940759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bce924d79eb7db%3A0x7e70b7ec879e2169!2sSilonay%20Mangrove%20Conservation%20Ecopark!5e0!3m2!1sen!2sph!4v1654743921857!5m2!1sen!2sph"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    {{-- <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map"
                             scrolling="no"
                             src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
                             style=""></iframe> --}}
-                    </div>
-                    @if (auth()->check())
-                        <div class="container px-5 py-24 mx-auto flex">
-                            <div
-                                class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
-                                <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Feedback</h2>
-                                <p class="leading-relaxed mb-5 text-gray-600">Share your feedback and help us improve </p>
-                                <form id="frm-feedback">
-                                    @csrf
-                                    <div class="relative mb-4">
-                                        <label for="comment" class="leading-7 text-sm text-gray-600">Rating</label>
-                                        <div class="flex space-x-3" id="rating">
-                                            <svg class="w-12 h-12 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20" fill="currentColor">
-                                                <path
-                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                            </svg>
-                                            <svg class="w-12 h-12 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20" fill="currentColor">
-                                                <path
-                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                            </svg>
-                                            <svg class="w-12 h-12 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20" fill="currentColor">
-                                                <path
-                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                            </svg>
-                                            <svg class="w-12 h-12 text-gray-500" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20" fill="currentColor">
-                                                <path
-                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                            </svg>
-                                            <svg class="w-12 h-12 text-gray-500" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20" fill="currentColor">
-                                                <path
-                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                            </svg>
-                                            <input type="hidden" name="rating">
-                                        </div>
-                                    </div>
-                                    <div class="relative mb-4">
-                                        <x-form.input name="comment" label="Comment" type="textarea" />
-                                        {{-- <label for="comment" class="leading-7 text-sm text-gray-600">Comment</label> --}}
-                                    </div>
-                                    <div class="relative mb-4">
-                                        <div class="relative mb-4">
-                                            
-                                        <x-form.input name="attachments[]" label="Attachment" type="file" :multiple="true" />
-                                        </div>
-                                    </div>
-                                    <button type="submit"
-                                        class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
-                                    <p class="text-xs text-gray-500 mt-3">The comment form won't actually post anywhere as it
-                                        only
-                                        a demonstration, but if you click the "submit button" you'll see the form validation at
-                                        work
-                                    </p>
-                                
-                                </form>
-                            </div>
-                        </div>
-                    @endif
                 </div>
-                {{-- reviews --}}
-                <div class="py-12 px-4 md:px-6 2xl:px-0 2xl:container 2xl:mx-auto flex justify-center items-center">
-                    <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
-                    <div class="flex flex-col justify-start items-start w-full space-y-8">
-                        <div class="flex justify-start items-start">
-                            <p class="text-1xl lg:text-2xl font-semibold leading-7 lg:leading-9 text-gray-800 ">Reviews
-                            </p>
+                @if (auth()->check())
+                    <div class="container px-5 py-24 mx-auto flex">
+                        <div
+                            class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
+                            <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Feedback</h2>
+                            <p class="leading-relaxed mb-5 text-gray-600">Share your feedback and help us improve </p>
+                            <form id="frm-feedback">
+                                @csrf
+                                <div class="relative mb-4">
+                                    <label for="comment" class="leading-7 text-sm text-gray-600">Rating</label>
+                                    <div class="flex space-x-3" id="rating">
+                                        <svg class="w-12 h-12 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-12 h-12 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-12 h-12 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-12 h-12 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-12 h-12 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <input type="hidden" name="rating">
+                                    </div>
+                                </div>
+                                <div class="relative mb-4">
+                                    <x-form.input name="comment" label="Comment" type="textarea" />
+                                    {{-- <label for="comment" class="leading-7 text-sm text-gray-600">Comment</label> --}}
+                                </div>
+                                <div class="relative mb-4">
+                                    <div class="relative mb-4">
+
+                                        <x-form.input name="attachments[]" label="Attachment" type="file"
+                                            :multiple="true" />
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+                                <p class="text-xs text-gray-500 mt-3">The comment form won't actually post anywhere as
+                                    it
+                                    only
+                                    a demonstration, but if you click the "submit button" you'll see the form validation
+                                    at
+                                    work
+                                </p>
+
+                            </form>
                         </div>
-                       
-                @foreach ($reviews as $review)
-                <div class="flex items-start  w-full">
-                    <div class="flex-shrink-0">
-                      <div class="inline-block relative">
-                        <div class="relative w-16 h-16 rounded-full overflow-hidden">
-                          <img class="absolute top-0 left-0 w-full h-full bg-cover object-fit object-cover" src="https://picsum.photos/id/646/200/200" alt="Profile picture">
-                          <div class="absolute top-0 left-0 w-full h-full rounded-full shadow-inner"></div>
-                        </div>
-                      </div>
                     </div>
-                    <div class="ml-6 w-full">
-                      <p class="flex items-baseline">
-                        <span class="text-gray-600 font-bold">{{$review->user->displayName()}}</span>
-                        <span class="ml-2 text-blue-600 text-xs">{{$review->created_at->diffForHumans()}}</span>
-                      </p>
-                      <div class="flex items-center mt-1">
-                          @php
-                              for($i=1;$i<=5;$i++)
-                              {
-                                  if ($i <= $review->rating) {
-                                    echo '<svg class="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>';
-                                  }
-                                  else {
-                                    echo '<svg class="w-4 h-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>';
-                                  }
-                              }
-                          @endphp
-                        
-                      </div>
-                      {{-- <div class="flex items-center mt-4 text-gray-600">
+                @endif
+            </div>
+            {{-- reviews --}}
+            <div class="py-12 px-4 md:px-6 2xl:px-0 2xl:container 2xl:mx-auto flex justify-center items-center">
+                <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
+                <div class="flex flex-col justify-start items-start w-full space-y-8">
+                    <div class="flex justify-start items-start">
+                        <p class="text-1xl lg:text-2xl font-semibold leading-7 lg:leading-9 text-gray-800 ">Reviews
+                        </p>
+                    </div>
+
+                    @foreach ($reviews as $review)
+                        <div class="flex items-start  w-full">
+                            <div class="flex-shrink-0">
+                                <div class="inline-block relative">
+                                    <div class="relative w-16 h-16 rounded-full overflow-hidden">
+                                        <img class="absolute top-0 left-0 w-full h-full bg-cover object-fit object-cover"
+                                            src="https://picsum.photos/id/646/200/200" alt="Profile picture">
+                                        <div class="absolute top-0 left-0 w-full h-full rounded-full shadow-inner">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ml-6 w-full">
+                                <p class="flex items-baseline">
+                                    <span class="text-gray-600 font-bold">{{ $review->user->displayName() }}</span>
+                                    <span
+                                        class="ml-2 text-blue-600 text-xs">{{ $review->created_at->diffForHumans() }}</span>
+                                </p>
+                                <div class="flex items-center mt-1">
+                                    @php
+                                        for ($i = 1; $i <= 5; $i++) {
+                                            if ($i <= $review->rating) {
+                                                echo '<svg class="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>';
+                                            } else {
+                                                echo '<svg class="w-4 h-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>';
+                                            }
+                                        }
+                                    @endphp
+
+                                </div>
+                                {{-- <div class="flex items-center mt-4 text-gray-600">
                         <div class="flex items-center">
                           <span class="text-sm">Product Quality</span>
                           <div class="flex items-center ml-2">
@@ -424,34 +434,36 @@
                           </div>
                         </div>
                       </div> --}}
-                      <div class="mt-3 mb-2">
-                        {{-- <span class="font-bold">Sapien consequat eleifend!</span> --}}
-                        <p class="mt-1">{{$review->comment}}</p>
-                      </div>
-                     {{-- display pictures  --}}
-                     @if($review->attachments->count() > 0)
-                        <div class="container">
-                            <p>Pictures</p>
-                            <div class="flex flex-wrap -m-4">
-                                @foreach($review->attachments as $attachment)
-                                    <div class="lg:w-1/8 p-4 md:w-1/4 w-1/2">
-                                        <a class="block relative h-48 rounded overflow-hidden">
-                                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{asset('storage/'.$attachment->attachment)}}">
-                                        </a>
-                                        {{-- <div class="mt-4">
+                                <div class="mt-3 mb-2">
+                                    {{-- <span class="font-bold">Sapien consequat eleifend!</span> --}}
+                                    <p class="mt-1">{{ $review->comment }}</p>
+                                </div>
+                                {{-- display pictures --}}
+                                @if ($review->attachments->count() > 0)
+                                    <div class="container">
+                                        <p>Pictures</p>
+                                        <div class="flex flex-wrap -m-4">
+                                            @foreach ($review->attachments as $attachment)
+                                                <div class="lg:w-1/8 p-4 md:w-1/4 w-1/2">
+                                                    <a class="block relative h-48 rounded overflow-hidden">
+                                                        <img alt="ecommerce"
+                                                            class="object-cover object-center w-full h-full block"
+                                                            src="{{ asset('storage/' . $attachment->attachment) }}">
+                                                    </a>
+                                                    {{-- <div class="mt-4">
                                             <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
                                             <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
                                             <p class="mt-1">$16.00</p>
                                         </div> --}}
+                                                </div>
+                                            @endforeach
+                                        </div>
                                     </div>
-                                @endforeach
-                            </div>
-                        </div>
-                     @endif
-                        {{-- @if($review->attachments)
+                                @endif
+                                {{-- @if ($review->attachments)
                             <div class="mt-4">
                                 <div class="flex flex-wrap">
-                                @foreach($review->attachments as $attachment)
+                                @foreach ($review->attachments as $attachment)
                                     <div class="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-1">
                                     <img src="{{asset('storage/'.$attachment->attachment)}}" alt="">
                                     </div>
@@ -459,27 +471,38 @@
                                 </div>
                             </div>
                         @endif --}}
-                      <div class="flex items-center justify-between mt-4 text-sm text-gray-600 fill-current">
-                        <button class="flex items-center">
-                          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.08 12.16A2.99 2.99 0 0 1 0 10a3 3 0 0 1 5.08-2.16l8.94-4.47a3 3 0 1 1 .9 1.79L5.98 9.63a3.03 3.03 0 0 1 0 .74l8.94 4.47A2.99 2.99 0 0 1 20 17a3 3 0 1 1-5.98-.37l-8.94-4.47z"/></svg>
-                          <span class="ml-2">Share</span>
-                        </button>
-                        <div class="flex items-center">
-                          <span>Was this review helplful?</span>
-                          <button class="flex items-center ml-6">
-                            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 0h1v3l3 7v8a2 2 0 0 1-2 2H5c-1.1 0-2.31-.84-2.7-1.88L0 12v-2a2 2 0 0 1 2-2h7V2a2 2 0 0 1 2-2zm6 10h3v10h-3V10z"/></svg>
-                            <span class="ml-2">56</span>
-                          </button>
-                          <button class="flex items-center ml-4">
-                            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 20a2 2 0 0 1-2-2v-6H2a2 2 0 0 1-2-2V8l2.3-6.12A3.11 3.11 0 0 1 5 0h8a2 2 0 0 1 2 2v8l-3 7v3h-1zm6-10V0h3v10h-3z"/></svg>
-                            <span class="ml-2">10</span>
-                          </button>
+                                <div class="flex items-center justify-between mt-4 text-sm text-gray-600 fill-current">
+                                    <button class="flex items-center">
+                                        <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                            <path
+                                                d="M5.08 12.16A2.99 2.99 0 0 1 0 10a3 3 0 0 1 5.08-2.16l8.94-4.47a3 3 0 1 1 .9 1.79L5.98 9.63a3.03 3.03 0 0 1 0 .74l8.94 4.47A2.99 2.99 0 0 1 20 17a3 3 0 1 1-5.98-.37l-8.94-4.47z" />
+                                        </svg>
+                                        <span class="ml-2">Share</span>
+                                    </button>
+                                    <div class="flex items-center">
+                                        <span>Was this review helplful?</span>
+                                        <button class="flex items-center ml-6">
+                                            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M11 0h1v3l3 7v8a2 2 0 0 1-2 2H5c-1.1 0-2.31-.84-2.7-1.88L0 12v-2a2 2 0 0 1 2-2h7V2a2 2 0 0 1 2-2zm6 10h3v10h-3V10z" />
+                                            </svg>
+                                            <span class="ml-2">56</span>
+                                        </button>
+                                        <button class="flex items-center ml-4">
+                                            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M11 20a2 2 0 0 1-2-2v-6H2a2 2 0 0 1-2-2V8l2.3-6.12A3.11 3.11 0 0 1 5 0h8a2 2 0 0 1 2 2v8l-3 7v3h-1zm6-10V0h3v10h-3z" />
+                                            </svg>
+                                            <span class="ml-2">10</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                @endforeach
-                        {{-- <div class="w-full flex justify-start items-start flex-col bg-gray-50 dark:bg-gray-800 p-8">
+                    @endforeach
+                    {{-- <div class="w-full flex justify-start items-start flex-col bg-gray-50 dark:bg-gray-800 p-8">
                             <div class="flex flex-col md:flex-row justify-between w-full">
                                 <div class="flex flex-row justify-between items-start">
                                     <p
@@ -922,161 +945,160 @@
                             </div>
 
                         </div> --}}
-                    </div>
                 </div>
+            </div>
 
-                <style>
-                    .carousel-cell {
-                        width: 150px;
-                        height: 150px;
+            <style>
+                .carousel-cell {
+                    width: 150px;
+                    height: 150px;
 
-                        margin-right: 24px;
-                        counter-increment: carousel-cell;
+                    margin-right: 24px;
+                    counter-increment: carousel-cell;
+                }
+
+                .carousel-cell:before {
+                    display: block;
+                    width: 20%;
+                }
+
+                .flickity-slider {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: -260px !important;
+                }
+
+                .flickity-button {
+                    position: absolute !important;
+                    inset: 0 !important;
+                    top: 50% !important;
+                    left: 80% !important;
+                    background: white;
+                    border: 0px;
+                    color: #27272a;
+                }
+
+                .flickity-prev-next-button:hover {
+                    background-color: #27272a;
+                    color: white;
+                }
+
+                .flickity-prev-next-button.previous {
+                    visibility: hidden;
+                }
+
+                .flickity-prev-next-button.next {
+                    margin-left: 50px;
+                    width: 48px;
+                    height: 48px;
+                    visibility: hidden;
+                }
+
+                .flickity-enabled.is-draggable .flickity-viewport {
+                    cursor: none;
+                    cursor: default;
+                }
+
+                .flickity-prev-next-button .flickity-button-icon {
+                    margin-left: 2px;
+                    margin-top: 2px;
+                    width: 24px;
+                    height: 24px;
+                }
+            </style>
+            <script>
+                let menu = document.getElementById("menu");
+                let closeIcon = document.getElementById("closeIcon");
+                let openIcon = document.getElementById("openIcon");
+                const showMenu = (flag) => {
+                    if (flag) {
+                        menu.classList.toggle("hidden");
+                        closeIcon.classList.toggle("hidden");
+                        openIcon.classList.toggle("hidden");
                     }
+                };
 
-                    .carousel-cell:before {
-                        display: block;
-                        width: 20%;
+                let menu2 = document.getElementById("menu2");
+                let closeIcon2 = document.getElementById("closeIcon2");
+                let openIcon2 = document.getElementById("openIcon2");
+                const showMenu2 = (flag) => {
+                    if (flag) {
+                        menu2.classList.toggle("hidden");
+                        closeIcon2.classList.toggle("hidden");
+                        openIcon2.classList.toggle("hidden");
                     }
+                };
+            </script>
+        </section>
+    </div>
 
-                    .flickity-slider {
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        left: -260px !important;
-                    }
 
-                    .flickity-button {
-                        position: absolute !important;
-                        inset: 0 !important;
-                        top: 50% !important;
-                        left: 80% !important;
-                        background: white;
-                        border: 0px;
-                        color: #27272a;
-                    }
+    <div class="section">
+        <section class="text-gray-700 body-font bg-green-200">
+            <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Contact Us</h1>
+                    <p class="lg:w-1/2 w-full leading-relaxed text-base">
+                        Need to get in touch with us? Either fill out the form with your inquiry or
+                        find the miraplesregine24@gmail.com you'd like to contact below. </p>
+                </div>
+                <div class="relative flex items-top justify-center sm:items-center sm:pt-0">
+                    <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+                        <div class="mt-8 overflow-hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-2">
+                                <div class="p-6 mr-2 bg-gray-100 sm:rounded-lg">
+                                    <h1 class="text-4xl sm:text-5xl text-gray-800 font-extrabold tracking-tight">
+                                        Our Address
+                                    </h1>
+                                    <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 mt-2">
 
-                    .flickity-prev-next-button:hover {
-                        background-color: #27272a;
-                        color: white;
-                    }
+                                        Silonay Mangrove Conservation Ecopark: Sitio Singalong, Brgy. Silonay,
+                                        Calapan
+                                        City.  Open daily, 8AM – 5PM.
 
-                    .flickity-prev-next-button.previous {
-                        visibility: hidden;
-                    }
+                                        Admission: PhP50/head (PhP20 for students/senior/pwd, Php10 resident ).
 
-                    .flickity-prev-next-button.next {
-                        margin-left: 50px;
-                        width: 48px;
-                        height: 48px;
-                        visibility: hidden;
-                    }
+                                    </p>
 
-                    .flickity-enabled.is-draggable .flickity-viewport {
-                        cursor: none;
-                        cursor: default;
-                    }
+                                    <div class="flex items-center mt-8 text-gray-600 dark:text-gray-400">
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                            class="w-8 h-8 text-gray-500">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <div class="ml-4 text-md tracking-wide font-semibold w-60">
+                                            Silonay, Calapan City, Oriental Mindoro
 
-                    .flickity-prev-next-button .flickity-button-icon {
-                        margin-left: 2px;
-                        margin-top: 2px;
-                        width: 24px;
-                        height: 24px;
-                    }
-                </style>
-                <script>
-                    let menu = document.getElementById("menu");
-                    let closeIcon = document.getElementById("closeIcon");
-                    let openIcon = document.getElementById("openIcon");
-                    const showMenu = (flag) => {
-                        if (flag) {
-                            menu.classList.toggle("hidden");
-                            closeIcon.classList.toggle("hidden");
-                            openIcon.classList.toggle("hidden");
-                        }
-                    };
-
-                    let menu2 = document.getElementById("menu2");
-                    let closeIcon2 = document.getElementById("closeIcon2");
-                    let openIcon2 = document.getElementById("openIcon2");
-                    const showMenu2 = (flag) => {
-                        if (flag) {
-                            menu2.classList.toggle("hidden");
-                            closeIcon2.classList.toggle("hidden");
-                            openIcon2.classList.toggle("hidden");
-                        }
-                    };
-                </script>
-            </section>
-        </div>
-        
-
-        <div class="section">
-            <section class="text-gray-700 body-font bg-green-200">
-                <div class="container px-5 py-24 mx-auto">
-                    <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Contact Us</h1>
-                        <p class="lg:w-1/2 w-full leading-relaxed text-base">
-                            Need to get in touch with us? Either fill out the form with your inquiry or
-                            find the miraplesregine24@gmail.com you'd like to contact below. </p>
-                    </div>
-                    <div class="relative flex items-top justify-center sm:items-center sm:pt-0">
-                        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                            <div class="mt-8 overflow-hidden">
-                                <div class="grid grid-cols-1 md:grid-cols-2">
-                                    <div class="p-6 mr-2 bg-gray-100 sm:rounded-lg">
-                                        <h1 class="text-4xl sm:text-5xl text-gray-800 font-extrabold tracking-tight">
-                                            Our Address
-                                        </h1>
-                                        <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 mt-2">
-
-                                            Silonay Mangrove Conservation Ecopark: Sitio Singalong, Brgy. Silonay,
-                                            Calapan
-                                            City.  Open daily, 8AM – 5PM.
-
-                                            Admission: PhP50/head (PhP20 for students/senior/pwd, Php10 resident ).
-
-                                        </p>
-
-                                        <div class="flex items-center mt-8 text-gray-600 dark:text-gray-400">
-                                            <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                                                class="w-8 h-8 text-gray-500">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            </svg>
-                                            <div class="ml-4 text-md tracking-wide font-semibold w-60">
-                                                Silonay, Calapan City, Oriental Mindoro
-
-                                            </div>
                                         </div>
+                                    </div>
 
-                                        <div class="flex items-center mt-4 text-gray-600 dark:text-gray-400">
-                                            <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                                                class="w-8 h-8 text-gray-500">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                            </svg>
-                                            <div class="ml-4 text-md tracking-wide font-semibold w-40">
-                                                09279501242
+                                    <div class="flex items-center mt-4 text-gray-600 dark:text-gray-400">
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                            class="w-8 h-8 text-gray-500">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                        <div class="ml-4 text-md tracking-wide font-semibold w-40">
+                                            09279501242
 
-                                            </div>
                                         </div>
+                                    </div>
 
-                                        <div class="flex items-center mt-2 text-gray-600 dark:text-gray-400">
-                                            <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                                                class="w-8 h-8 text-gray-500">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                            </svg>
-                                            <div class="ml-4 text-md tracking-wide font-semibold w-40">
-                                                silonaymangrove@gmail.com
+                                    <div class="flex items-center mt-2 text-gray-600 dark:text-gray-400">
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                            class="w-8 h-8 text-gray-500">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                        <div class="ml-4 text-md tracking-wide font-semibold w-40">
+                                            silonaymangrove@gmail.com
 
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1084,55 +1106,89 @@
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-        <script src="{{ asset('js/jq.js') }}"></script>
-        <script src="{{ asset('js/alertify.min.js') }}"></script>
-        <script src="js/my.js"></script>
-        <script>
-            $('#nav-open').click((e) => {
-                $('#nav-opened').fadeToggle('slow')
+            </div>
+        </section>
+    </div>
+    
+    <div class="fixed bottom-10 right-10 bg-white p-5 rounded-full" onclick="toggleSearch()">
+        <button>
+            <svg class="w-5 h-4 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </button>
+    </div>
+
+    <x-modal id="search">
+        <x-slot name="header">
+          
+        <div class="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end" style="margin-bottom: -4rem">
+            <div class="w-full">
+              <label for="search" class="sr-only">Search </label>
+              <form methode="get"  class="relative z-50">
+                <button type="submit" id="searchsubmit" class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <input type="text" name="s" id="s" value="{{request('s')}}" class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 focus:outline-none focus:bg-white sm:text-sm transition duration-150 ease-in-out" placeholder="Search">
+              </form>
+            </div>
+          </div>    
+        </x-slot>
+        <x-slot name="footer">
+        </x-slot>
+      </x-modal>
+    
+
+    <script src="{{ asset('js/jq.js') }}"></script>
+    <script src="{{ asset('js/alertify.min.js') }}"></script>
+    <script src="js/my.js"></script>
+    <script>
+        $('#nav-open').click((e) => {
+            $('#nav-opened').fadeToggle('slow')
+        })
+        $('#rating svg').each((i, el) => {
+            $(el).click((e) => {
+                setRate(i + 1)
             })
+
+        })
+        const setRate = (i) => {
+            $('input[name=rating]').val(i)
             $('#rating svg').each((i, el) => {
-                $(el).click((e) => {
-                    setRate(i+1)
-                })
-              
+                $(el).removeClass(['text-yellow-500', 'text-gray-500'])
             })
-            const setRate = (i) => {
-                    $('input[name=rating]').val(i)
-                    $('#rating svg').each((i, el) => {
-                        $(el).removeClass(['text-yellow-500', 'text-gray-500'])
-                    })
-                    for(let j = 0; j < 5; j++){
-                        if(j < i)
-                            $($('#rating svg')[j]).addClass('text-yellow-500')
-                        else
-                            $($('#rating svg')[i]).addClass('text-gray-500')
-                    }
+            for (let j = 0; j < 5; j++) {
+                if (j < i)
+                    $($('#rating svg')[j]).addClass('text-yellow-500')
+                else
+                    $($('#rating svg')[i]).addClass('text-gray-500')
             }
-            $('#frm-feedback').submit(e=>{
-                let fd=new FormData(e.target)
-                e.preventDefault()
-                $.ajax({
-                    url: '{{ route('user.feedback.store') }}',
-                    method: 'POST',
-                    data: fd,
-                    contentType:false,
-                    processData:false,
-                    success: function(data){
-                        if(data.status == 'success'){
-                            alertify.success(data.message);
-                            location.reload();
-                        }
-                    },
-                    error:(err)=>{
-                        showInputErrors(err);
+        }
+        $('#frm-feedback').submit(e => {
+            let fd = new FormData(e.target)
+            e.preventDefault()
+            $.ajax({
+                url: '{{ route('user.feedback.store') }}',
+                method: 'POST',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    if (data.status == 'success') {
+                        alertify.success(data.message);
+                        location.reload();
                     }
-                })
+                },
+                error: (err) => {
+                    showInputErrors(err);
+                }
             })
-            setRate(3)
-        </script>
+        })
+        setRate(3)
+        function toggleSearch()
+        {
+            openModal('modal-search')
+        }
+    </script>
 </body>
 
 </html>
