@@ -38,10 +38,12 @@
                                             {{$donation->status}}
                                         </td>
                                         <td class="border-grey-light border p-3 hover:font-medium">
-                                            <div class="grid grid-cols-1  lg:grid-cols-2 gap-4">
-                                                <button type="button" data-donationid="{{$donation->id}}" class="reject-donation bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Reject</button>
-                                                <button type="button" data-donationid="{{$donation->id}}" class="confirm-donation bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Confirm</button>
-                                            </div>
+                                            @if ($donation->status=='pending')
+                                                <div class="grid grid-cols-1  lg:grid-cols-2 gap-4">
+                                                    <button type="button" data-donationid="{{$donation->id}}" class="reject-donation bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Reject</button>
+                                                    <button type="button" data-donationid="{{$donation->id}}" class="confirm-donation bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Confirm</button>
+                                                </div>
+                                            @endif
                                         </td>
                                     </tr>
                                 @empty

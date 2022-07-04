@@ -66,6 +66,12 @@ class LoginRequest extends FormRequest
                 'login' => 'account pending for approval',
             ]);
         }
+        if(Auth::user()->status=='suspended'){
+            Auth::guard('web')->logout();
+            throw ValidationException::withMessages([
+                'login' => 'account was suspended',
+            ]);
+        }
         RateLimiter::clear($this->throttleKey());
     }
 

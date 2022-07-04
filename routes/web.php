@@ -54,6 +54,8 @@ Route::middleware(['myauth:admin'])
         Route::get('/dashboard',['uses'=>'HomepageController@home','as'=>'home']);
         Route::put('/user/{user}/approve',['uses'=>'UserController@approve','as'=>'user.approve']);
         Route::put('/user/{user}/decline',['uses'=>'UserController@decline','as'=>'user.decline']);
+        Route::put('/user/{user}/suspend',['uses'=>'UserController@suspend','as'=>'user.suspend']);
+        Route::put('/user/{user}/active',['uses'=>'UserController@active','as'=>'user.active']);
         Route::put('/donation/{donation}/confirm',['uses'=>'DonationController@confirm','as'=>'donations.confirm']);
         Route::put('/donation/{donation}/reject',['uses'=>'DonationController@reject','as'=>'donations.reject']);
         Route::put('/reservations/{reservation}/confirm',['uses'=>'ReservationController@confirm','as'=>'reservations.confirm']);

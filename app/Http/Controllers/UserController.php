@@ -75,4 +75,26 @@ class UserController extends Controller
             'message'=>'User was Declined!'
         ]);
     }
+    
+    public function suspend(User $user)
+    {
+        $user->status='suspended';
+        $user->save();
+        return response([
+            'status'=>'success',
+            'user'=>$user,
+            'message'=>'User was Suspended!'
+        ]);
+    }
+    
+    public function active(User $user)
+    {
+        $user->status='active';
+        $user->save();
+        return response([
+            'status'=>'success',
+            'user'=>$user,
+            'message'=>'User was Activated!'
+        ]);
+    }
 }

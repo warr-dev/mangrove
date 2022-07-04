@@ -29,13 +29,20 @@
                                             {{$user->status}}
                                         </td>
                                         <td class="border-grey-light border p-3 hover:font-medium">
-                                            <div class="grid grid-cols-1  lg:grid-cols-2 gap-4">
-                                                {{-- <button type="button" data-userid="{{$user->id}}" class="deluser bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Delete</button>
-                                                <button type="button" data-userid="{{$user->id}}" onclick="loadModal('{{route('admin.user.edit',$user->id)}}')" class="bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Edit</button> --}}
-                                                
-                                                <button type="button" data-userid="{{$user->id}}" class="decline-user bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Decline</button>
-                                                <button type="button" data-userid="{{$user->id}}" class="approve-user bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Approve</button>
-                                            </div>
+                                            @if ($user->status=='pending')
+                                                <div class="grid grid-cols-1  lg:grid-cols-2 gap-4">
+                                                    <button type="button" data-userid="{{$user->id}}" class="decline-user bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Decline</button>
+                                                    <button type="button" data-userid="{{$user->id}}" class="approve-user bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Approve</button>
+                                                </div>
+                                            @elseif($user->status=='suspended')
+                                                <div class="grid grid-cols-1  lg:grid-cols-2 gap-4">
+                                                    <button type="button" data-userid="{{$user->id}}" class="active-user bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Active</button>
+                                                </div>
+                                            @elseif($user->status=='active'||$user->status=='approved')
+                                                <div class="grid grid-cols-1  lg:grid-cols-2 gap-4">
+                                                    <button type="button" data-userid="{{$user->id}}" class="suspend-user bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Suspend</button>
+                                                </div>
+                                            @endif
                                         </td>
                                     </tr>
                                 @empty
@@ -164,6 +171,47 @@
             e.preventDefault();
             $.ajax({
                 url:'{{route('admin.user.approve',':id')}}'.replace(':id',id),
+                data:{_token:'{{csrf_token()}}'},
+                type:'put',
+                success:(res)=>{
+                    if(res.message){
+                        alertify.success(res.message);
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
+                    }
+                },
+                error:(err)=>{
+                    showInputErrors(err)
+                }
+            })
+        })
+        $('.suspend-user').click((e)=>{
+            let id=$(e.target).data('userid')
+            e.preventDefault();
+            $.ajax({
+                url:'{{route('admin.user.suspend',':id')}}'.replace(':id',id),
+                data:{_token:'{{csrf_token()}}'},
+                type:'put',
+                success:(res)=>{
+                    if(res.message){
+                        alertify.success(res.message);
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
+                    }
+                },
+                error:(err)=>{
+                    showInputErrors(err)
+                }
+            })
+        })
+        
+        $('.active-user').click((e)=>{
+            let id=$(e.target).data('userid')
+            e.preventDefault();
+            $.ajax({
+                url:'{{route('admin.user.active',':id')}}'.replace(':id',id),
                 data:{_token:'{{csrf_token()}}'},
                 type:'put',
                 success:(res)=>{

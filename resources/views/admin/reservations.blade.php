@@ -44,10 +44,12 @@
                                         <td class="p-3 text-left">{{ $reservation->status }}</td>
                                         
                                         <td class="border-grey-light border p-3 hover:font-medium">
-                                            <div class="grid grid-cols-1  gap-2">
-                                                <button type="button" data-reservationid="{{$reservation->id}}" class="cancel-reservation delevent bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Cancel</button>
-                                                <button type="button" data-reservationid="{{$reservation->id}}" class="confirm-reservation bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Confirm</button>
-                                            </div>
+                                            @if ($reservation->status=='pending')
+                                                <div class="grid grid-cols-1  gap-2">
+                                                    <button type="button" data-reservationid="{{$reservation->id}}" class="cancel-reservation delevent bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Cancel</button>
+                                                    <button type="button" data-reservationid="{{$reservation->id}}" class="confirm-reservation bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Confirm</button>
+                                                </div>
+                                            @endif
                                         </td>
                                     </tr>
                                 @empty
