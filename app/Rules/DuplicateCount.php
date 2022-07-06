@@ -9,15 +9,17 @@ class DuplicateCount implements Rule
 {
     public $max;
     public $session_id;
+    public $date;
     /**
      * Create a new rule instance.
      *
      * @return void
      */
-    public function __construct($max,$session_id=1)
+    public function __construct($max,$session_id=1,$date="CURDATE()")
     {
         $this->max=$max;
         $this->session_id=$session_id;
+        $this->date=$date;
     }
 
     /**
@@ -30,7 +32,7 @@ class DuplicateCount implements Rule
     public function passes($attribute, $value)
     {
         $count=Reservation::where($attribute,$value)
-            ->whereRaw("(status = 'pending' OR status = 'confirmed') and date_visit = CURDATE() and session_id = $this->session_id")
+            ->whereRaw("(status = 'pending' OR status = 'confirmed') and date_visit = ".$this->date." and session_id = $this->session_id")
             ->count();
         if($count>=$this->max)
         {

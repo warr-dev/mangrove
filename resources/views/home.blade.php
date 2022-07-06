@@ -58,7 +58,7 @@
     @include('layouts.components.nav')
 
 
-    <header id="up" class="bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen relative">
+    <header id="up" class="bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen relative" id="about">
         <!-- Overlay Background + Center Control -->
         <div class="h-screen bg-opacity-50 bg-black flex items-center justify-center"
             style="background:rgba(0,0,0,0.5);">
@@ -199,7 +199,7 @@
     </div>
 
 
-    <div class="section">
+    <div class="section" id="advisory">
         <section class="text-gray-700 body-font bg-green-200">
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
@@ -1034,7 +1034,7 @@
     </div>
 
 
-    <div class="section">
+    <div class="section" id ="contacts">
         <section class="text-gray-700 body-font bg-green-200">
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">

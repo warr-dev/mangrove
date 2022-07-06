@@ -11,7 +11,7 @@
 
     <!-- Nav Items Working on Tablet & Bigger Sceen -->
     <div class="p-4 hidden md:flex flex-row justify-between font-bold" style="height: fit-content">
-        <a id="hide-after-click" href="#about" class="mx-4 text-lg  border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">About</a>
+        <a id="hide-after-click" href="{{route('landing')}}#about" class="mx-4 text-lg  border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">About</a>
         <a href="{{route('adddonations')}}" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Donation
             </a>
         @if (auth()->check())

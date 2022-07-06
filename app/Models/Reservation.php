@@ -59,7 +59,7 @@ class Reservation extends Model
     {
         $counters=[];
         $paxesCount=Pax::join('reservation','paxes.reservation_id','reservation.id')
-            
+            ->where('reservation.status','confirmed')
             ->selectRaw('count(*) as count,class')
             ->groupBy('paxes.class');
         if(!is_array($date))

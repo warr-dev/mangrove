@@ -127,8 +127,8 @@
                             </div>
                             <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                                 <select class="p-1 px-2 appearance-none outline-none w-full text-gray-800" name="class[0]">
-                                    @forelse ($classes as $class)
-                                        <option value="{{ $class }}">{{ Str::ucfirst($class) }}</option>
+                                    @forelse ($classes as $class=>$val)
+                                        <option value="{{ $class }}">{{ Str::ucfirst($class). ' (Php'.$val.')' }}</option>
                                     @empty
                                         <option value="">No Class Available</option>
                                     @endforelse
