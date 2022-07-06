@@ -13,6 +13,8 @@ class Event extends Model
         'title',
         'date',
         'venue',
+        'transtype',
+        'price',
         'description',
     ];
 
@@ -28,6 +30,10 @@ class Event extends Model
         else{
             return 'upcoming';
         }
+    }
+    function getPrice()
+    {
+        return $this->price==0?'':' (Php '.$this->price.')';
     }
     protected $casts = [
         'date'  => 'date:Y-m-d',

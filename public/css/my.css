@@ -85,3 +85,8 @@ img.background {
 ::-webkit-scrollbar {
   width: 1px;
 }
+
+#subtotal{
+  font-size: 2rem;
+  font-weight: bold;
+}

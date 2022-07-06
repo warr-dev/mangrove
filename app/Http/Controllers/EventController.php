@@ -18,8 +18,10 @@ class EventController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'date' => ['required', 'date'],
             'venue' => ['required', 'string', 'max:255'],
+            'price' => ['required', 'numeric'],
             'description' => ['required', 'string', 'max:255'],
         ]);
+        $data['transtype']=$request->transtype?'multiple':'single';
         $event=Event::create($data);
         return response([
             'status'=>'success',
@@ -33,8 +35,10 @@ class EventController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'date' => ['required', 'date'],
             'venue' => ['required', 'string', 'max:255'],
+            'price' => ['required', 'numeric'],
             'description' => ['required', 'string', 'max:255'],
         ]);
+        $data['transtype']=$request->transtype?'multiple':'single';
         $event=Event::find($id);
         $event->update($data);
         return response([

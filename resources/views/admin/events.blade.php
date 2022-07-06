@@ -32,6 +32,10 @@
                                         <x-form.input name="title" label="Title" />
                                         <x-form.input name="date" label="Date" type="date" />
                                         <x-form.input name="venue" label="Venue" />
+                                        <label for="transtype" class="text-gray-700 text-xs sm:text-md">isMultiple</label>
+                                        <input id="transtype" name="transtype" type="checkbox" class="bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                        <div><small id="error-transtype" class="error-transtype text-red-500 p-l-5"></small></div>
+                                        <x-form.input name="price" label="Price" type="number"/>
                                         <x-form.input name="description" label="Description" type="textarea" />
 
                                     <div class="flex justify-start mt-4">
@@ -58,7 +62,7 @@
                                 <tbody class="flex-1 sm:flex-none">
                                     @forelse ($events as $event)
                                         <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                                            <td class="border-grey-light border hover:bg-gray-100 p-3">{{$event->title}}</td>
+                                            <td class="border-grey-light border hover:bg-gray-100 p-3">{{$event->title.$event->getPrice()}}</td>
                                             <td class="border-grey-light border hover:bg-gray-100 p-3">{{$event->date}}</td>
                                             <td class="border-grey-light border hover:bg-gray-100 p-3">{{$event->venue}}</td>
                                             <td class="border-grey-light border hover:bg-gray-100 p-3">{{$event->getStatus()}}</td>
@@ -95,6 +99,10 @@
                 <x-form.input name="title" label="Title" />
                 <x-form.input name="date" label="Date" type="date" />
                 <x-form.input name="venue" label="Venue" />
+                <label for="transtype" class="text-gray-700 text-xs sm:text-md">isMultiple</label>
+                <input id="transtype" name="transtype" type="checkbox" class="bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                <div><small id="error-transtype" class="error-transtype text-red-500 p-l-5"></small></div>
+                <x-form.input name="price" label="Price" type="number"/>
                 <x-form.input name="description" label="Description" type="textarea" />
                 
             </div>
@@ -198,5 +206,8 @@
                 }
             })
         }
+        $('#transtype').change(e=>{
+            document.querySelector('label[for="price"]').innerText=e.target.checked?"Price per unit":"Price";
+        })
     </script>
 @endpush

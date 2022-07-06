@@ -102,10 +102,10 @@
                         <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Events/Activities
                         </div>
                         <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                            <select class="p-1 px-2 appearance-none outline-none w-full text-gray-800" name="event_id"
+                            <select onchange="computeSubtotal()"  class="p-1 px-2 appearance-none outline-none w-full text-gray-800" name="event_id"
                                 id="events">
                                 @forelse ($events as $event)
-                                    <option value="{{ $event->id }}">{{ $event->title }}</option>
+                                    <option data-price="{{$event->price}}" value="{{ $event->id }}">{{ $event->title.$event->getPrice() }}</option>
                                 @empty
                                     <option value="">No Event Available</option>
                                 @endforelse
@@ -126,9 +126,9 @@
                             <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Classification
                             </div>
                             <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                                <select class="p-1 px-2 appearance-none outline-none w-full text-gray-800" name="class[0]">
+                                <select class="classf p-1 px-2 appearance-none outline-none w-full text-gray-800" name="class[0]">
                                     @forelse ($classes as $class=>$val)
-                                        <option value="{{ $class }}">{{ Str::ucfirst($class). ' (Php'.$val.')' }}</option>
+                                    <option data-price="{{$val}}" onclick="setEventPrice(event)" value="{{ $class }}">{{ Str::ucfirst($class).' (Php '.$val.')' }}</option>
                                     @empty
                                         <option value="">No Class Available</option>
                                     @endforelse
@@ -170,7 +170,8 @@
                 </div>
             </div>
         </div>
-        <div class="flex p-2 mt-4">
+        <div class="flex p-2 mt-4 justify-between">
+            <div>Subtotal: <span id="subtotal"></span></div>
             <div class="flex-auto flex flex-row-reverse">
                 <button id="btn-next" type="button"
                     class="text-base  ml-2  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
@@ -264,9 +265,9 @@
                     <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Classification
                     </div>
                     <div class="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                        <select class="p-1 px-2 appearance-none outline-none w-full text-gray-800" name="class[${paxes}]">
-                            @forelse ($classes as $class)
-                                <option value="{{ $class }}">{{ Str::ucfirst($class) }}</option>
+                        <select class="classf p-1 px-2 appearance-none outline-none w-full text-gray-800" name="class[${paxes}]">
+                            @forelse ($classes as $class=>$val)
+                                <option data-price="{{$val}}" onclick="setEventPrice(event)" value="{{ $class }}">{{ Str::ucfirst($class).' (Php '.$val.')' }}</option>
                             @empty
                                 <option value="">No Class Available</option>
                             @endforelse
@@ -280,10 +281,30 @@
             </div>`;
             $('#paxes').append(pax);
             paxes++;
+            computeSubtotal();
+            $('.classf').off('change')
+            $('.classf').change(e=>{
+                computeSubtotal()
+            })
         };
         const deletePax=(id)=> {
             $('#pax'+id).remove();
+            computeSubtotal()
           }  
         $('#add-pax').click(addPax);
+        
+        let Subtotal=0;
+        const computeSubtotal=()=>{
+            let events=document.querySelector('[name="event_id"]');
+            let eventPrice=events[events.selectedIndex].dataset.price;
+            let paxCount=document.querySelector('#paxes').childElementCount
+            Subtotal=eventPrice*paxCount
+            console.log('sda');
+            $('.classf').each((ind,el)=>{
+                Subtotal+=Number(el[el.selectedIndex].dataset.price)
+            })
+            document.querySelector('#subtotal').innerText=Subtotal
+        }
+        
     </script>
 @endpush
