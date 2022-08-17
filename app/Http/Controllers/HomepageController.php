@@ -65,11 +65,12 @@ class HomepageController extends Controller
             }
             $date->addDays(1);
         }
-        // dd($reservations);
+        
         $data = [
             'reservations' => $reservations,
             'date' => date('m/d/Y')
         ];
+        
            
         $pdf = PDF::loadView('reports.report', $data);
      

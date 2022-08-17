@@ -33,7 +33,7 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         $data=$this->validate($request,[
-            'date_visit'=>['required','date',new DuplicateCount(5,$request->session_id??1,"'".$request->date_visit."'")],
+            'date_visit'=>['required','date',new DuplicateCount(100,$request->session_id??1,"'".$request->date_visit."'")],
             'session_id'=>['required','numeric'],
             // 'no_of_pax'=>['required','numeric'],
             'first_name'=>['required','string'],
