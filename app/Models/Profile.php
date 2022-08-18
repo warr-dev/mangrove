@@ -20,5 +20,12 @@ class Profile extends Model
         'gender',
         'user_id'
     ];
-
+    // get full address
+    public function getFullAddressAttribute()
+    {
+        return ($this->barangay?$this->barangay.', ':'').
+                ($this->city?$this->city.', ':'').
+                ($this->province?$this->province.', ':'').
+                ($this->zipcode?$this->zipcode:'');
+    }
 }

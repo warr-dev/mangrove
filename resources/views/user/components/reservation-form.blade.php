@@ -87,17 +87,17 @@
 
                 <div class="font-bold text-gray-600 text-xs leading-8 uppercase h-6 mx-2 mt-3">Full Name</div>
                 <div class="flex flex-col md:flex-row">
-                    <x-form.input2 name="first_name" placeholder="First Name" />
-                    <x-form.input2 name="last_name" placeholder="Last Name" />
+                    <x-form.input2 name="first_name" placeholder="First Name" :value="Auth::user()->profile->first_name" />
+                    <x-form.input2 name="last_name" placeholder="Last Name" :value="Auth::user()->profile->last_name" />
                 </div>
                 <div class="flex flex-col md:flex-row">
 
-                    <x-form.input2 name="email" label="Email" />
-                    <x-form.input2 name="phone" label="Phone Number" />
+                    <x-form.input2 name="email" :value="Auth::user()->email" label="Email" />
+                    <x-form.input2 name="phone" :value="Auth::user()->phone??''" label="Phone Number" />
                 </div>
                 <div class="flex flex-col md:flex-row">
 
-                    <x-form.input2 name="address" label="Address" />
+                    <x-form.input2 name="address" label="Address" :value="Auth::user()->profile->fullAddress" />
                     <div class="w-full mx-2 flex-1 svelte-1l8159u">
                         <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Events/Activities
                         </div>

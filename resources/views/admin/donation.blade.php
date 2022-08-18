@@ -10,6 +10,9 @@
 
             <div class="flex items-center justify-center">
                 <div class="container p-4">
+                    <div class="flex justify-end">
+                        <button type="button" onclick="openModal('modal-walk-in')" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Add  Walk in</button>
+                    </div>
                     <div class="grid grid-cols-1 gap-4">
                         <table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
                             <thead class="text-white">
@@ -59,6 +62,15 @@
         </div>
     </div>
     
+    <x-modal id="walk-in">
+        <x-slot name="header">
+          <p class="text-2xl font-bold text-gray-500">Add walk-in</p>
+        </x-slot>
+            @include('user.components.donation-form')
+        <x-slot name="footer">
+        </x-slot>
+    </x-modal>
+    
    
 @endsection
 
@@ -106,5 +118,6 @@
                 }
             });
         })
+        
     </script>
 @endpush

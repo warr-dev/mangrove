@@ -13,7 +13,7 @@
                 <div class="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-teal-600">Amount</div>
             </div>
             <div class="stepper-connector flex-auto border-t-2 transition duration-500 ease-in-out border-teal-600"></div>
-            @if(!auth()->check())
+            @if(!auth()->check()||auth()->user()->isAdmin())
                 
             <div class="flex items-center text-white relative step">
                 <div class="rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 bg-teal-600 border-teal-600">
@@ -69,7 +69,7 @@
                 <label class="indent-1" for="coverfees">I'd Like to cover the transaction fees for my donation</label>
             </div>
         </div>
-        @if(!auth()->check())
+        @if(!auth()->check()||auth()->user()->isAdmin())
         <div class="mt-8 p-4">
             <div class="font-bold text-gray-600 text-xs leading-8 uppercase h-6 mx-2 mt-3">Full Name</div>
             <div class="flex flex-col md:flex-row">

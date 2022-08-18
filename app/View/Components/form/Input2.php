@@ -41,7 +41,7 @@ class Input2 extends Component
             <div class="w-full mx-2 flex-1 svelte-1l8159u">
                 @if($label) <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> {{$label}}</div> @endif
                 <div class="bg-white mt-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                    <input type="{{$type}}" placeholder="{{$placeholder}}" id="{{$id}}" name="{{$name}}" class="p-1 px-2 appearance-none outline-none w-full text-gray-800">
+                    <input type="{{$type}}" placeholder="{{$placeholder}}" id="{{$id}}" name="{{$name}}" value="{{$value}}" class="p-1 px-2 appearance-none outline-none w-full text-gray-800">
                 </div>
             </div>
             <div class="w-full text-left ml-4"> <small id="error-{{$name}}" class="text-red-500 p-l-5 indent-1 error-{{$name}}"></small></div>

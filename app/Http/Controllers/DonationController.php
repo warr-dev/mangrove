@@ -41,7 +41,7 @@ class DonationController extends Controller
             'photo'=>'',
         ];
         $user_id=null;
-        if(!auth()->check()){
+        if(!auth()->check()||auth()->user()->isAdmin()){
             $validations['first_name']='required';
             $validations['middle_name']='required';
             $validations['last_name']='required';
@@ -54,15 +54,17 @@ class DonationController extends Controller
         }else 
             $user_id=auth()->user()->id;  
         $data=$request->validate($validations);
-        if(!auth()->check()){
+        if(!auth()->check()||auth()->user()->isAdmin()){
             $guest=Guest::create($request->all());
             $user_id=$guest->id;
+            if(auth()->user()->isAdmin())
+                $data['status']='confirmed';
         }
         $donation=Donations::create(array_merge($data,
             [
                 'photo'=>$request->file('photo')->store('payments/donations','public'),
                 'user_id'=>$user_id,
-                'transaction_type'=>auth()->check()?'App\Models\User':'App\Models\Guest'
+                'transaction_type'=>auth()->check()&&!auth()->user()->isAdmin()?'App\Models\User':'App\Models\Guest'
             ]
         ));
         // $d=Mail::to($donation->donator->email)->send(new DonationMail($donation));

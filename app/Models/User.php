@@ -81,4 +81,9 @@ class User extends Authenticatable
     {
         return $this->profile->first_name.' '.ucFirst($this->profile->last_name[0]).'.';
     }
+    // check if is admin
+    public function isAdmin()
+    {
+        return $this->usertype=='admin';
+    }
 }
