@@ -18,7 +18,7 @@
           <hr class="type_5 mx-auto">
         <div class="font-bold text-xl tracking-wide">
             <div class=" title-font font-bold  text-center text-xl md:text-3xl  w-2/3 mx-auto p-5 text-white">
-                RETICENCE AND ENDOWMENT SYSTEM FOR SILONAY MANGROVE
+            SILONAY MANGROVE RETICENCE AND ENDOWMENT SYSTEM WITH GEO TAGGING
             </div>
         </div>
         

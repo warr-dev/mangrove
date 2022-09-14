@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>RES Silonay Mangrove</title>
+    <title>Silonay Mangrove RES</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -65,8 +65,8 @@
             <div class="mx-2 text-center w-1/2 glass p-7 glass-10">
                 <h1 class="text-gray-500 font-bold text-2xl xs:text-4xl md:text-5xl p-2"><span
                         class="text-white">Welcome</span></h1>
-                <p class="text-gray-100 text-1xl xs:text-3xl md:text-4xl">Reticence and Endowment System for Silonay
-                    Mangrove</p>
+                <p class="text-gray-100 text-1xl xs:text-3xl md:text-4xl"> Silonay
+                    Mangrove Reticence and Endowment System </p>
 
                 <a href="#about"><button
                         class="p-2 my-5 mx-2 bg-transparent border-2 bg-indigo-200 bg-opacity-75 hover:bg-opacity-100 border-indigo-700 rounded hover:border-indigo-800 font-bold text-indigo-800 shadow-md transition duration-500 md:text-lg">Read

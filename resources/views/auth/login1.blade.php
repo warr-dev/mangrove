@@ -32,7 +32,7 @@
                 <section class="text-gray-600 body-font ">
                     <div class="container xl:px-32 px-5 py-36 mx-auto flex flex-wrap items-center">
                         <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-                        <h3 class="title-font font-bold lg:text-7xl text-6xl text-white text-center md:text-left ">RETICENCE AND ENDOWMENT SYSTEM FOR SILONAY MANGROVE</h3>
+                        <h3 class="title-font font-bold lg:text-7xl text-6xl text-white text-center md:text-left ">SILONAY MANGROVE RETICEN AND ENDOWMENT SYSTEM WITH GEO TAGGING</h3>
                         {{-- <p class="leading-relaxed mt-4 lg:text-3xl text-2xl lg:max-w-xl font-medium  text-black text-center md:text-left ">Facebook helps you connect and share with the people in your life.</p> --}}
                         </div>
                         <div class="lg:w-2/6 md:w-1/2 bg-green-100 shadow-lg rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
