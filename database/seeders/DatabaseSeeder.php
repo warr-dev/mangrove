@@ -51,6 +51,22 @@ class DatabaseSeeder extends Seeder
             'date'=>date('Y-m-d',strtotime('+1 week')),
             'venue'=>'venue 1',
             'description'=> 'description 1',
+            'title'=>'Boardwalking',
+            'date'=>date('2017-06-08',strtotime('+1 week')),
+            'venue'=>'silonay',
+            'description'=> 'a promenade made of wooden boards, usually along a beach or shore. any walk made of boards or planks.',
+            'title'=>'kayaking',
+            'date'=>date('2018-07-11 ',strtotime('+1 week')),
+            'venue'=>'silonay',
+            'description'=> 'Kayaking is the use of a Kayak for moving across water. Kayaking and canoeing are also known as paddling',
+            'title'=>'catering',
+            'date'=>date('2018-01-24 ',strtotime('+1 week')),
+            'venue'=>'silonay',
+            'description'=> 'Catering refers to a service that delivers food to a clients location and may also cook and serve it on site',
+            'title'=>'planting mangrove',
+            'date'=>date('2019-06-04',strtotime('+1 week')),
+            'venue'=>'silonay',
+            'description'=> 'Planting new mangroves helps to re-establish the shoreline stabilization and buffering that coastal ',
             ]);
     }
 }
