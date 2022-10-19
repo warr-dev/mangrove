@@ -97,4 +97,32 @@ class UserController extends Controller
             'message'=>'User was Activated!'
         ]);
     }
+    public function view()
+    {
+        $user=auth()->user();
+        return view('user.account',compact('user'));
+    }
+    public function updateMyAccount(Request $request)
+    {
+        
+        $me=User::find(auth()->user()->id);
+        $me->username=$request->username;
+        // $me->password=$request->password;
+        $me->email=$request->email;
+        $me->phone=$request->phone;
+        $me->profile->first_name=$request->first_name;
+        $me->profile->middle_name=$request->middle_name;
+        $me->profile->last_name=$request->last_name;
+        $me->profile->province=$request->province;
+        $me->profile->city=$request->city;
+        $me->profile->zipcode=$request->zipcode;
+        $me->profile->barangay=$request->barangay;
+        $me->profile->gender=$request->gender;
+        $me->push();
+        
+        return response([
+            'message'=>'Profile updated',
+            'status'=>'success'
+        ],200);
+    }
 }
