@@ -4,7 +4,7 @@ namespace App\View\Components\User;
 
 use Illuminate\View\Component;
 
-class input extends Component
+class Input extends Component
 {
     public $name;
     public $placeholder;
