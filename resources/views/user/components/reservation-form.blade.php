@@ -178,7 +178,7 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" id="subtotalInput">
+        <input type="hidden" id="subtotalInput" name="total">
         <div class="flex p-2 mt-4 justify-between">
             <div>Subtotal: <span id="subtotal"></span></div>
             <div class="flex-auto flex flex-row-reverse">
