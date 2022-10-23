@@ -47,6 +47,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $with=['profile'];
+
     /**
      * The attributes that should be cast.
      *

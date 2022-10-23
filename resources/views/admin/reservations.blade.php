@@ -188,7 +188,7 @@
                           class="px-4 bg-blue-500 p-3 ml-3 rounded-lg text-white hover:bg-teal-400">Confirm</button> --}}
                   </div>
         </x-slot>
-      </x-modal>
+    </x-modal>
 @endsection
 
 @push('scripts')

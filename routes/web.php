@@ -80,6 +80,8 @@ Route::middleware(['myauth:user'])
         Route::get('/reservation',['uses'=>'ReservationController@addReservation','as'=>'reservation']);
         Route::post('/reservation',['uses'=>'ReservationController@store','as'=>'reservation.store']);
         Route::post('/feedback',['uses'=>'ReviewController@store','as'=>'feedback.store']);
+        Route::get('/account',['uses'=>'UserController@view','as'=>'account.view']);
+        Route::put('/account',['uses'=>'UserController@updateMyAccount','as'=>'account.update']);
 });
 
 
