@@ -4,7 +4,7 @@
     @include('admin.components.header')
     <div class="mt-5 mx-20">
         <div class="bg-green-700 text-4xl text-white py-4 px-8">
-            Reservations Management
+            Reservations Management sdas
         </div>
         <div class="content">
             {{-- <button type="button" class="cancel-reservation delevent bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Cancel</button> --}}
@@ -334,13 +334,15 @@
         })
         let Subtotal=0;
         const computeSubtotal=()=>{
+            Subtotal=0;
             let events=document.querySelector('[name="event_id"]');
             let eventPrice=events[events.selectedIndex].dataset.price;
             let paxCount=document.querySelector('#paxes').childElementCount
             Subtotal=eventPrice*paxCount
-            console.log('sda');
             $('.classf').each((ind,el)=>{
-                Subtotal+=Number(el[el.selectedIndex].dataset.price)
+                let price=Number(el[el.selectedIndex].dataset.price)
+                console.log('sadas',price)
+                Subtotal+=price
             })
             document.querySelector('#subtotal').innerText=Subtotal
         }

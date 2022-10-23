@@ -52,6 +52,7 @@ Route::middleware(['myauth:admin'])
     ->namespace('App\Http\Controllers')
     ->group(function(){
         Route::get('/dashboard',['uses'=>'HomepageController@home','as'=>'home']);
+        Route::get('/dashboard/donation',['uses'=>'HomepageController@donation','as'=>'donation']);
         Route::put('/user/{user}/approve',['uses'=>'UserController@approve','as'=>'user.approve']);
         Route::put('/user/{user}/decline',['uses'=>'UserController@decline','as'=>'user.decline']);
         Route::put('/user/{user}/suspend',['uses'=>'UserController@suspend','as'=>'user.suspend']);
@@ -61,7 +62,8 @@ Route::middleware(['myauth:admin'])
         Route::put('/reservations/{reservation}/confirm',['uses'=>'ReservationController@confirm','as'=>'reservations.confirm']);
         Route::put('/reservations/{reservation}/cancel',['uses'=>'ReservationController@cancel','as'=>'reservations.cancel']);
         Route::post('/reservations/reserve',['uses'=>'ReservationController@reserve','as'=>'reservations.reserve']);
-        Route::get('/report',['uses'=>'HomepageController@report','as'=>'report']);
+        Route::get('/reservation/report',['uses'=>'HomepageController@reservationReport','as'=>'reservation.report']);
+        Route::get('/donation/report',['uses'=>'HomepageController@donationReport','as'=>'donation.report']);
         Route::resource('user',UserController::class);
         Route::resource('reservations',ReservationController::class);
         Route::resource('events',EventController::class);

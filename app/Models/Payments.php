@@ -14,5 +14,6 @@ class Payments extends Model
         'gcash_number',
         'reference_number',
         'photo',
+        'total'
     ];
 }

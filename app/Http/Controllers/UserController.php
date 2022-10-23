@@ -56,7 +56,7 @@ class UserController extends Controller
     }
     public function approve(User $user)
     {
-        $user->status='approved';
+        $user->status='active';
         $user->save();
         return response([
             'status'=>'success',
@@ -78,7 +78,7 @@ class UserController extends Controller
     
     public function suspend(User $user)
     {
-        $user->status='suspended';
+        $user->status='inactive';
         $user->save();
         return response([
             'status'=>'success',

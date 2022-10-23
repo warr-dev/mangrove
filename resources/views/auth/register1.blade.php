@@ -19,7 +19,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
-        <img src="{{asset('mangrove.jpg')}}" alt="" class="background">
+        <img src="{{asset('images/bg.jpg')}}" alt="" class="background">
         <div class="page">
 {{--             
         <!-- Session Status -->
@@ -49,7 +49,7 @@
                                     <x-auth.select-input name="city" label="Select Province First" class="col-span-3" />
                                     <x-auth.input2 name="zipcode" placeholder="Zip Code" class="col-span-3" id="zipcode" :disabled="false" />
                                     <x-auth.input2 name="barangay" placeholder="Barangay" class="col-span-6" />
-                                    <x-auth.input2 name="number" placeholder="Enter Your Number" class="col-span-6" />
+                                    <x-auth.input2 name="phone" placeholder="Enter Your Number" class="col-span-6" />
                                     <x-auth.input2 name="email" placeholder="Enter Your Email" class="col-span-6" />
                                     <x-auth.input2 name="username" placeholder="Enter Your Username" class="col-span-6" />
                                     <x-auth.input2 name="password" placeholder="Password" class="col-span-6" type="password" />

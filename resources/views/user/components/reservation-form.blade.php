@@ -178,6 +178,7 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" id="subtotalInput">
         <div class="flex p-2 mt-4 justify-between">
             <div>Subtotal: <span id="subtotal"></span></div>
             <div class="flex-auto flex flex-row-reverse">
@@ -217,6 +218,7 @@
             e.preventDefault();
             checkButton();
             setActiveStep();
+            computeSubtotal()
         })
 
         $('#btn-prev').click((e) => {
@@ -224,6 +226,7 @@
             e.preventDefault();
             checkButton();
             setActiveStep();
+            computeSubtotal()
         })
         const checkButton = () => {
             const max = $('.stepper-steps').children('.step').length
@@ -243,7 +246,7 @@
                 // console.log(i,el);
                 let n = $(el).next()?.children();
                 if (i < step) {
-                    console.log(el, 'active');
+                    // console.log(el, 'active');
                     $(el).addClass('border-teal-600')
                     $(el).removeClass('border-gray-300')
                     $(el).next()?.addClass(['text-white']).removeClass('text-gray-500')
@@ -295,6 +298,10 @@
                 computeSubtotal()
             })
         };
+        $('.classf').change(e=>{
+            computeSubtotal()
+        })
+
         const deletePax=(id)=> {
             $('#pax'+id).remove();
             computeSubtotal()
@@ -307,11 +314,13 @@
             let eventPrice=events[events.selectedIndex].dataset.price;
             let paxCount=document.querySelector('#paxes').childElementCount
             Subtotal=eventPrice*paxCount
-            console.log('sda');
             $('.classf').each((ind,el)=>{
-                Subtotal+=Number(el[el.selectedIndex].dataset.price)
+                let price=Number(el[el.selectedIndex].dataset.price)
+                // console.log('sadas',el[el.selectedIndex])
+                Subtotal+=price
             })
             document.querySelector('#subtotal').innerText=Subtotal
+            document.querySelector('#subtotalInput').value=Subtotal
         }
         
     </script>

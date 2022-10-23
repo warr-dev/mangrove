@@ -45,6 +45,7 @@ class ReservationController extends Controller
             'gcash_account_name'=>['required','string'],
             'gcash_number'=>['required','numeric'],
             'reference_number'=>['required','numeric'],
+            'total'=>['required','numeric'],
             'photo'=>[],
             'birth_date'=>['required','array'],
             'birth_date.*'=>['required'],
@@ -68,6 +69,7 @@ class ReservationController extends Controller
             'gcash_account_name'=>$request->gcash_account_name,
             'gcash_number'=>$request->gcash_number,
             'reference_number'=>$request->reference_number,
+            'total'=>$request->total,
             'photo'=>$request->file('photo')->store('payments/reservations','public')
         ]);
         

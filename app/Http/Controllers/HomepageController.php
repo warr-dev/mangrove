@@ -50,7 +50,7 @@ class HomepageController extends Controller
         return view('home',compact('galleries','news','advertisements','reviews', 'advisories'));
 
     }
-    public function report()
+    public function reservationReport()
     {
         $classes=[ 'regular','student','senior','foreign','resident'];
         $start = Carbon::now()->startOfMonth();
@@ -76,4 +76,37 @@ class HomepageController extends Controller
      
         return $pdf->stream();
     }
+    
+    public function donationReport()
+    {
+        $classes=[ 'regular','student','senior','foreign','resident'];
+        $start = Carbon::now()->startOfMonth();
+        $end = Carbon::now()->endOfMonth();
+        
+        $date = $start;
+        $reservations=[];
+        while ($date <= $end) {
+            $reservation=Reservation::getCounts($date->format('Y-m-d'),true);
+            if($reservation){
+                $reservations[$date->format('Y-m-d')]=$reservation;
+            }
+            $date->addDays(1);
+        }
+        
+        $data = [
+            'reservations' => $reservations,
+            'date' => date('m/d/Y')
+        ];
+        
+           
+        $pdf = PDF::loadView('reports.report', $data);
+     
+        return $pdf->stream();
+    }
+    
+    // public function donation()
+    // {
+    //     $classBD=Reservation::getCounts([date('Y-m-01'), Carbon::now()->endOfMonth()->format('Y-m-d')]);
+    //     return view('admin.dashboard.donation');
+    // }
 }

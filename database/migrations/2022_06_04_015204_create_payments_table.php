@@ -21,6 +21,7 @@ class CreatePaymentsTable extends Migration
             $table->string('gcash_number');
             $table->string('reference_number');
             $table->string('photo')->nullable();
+            $table->decimal('total')->default(0);
             $table->timestamps();
         });
     }

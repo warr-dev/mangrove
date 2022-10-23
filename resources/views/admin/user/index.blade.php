@@ -34,13 +34,13 @@
                                                     <button type="button" data-userid="{{$user->id}}" class="decline-user bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Decline</button>
                                                     <button type="button" data-userid="{{$user->id}}" class="approve-user bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Approve</button>
                                                 </div>
-                                            @elseif($user->status=='suspended')
+                                            @elseif($user->status=='inactive')
                                                 <div class="grid grid-cols-1  lg:grid-cols-2 gap-4">
                                                     <button type="button" data-userid="{{$user->id}}" class="active-user bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Active</button>
                                                 </div>
-                                            @elseif($user->status=='active'||$user->status=='approved')
+                                            @elseif($user->status=='active'||$user->status=='active')
                                                 <div class="grid grid-cols-1  lg:grid-cols-2 gap-4">
-                                                    <button type="button" data-userid="{{$user->id}}" class="suspend-user bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Suspend</button>
+                                                    <button type="button" data-userid="{{$user->id}}" class="suspend-user bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Inactive</button>
                                                 </div>
                                             @endif
                                         </td>
