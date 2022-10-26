@@ -97,7 +97,6 @@ class HomepageController extends Controller
             'date' => date('m/d/Y'),
             'type'=> $type
         ];
-        dd($data);
            
         $pdf = PDF::loadView('reports.reservation', $data);
      
@@ -126,7 +125,7 @@ class HomepageController extends Controller
         ];
         
            
-        $pdf = PDF::loadView('reports.report', $data);
+        $pdf = PDF::loadView('reports.reservation', $data);
      
         return $pdf->stream();
     }
