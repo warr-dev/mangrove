@@ -25,6 +25,11 @@ class HomepageController extends Controller
             'reservations'=>Reservation::count(),
             'donations'=> ['count'=>Donations::count(), 'sum'=>Donations::sum('amount')]
         ];
+        $reports=[
+            'daily',
+            'monthly',
+            'yearly'
+        ];
         // $month=$request->month??date('m');
         // if(){
 
@@ -38,7 +43,7 @@ class HomepageController extends Controller
         //     $classes[$class->class]=$class->count;
         // };
         // dd($classes);
-        return view(auth()->user()->usertype.'.home',compact('counters','classBD'));
+        return view(auth()->user()->usertype.'.home',compact('counters','classBD','reports'));
     }
     public function landing(Request $request)
     {
@@ -50,29 +55,51 @@ class HomepageController extends Controller
         return view('home',compact('galleries','news','advertisements','reviews', 'advisories'));
 
     }
-    public function reservationReport()
+    public function reservationReport($type, $start, $end)
     {
+        // dd(Reservation::all());
         $classes=[ 'regular','student','senior','foreign','resident'];
-        $start = Carbon::now()->startOfMonth();
-        $end = Carbon::now()->endOfMonth();
-        
+        // $start = Carbon::now()->startOfMonth();
+        // $end = Carbon::now()->endOfMonth();
+        $start=Carbon::parse($start);
+        $end=Carbon::parse($end);
         $date = $start;
         $reservations=[];
         while ($date <= $end) {
-            $reservation=Reservation::getCounts($date->format('Y-m-d'),true);
-            if($reservation){
-                $reservations[$date->format('Y-m-d')]=$reservation;
+            switch($type){
+                case 'daily':
+                    $reservation=Reservation::getCounts($date->format('Y-m-d'),true);
+                    if($reservation){
+                        $reservations[$date->format('Y-m-d')]=$reservation;
+                    }
+                    $date->addDays(1);
+                    break;
+                case 'monthly':
+                    $reservation=Reservation::getCounts([$date->format('Y-m-d'),$date->endOfMonth()->format('Y-m-d')],true);
+                    if($reservation){
+                        $reservations[$date->format('F')]=$reservation;
+                    }
+                    $date=$date->endOfMonth();
+                    break;
+                case 'yearly':
+                    $reservation=Reservation::getCounts([$date->format('Y-m-d'),$date->endOfYear()->format('Y-m-d')],true);
+                    if($reservation){
+                        $reservations[$date->format('Y')]=$reservation;
+                    }
+                    $date=$date->endOfYear();
+                    break;
             }
-            $date->addDays(1);
+           
         }
         
         $data = [
             'reservations' => $reservations,
-            'date' => date('m/d/Y')
+            'date' => date('m/d/Y'),
+            'type'=> $type
         ];
-        
+        dd($data);
            
-        $pdf = PDF::loadView('reports.report', $data);
+        $pdf = PDF::loadView('reports.reservation', $data);
      
         return $pdf->stream();
     }
@@ -109,4 +136,15 @@ class HomepageController extends Controller
     //     $classBD=Reservation::getCounts([date('Y-m-01'), Carbon::now()->endOfMonth()->format('Y-m-d')]);
     //     return view('admin.dashboard.donation');
     // }
+    public function counters($start,$end)
+    {
+        $dates=[
+            Carbon::parse($start),
+            Carbon::parse($end)
+        ];
+        $reservation=Reservation::whereBetween('date_visit',$dates)->where('status','confirmed')->count();
+        return response([
+            'reservation'=>$reservation
+        ]);
+    }
 }

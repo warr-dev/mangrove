@@ -14,4 +14,9 @@ class Pax extends Model
         'class',
         'birth_date',
     ];
+
+    public function reservation()
+    {
+        return $this->belongsTo(Reservation::class);
+    }
 }

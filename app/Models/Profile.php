@@ -28,4 +28,14 @@ class Profile extends Model
                 ($this->province?$this->province.', ':'').
                 ($this->zipcode?$this->zipcode:'');
     }
+    // get full name
+    public function getFullName()
+    {
+        return ucwords(
+            $this->first_name.' '.
+            ($this->middle_name?ucfirst($this->middle_name)[0].'. ':'').
+            $this->last_name
+        );
+    }
+    
 }

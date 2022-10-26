@@ -3,8 +3,16 @@
 @section('content')
     @include('admin.components.header')
     <div class="mt-5 mx-20">
-        <div class="bg-green-700 text-4xl text-white py-4 px-8">
-            Dashboard
+        <div class="bg-green-700 py-4 px-8 flex justify-between">
+            <div class=" text-4xl text-white">Dashboard</div>
+            <div>
+                {{-- <input type="text" name="daterange" /> --}}
+                <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                    <i class="fa fa-calendar"></i>&nbsp;
+                    <span></span> <i class="fa fa-caret-down"></i>
+                </div>
+                
+            </div>
         </div>
         <div class="content">
             {{-- <button type="button" class="cancel-reservation delevent bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Cancel</button> --}}
@@ -49,8 +57,7 @@
                     <div class="mt-6">
                         <h5 class="text-xl text-gray-700 text-center">Total Users</h5>
                         <div class="mt-2 flex justify-center gap-4">
-                            <h3 class="text-3xl font-bold text-gray-700">{{$counters['users']}}</h3>
-                           
+                            <h3 class="text-3xl font-bold text-gray-700" id="usercounter">{{$counters['users']}}</h3>
                         </div>
                         {{-- <span class="block text-center text-gray-500">Compared to last week 13</span> --}}
                     </div>
@@ -124,7 +131,7 @@
                     <div class="mt-6">
                         <h5 class="text-xl text-gray-700 text-center">Total Donations</h5>
                         <div class="mt-2 flex justify-center gap-4">
-                            <h3 class="text-3xl font-bold text-gray-700">{{$counters['donations']['sum']}}</h3>
+                            <h3 class="text-3xl font-bold text-gray-700" id="donationcounter">{{$counters['donations']['sum']}}</h3>
                         </div>
                         {{-- <span class="block text-center text-gray-500">Compared to last week 13</span> --}}
                     </div>
@@ -203,12 +210,20 @@
                     <div class="mt-6">
                         <h5 class="text-xl text-gray-700 text-center">Total Reservations</h5>
                         <div class="mt-2 flex justify-center gap-4">
-                            <h3 class="text-3xl font-bold text-gray-700">{{$counters['reservations']}}</h3>
+                            <h3 class="text-3xl font-bold text-gray-700" id="reservationcounter">{{$counters['reservations']}}</h3>
                         </div>
                         {{-- <span class="block text-center text-gray-500">Compared to last week 13</span> --}}
                     </div>
-                    <div class="flex justify-end px-4 relative inset-2">
-                        <button type="button" onclick="location.href='{{route('admin.reservation.report')}}'" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Report</button>
+                    <hr class="my-2">
+                    <div class="flex justify-between px-4">
+                        <div class="bg-white flex border border-gray-200 rounded svelte-1l8159u">
+                            <select class="p-1 px-2 appearance-none outline-none w-full text-gray-800" id="res_report_type">
+                                @foreach ($reports as $report)
+                                    <option value="{{$report}}">{{ucwords($report)}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <button type="button" onclick="printReservation()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Report</button>
                     </div>
                     {{-- <table class="mt-6 -mb-2 w-full text-gray-600">
                         <tbody>
@@ -290,37 +305,88 @@
 @endsection
 
 @push('scripts')
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: [
-           @foreach (array_keys($classBD) as $item)
-            '{{ $item }}',
-            @endforeach 
-        ],
-        datasets: [{
-            label: 'Reservations class breakdown',
-            data: [
-                {{implode(',',array_values($classBD))}}
-            ],
-            backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-            ],
-            hoverOffset: 4
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
+//         const ctx = document.getElementById('myChart').getContext('2d');
+// const myChart = new Chart(ctx, {
+//     type: 'doughnut',
+//     data: {
+//         labels: [
+//            @foreach (array_keys($classBD) as $item)
+//             '{{ $item }}',
+//             @endforeach 
+//         ],
+//         datasets: [{
+//             label: 'Reservations class breakdown',
+//             data: [
+//                 {{implode(',',array_values($classBD))}}
+//             ],
+//             backgroundColor: [
+//             'rgb(255, 99, 132)',
+//             'rgb(54, 162, 235)',
+//             'rgb(255, 205, 86)'
+//             ],
+//             hoverOffset: 4
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             y: {
+//                 beginAtZero: true
+//             }
+//         }
+//     }
+// });
+// $(function() {
+//   $('input[name="daterange"]').daterangepicker({
+//     opens: 'left'
+//   }, function(start, end, label) {
+//     console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+//     getCounters(start,end)
+//   });
+// });
+    var start = moment().subtract(2, 'years');
+    var end = moment();
+
+    const getCounters=(st,en)=>{
+    // console.log(start.format('YYYY-MM-DD'),end.format('YYYY-MM-DD'))
+    $.ajax({
+                url: "{{ route('admin.counters',[':start',':end']) }}".replace(':start',st.format('YYYY-MM-DD')).replace(':end',en.format('YYYY-MM-DD')),
+                type: "get",
+                success: function(data){
+                    $('#reservationcounter').text(data.reservation)
+                },
+            });
+}
+    function cb(st, en) {
+        $('#reportrange span').html(st.format('MMMM D, YYYY') + ' - ' + en.format('MMMM D, YYYY'));
+        start=st;
+        end=en;
+        getCounters(start,end)
     }
-});
+
+    $('#reportrange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+           'Today': [moment(), moment()],
+           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+           'This Month': [moment().startOf('month'), moment().endOf('month')],
+           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    }, cb);
+
+    cb(start, end);
+
+    const printReservation=()=>{
+        location.href= '{{route('admin.reservation.report',[':type',':start',':end'])}}'.replace(':type',$('#res_report_type').val()).replace(':start',start.format('YYYY-MM-DD')).replace(':end',end.format('YYYY-MM-DD'))
+    }
     </script>
+@endpush
+@push('head')
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 @endpush

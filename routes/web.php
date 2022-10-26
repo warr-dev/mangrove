@@ -62,7 +62,7 @@ Route::middleware(['myauth:admin'])
         Route::put('/reservations/{reservation}/confirm',['uses'=>'ReservationController@confirm','as'=>'reservations.confirm']);
         Route::put('/reservations/{reservation}/cancel',['uses'=>'ReservationController@cancel','as'=>'reservations.cancel']);
         Route::post('/reservations/reserve',['uses'=>'ReservationController@reserve','as'=>'reservations.reserve']);
-        Route::get('/reservation/report',['uses'=>'HomepageController@reservationReport','as'=>'reservation.report']);
+        Route::get('/reservation/report/{type}/{start}/{end}',['uses'=>'HomepageController@reservationReport','as'=>'reservation.report']);
         Route::get('/donation/report',['uses'=>'HomepageController@donationReport','as'=>'donation.report']);
         Route::resource('user',UserController::class);
         Route::resource('reservations',ReservationController::class);
@@ -72,6 +72,7 @@ Route::middleware(['myauth:admin'])
         Route::resource('localnews',LocalNewsController::class);
         Route::resource('advertisement',AdvertisementController::class);
         Route::resource('advisory',AdvisoryController::class);
+        Route::get('/counters/{start}/{end}',['uses'=>'HomepageController@counters','as'=>'counters']);
 });
 Route::middleware(['myauth:user'])
     ->name('user.')

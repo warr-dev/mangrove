@@ -56,11 +56,11 @@
 
   <div class="content">
 
-  <h1>Month Report</h1>
+  {{-- <h1>Month Report</h1> --}}
   <h3>Daily reservation classification report</h3>
     <table id="reservations">
       <tr>
-        <th>Date</th>
+        <th>{{$type=='daily'?'Date':($type=='monthly'?'Month':($type=='yearly'?'Year':'Date'))}}</th>
         <th>Regular</th>
         <th>Student</th>
         <th>Senior/PWD</th>
