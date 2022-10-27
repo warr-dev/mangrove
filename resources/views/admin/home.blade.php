@@ -133,6 +133,18 @@
                         <div class="mt-2 flex justify-center gap-4">
                             <h3 class="text-3xl font-bold text-gray-700" id="donationcounter">{{$counters['donations']['sum']}}</h3>
                         </div>
+                        
+                        <hr class="my-2">
+                    <div class="flex justify-between px-4">
+                        <div class="bg-white flex border border-gray-200 rounded svelte-1l8159u">
+                            <select class="p-1 px-2 appearance-none outline-none w-full text-gray-800" id="don_report_type">
+                                @foreach ($reports as $report)
+                                    <option value="{{$report}}">{{ucwords($report)}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <button type="button" onclick="printDonation()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Report</button>
+                    </div>
                         {{-- <span class="block text-center text-gray-500">Compared to last week 13</span> --}}
                     </div>
                     {{-- <table class="mt-6 -mb-2 w-full text-gray-600">
@@ -196,9 +208,6 @@
                             </tr>
                         </tbody>
                     </table>    --}}
-                    <div class="flex justify-end px-4 relative inset-2">
-                        <button type="button" onclick="location.href='{{route('admin.donation.report')}}'" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Report</button>
-                    </div>
                 </div>
                 
                 
@@ -384,6 +393,9 @@
 
     const printReservation=()=>{
         location.href= '{{route('admin.reservation.report',[':type',':start',':end'])}}'.replace(':type',$('#res_report_type').val()).replace(':start',start.format('YYYY-MM-DD')).replace(':end',end.format('YYYY-MM-DD'))
+    }
+    const printDonation=()=>{
+        location.href= '{{route('admin.donation.report',[':type',':start',':end'])}}'.replace(':type',$('#don_report_type').val()).replace(':start',start.format('YYYY-MM-DD')).replace(':end',end.format('YYYY-MM-DD'))
     }
     </script>
 @endpush

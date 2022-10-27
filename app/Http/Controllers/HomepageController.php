@@ -103,29 +103,47 @@ class HomepageController extends Controller
         return $pdf->stream();
     }
     
-    public function donationReport()
+    public function donationReport($type,$start,$end)
     {
-        $classes=[ 'regular','student','senior','foreign','resident'];
-        $start = Carbon::now()->startOfMonth();
-        $end = Carbon::now()->endOfMonth();
-        
+        $start=Carbon::parse($start);
+        $end=Carbon::parse($end);
         $date = $start;
-        $reservations=[];
+        $donations=[];
         while ($date <= $end) {
-            $reservation=Reservation::getCounts($date->format('Y-m-d'),true);
-            if($reservation){
-                $reservations[$date->format('Y-m-d')]=$reservation;
+            switch($type){
+                case 'daily':
+                    $donation=Donations::getCounts($date->format('Y-m-d'));
+                    if($donation){
+                        $donations[$date->format('Y-m-d')]=$donation;
+                    }
+                    $date->addDays(1);
+                    break;
+                case 'monthly':
+                    $donation=Donations::getCounts([$date->format('Y-m-d'),$date->endOfMonth()->format('Y-m-d')]);
+                    if($donation){
+                        $donations[$date->format('F')]=$donation;
+                    }
+                    $date=$date->endOfMonth();
+                    break;
+                case 'yearly':
+                    $donation=Donations::getCounts([$date->format('Y-m-d'),$date->endOfYear()->format('Y-m-d')]);
+                    if($donation){
+                        $donations[$date->format('Y')]=$donation;
+                    }
+                    $date=$date->endOfYear();
+                    break;
             }
-            $date->addDays(1);
+               
         }
-        
-        $data = [
-            'reservations' => $reservations,
-            'date' => date('m/d/Y')
-        ];
+            // dd($donations);
+            $data = [
+                'donations' => $donations,
+                'date' => date('m/d/Y'),
+                'type'=> $type
+            ];
         
            
-        $pdf = PDF::loadView('reports.reservation', $data);
+        $pdf = PDF::loadView('reports.donation', $data);
      
         return $pdf->stream();
     }

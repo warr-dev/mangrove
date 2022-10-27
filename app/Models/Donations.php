@@ -37,4 +37,17 @@ class Donations extends Model
     {
         return self::with('donator')->where('status','pending')->count();
     }
+
+    public static function getCounts($dates)
+    {
+        $donations=Donations::where('status','confirmed');
+        if(!is_array($dates)){
+            $donations=$donations->whereDate('created_at',$dates);
+        }
+        else{
+            $donations=$donations->whereBetween('created_at',$dates);
+        }
+        $donations=$donations->selectRaw('count(*) as count, sum(amount) as total')->get()->toArray();
+        return $donations;
+    }
 }

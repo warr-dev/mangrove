@@ -1,7 +1,7 @@
 @auth
     <form id="frmlogout" method="post" action="{{route('logout')}}"> @csrf </form>
 @endauth
-<nav id="nav" class="fixed inset-x-0 top-2 flex flex-row justify-between z-10 text-white bg-transparent">
+<nav id="nav" class="fixed inset-x-0 top-2 flex flex-row justify-between z-10 text-white bg-green-400 items-center" style="z-index: 999999999999">
 
     <div class="p-4">
         <div class="font-extrabold tracking-widest text-xl"><a href="{{route('landing')}}" class="transition duration-500 hover:text-indigo-500">
@@ -108,9 +108,13 @@
         <a href="#about" class="p-2 font-semibold hover:text-indigo-700">About</a>
         <a href="{{route('adddonations')}}" class="p-2 font-semibold hover:text-indigo-700">Donation</a>
         <a href="{{route('user.reservation')}}" class="p-2 font-semibold hover:text-indigo-700">Reservation</a>
-        <a href="#event" class="p-2 font-semibold hover:text-indigo-700">Events</a>
+        <a href="#advisory" class="p-2 font-semibold hover:text-indigo-700">Advisory</a>
         <a href="#contact" class="p-2 font-semibold hover:text-indigo-700">Contacts</a>
-        <a href="#" onclick="event.preventDefault();document.querySelector('#frmlogout').submit();" class="p-2 font-semibold hover:text-indigo-700">Logout</a>
+        @auth
+          <a href="{{route('user.account.view')}}" class="p-2 font-semibold hover:text-indigo-700">Edit Account</a>
+          <a href="#" onclick="event.preventDefault();document.querySelector('#frmlogout').submit();" class="p-2 font-semibold hover:text-indigo-700">Logout</a>
+        @endauth
+        
     </div>
 </div>
 
