@@ -300,12 +300,12 @@
                 <div class="absolute inset-2 bg-gray-300">
                     <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0"
                         title="map" scrolling="no"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.1870182601187!2d121.2228045153274!3d13.400743708940759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bce924d79eb7db%3A0x7e70b7ec879e2169!2sSilonay%20Mangrove%20Conservation%20Ecopark!5e0!3m2!1sen!2sph!4v1654743921857!5m2!1sen!2sph"
+                        src="https://www.google.com/maps/d/u/0/viewer?mid=1CwgqyrGEq2pQXs1CRO7PW290X-J3J5Y&ll=13.40232992632181%2C121.22519308027346&z=17"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                     {{-- <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map"
                             scrolling="no"
-                            src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+                            src="https://www.google.com/maps/d/u/0/viewer?mid=1CwgqyrGEq2pQXs1CRO7PW290X-J3J5Y&ll=13.40232992632181%2C121.22519308027346&z=17"
                             style=""></iframe> --}}
                 </div>
                 @if (auth()->check())

@@ -314,7 +314,7 @@
           </div>
         <div class="relative container px-5 py-24 mx-auto">
             <div class="absolute inset-2 bg-gray-300">
-            <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://www.google.com/maps/d/edit?mid=1CwgqyrGEq2pQXs1CRO7PW290X-J3J5Y&usp=sharing" style=""></iframe>
+            <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://www.google.com/maps/d/u/0/viewer?mid=1CwgqyrGEq2pQXs1CRO7PW290X-J3J5Y&ll=13.40232992632181%2C121.22519308027346&z=17" style=""></iframe>
             </div>
             <div class="container px-5 py-24 mx-auto flex">
             <div class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
