@@ -294,15 +294,22 @@
         <section class="text-gray-700 body-font bg-green-200 p-5">
             <div class="flex flex-wrap w-full mb-20 mt-20 flex-col items-center text-center">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Feedback</h1>
+                <p class="lg:w-1/2 w-full leading-relaxed text-base">
+                    you can view geotagged mangrove trees <a href="https://www.google.com/maps/d/edit?mid=1CwgqyrGEq2pQXs1CRO7PW290X-J3J5Y&usp=sharing">here</a> </p>
 
             </div>
             <div class="relative container px-5 py-24 mx-auto" style="min-height: 50vh">
                 <div class="absolute inset-2 bg-gray-300">
-                    <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0"
+                    
+                    <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map"
+                        scrolling="no"
+                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.1870182601187!2d121.2228045153274!3d13.400743708940759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bce924d79eb7db%3A0x7e70b7ec879e2169!2sSilonay%20Mangrove%20Conservation%20Ecopark!5e0!3m2!1sen!2sph!4v1654743921857!5m2!1sen!2sph" 
+                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    {{-- <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0"
                         title="map" scrolling="no"
                         src="https://www.google.com/maps/d/u/0/viewer?mid=1CwgqyrGEq2pQXs1CRO7PW290X-J3J5Y&ll=13.40232992632181%2C121.22519308027346&z=17"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
                     {{-- <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map"
                             scrolling="no"
                             src="https://www.google.com/maps/d/u/0/viewer?mid=1CwgqyrGEq2pQXs1CRO7PW290X-J3J5Y&ll=13.40232992632181%2C121.22519308027346&z=17"
