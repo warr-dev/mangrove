@@ -300,12 +300,12 @@
                 <div class="absolute inset-2 bg-gray-300">
                     <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0"
                         title="map" scrolling="no"
-                        src="https://www.google.com/maps/d/u/0/viewer?mid=1CwgqyrGEq2pQXs1CRO7PW290X-J3J5Y&ll=13.40232992632181%2C121.22519308027346&z=17"
+                        src="https://www.google.com/maps/d/u/0/viewer?mid=1CwgqyrGEq2pQXs1CRO7PW290X-J3J5Y&ll=13.40274373003395%2C121.2240628866036&z=16"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                     {{-- <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map"
                             scrolling="no"
-                            src="https://www.google.com/maps/d/u/0/viewer?mid=1CwgqyrGEq2pQXs1CRO7PW290X-J3J5Y&ll=13.40232992632181%2C121.22519308027346&z=17"
+                            src="https://www.google.com/maps/d/u/0/viewer?mid=1CwgqyrGEq2pQXs1CRO7PW290X-J3J5Y&ll=13.40274373003395%2C121.2240628866036&z=16"
                             style=""></iframe> --}}
                 </div>
                 @if (auth()->check())
