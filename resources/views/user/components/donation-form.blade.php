@@ -118,8 +118,8 @@
             
         @endif
         <div class="mt-8 p-4">
-        <div class="flex justify-center" > <img src="/images/gcash.png" alt="gcash" srcset="" height="15vh" style="height:15vh"></div> 
-               <h1>09279501242</h1>
+        <div class="flex justify-center" > <img src="/images/gcash.jpg" alt="gcash" srcset="" height="15vh" style="height:15vh"></div> 
+               <h1>09675625653</h1>
             <div class="flex flex-col md:flex-row">
                 <x-form.input2 name="gcash_number" label="Gcash Number" />
                 <x-form.input2 name="reference_number" label="Reference Number" />

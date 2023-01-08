@@ -18,8 +18,8 @@ class ReservationController extends Controller
         // dd(Reservation::with(['pax','payment'])->get());
         $sessions=Session::all();
         $events=Event::all();
-        // $classes=[ 'regular','student','senior','foreign','resident'];
-        $classes=[  'regular'=>50.00,'student'=>20.00,'senior'=>20.00,'foreign'=>50.00,'resident'=>10.00];
+        // $classes=[ 'regular','student','senior/Pwd','foreign','resident'];
+        $classes=[  'regular'=>50.00,'student'=>20.00,'senior/Pwd'=>20.00,'foreign'=>50.00,'resident'=>10.00];
         return view('user.reservation',compact('sessions','events','classes'));
     }
     public function index()
@@ -27,7 +27,7 @@ class ReservationController extends Controller
         $reservations=Reservation::all();
         $sessions=Session::all();
         $events=Event::all();
-        $classes=[  'regular'=>50.00,'student'=>20.00,'senior'=>20.00,'foreign'=>50.00,'resident'=>10.00];
+        $classes=[  'regular'=>50.00,'student'=>20.00,'senior/Pwd'=>20.00,'foreign'=>50.00,'resident'=>10.00];
         return view('admin.reservations',compact('reservations','sessions','events','classes'));
     }
     public function store(Request $request)
