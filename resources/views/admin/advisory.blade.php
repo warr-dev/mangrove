@@ -7,7 +7,7 @@
             Advisory Management
         </div>
         <div class="content">
-            {{-- <button type="button" class="cancel-reservation delevent bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Cancel</button> --}}
+            {{-- <button type="button" class="cancel-reservation delevent bg-red-500 text-black px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Cancel</button> --}}
             <div class="flex items-center justify-center">
                 <div class="container p-5">
                     <div class="grid grid-cols-1 gap-4">
@@ -83,7 +83,7 @@
           
         <x-slot name="footer">
                   <div class="flex justify-end pt-2 space-x-8">
-            <button onclick="closeModal('modal-add-advisorys')" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
+            <button onclick="closeModal('modal-add-advisorys')" class="w-full px-5 py-3 text-sm font-medium leading-5 text-black text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
               Cancel
             </button>
             <button onclick="addadvisory(event)" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-green-600 hover:bg-green-700 focus:outline-none focus:shadow-outline-green">
