@@ -30,7 +30,7 @@
                             <tbody class="flex-1 sm:flex-none">
                                 @forelse ($donations as $donation)
                                     <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0 hover:bg-gray-100 ">
-                                        <td class="border-grey-light border p-3">{{$donation->donator->getFullName()}}</td>
+                                        <td class="border-grey-light border p-3">{{$donation->donator->getFullName('')}}</td>
                                         <td class="border-grey-light border p-3">{{$donation->mode}}</td>
                                         <td class="border-grey-light border p-3">{{$donation->amount}}</td>
                                         <td class="border-grey-light border p-3">{{$donation->cover_fees?'yes':'no'}}</td>
