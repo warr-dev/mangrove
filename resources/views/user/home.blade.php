@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>RES Silonay Mangrove</title>
+	<title>Silonay Mangrove RES</title>
     
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">

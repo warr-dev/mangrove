@@ -79,7 +79,7 @@ Route::middleware(['myauth:user'])
     ->namespace('App\Http\Controllers')
     ->group(function(){
         Route::get('/home',['uses'=>'HomepageController@landing','as'=>'home']);
-        // Route::get('/donation',['uses'=>'DonationController@addDonation','as'=>'donation']);
+        //Route::get('/donation',['uses'=>'DonationController@addDonation','as'=>'donation']);
         Route::get('/reservation',['uses'=>'ReservationController@addReservation','as'=>'reservation']);
         Route::post('/reservation',['uses'=>'ReservationController@store','as'=>'reservation.store']);
         Route::post('/feedback',['uses'=>'ReviewController@store','as'=>'feedback.store']);
