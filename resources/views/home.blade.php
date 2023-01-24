@@ -110,7 +110,7 @@
                                                 <div class="flex h-full items-end pb-6">
                                                     <h3
                                                         class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900 p-2 glass">
-                                                        {{ $gallery->description }}r</h3>
+                                                        {{ $gallery->description }}</h3>
                                                 </div>
                                             </div>
                                         </div>
