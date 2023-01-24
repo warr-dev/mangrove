@@ -4,7 +4,7 @@
     @include('admin.components.header')
     <div class="mt-5 mx-20">
         <div class="bg-green-700 text-4xl text-white py-4 px-8">
-            Reservations Management sdas
+            Reservations Management
         </div>
         <div class="content">
             {{-- <button type="button" class="cancel-reservation delevent bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600 transition duration-200 each-in-out">Cancel</button> --}}
