@@ -49,7 +49,7 @@
             </div>
            </div> --}}
            
-            <div class="grid grid-cols-3 gap-4 py-4 px-8">
+            <div class="grid lg:grid-cols-3 md:grif-cols-2 sm:grid-cols-1 gap-4 py-4 px-8">
                   
             <div>
                 <div class="lg:h-full py-8 px-6 text-gray-600 rounded-xl border border-gray-200 bg-white">
