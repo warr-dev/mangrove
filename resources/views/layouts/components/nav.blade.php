@@ -18,9 +18,9 @@
             <a href="{{route('user.reservation')}}" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Reservation
             </a>
         @endif
-        <a href="#advisory" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Advisory
+        <a href="{{route('landing')}}#advisory" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Advisory
             </a>
-        <a href="#contacts" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Contacts
+        <a href="{{route('landing')}}#contacts" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500">Contacts
             </a>
             <div  class="relative border-b-4 border-transparent" 
             {{-- :class="{'border-indigo-700 transform transition duration-300 ': open}"
@@ -108,8 +108,8 @@
         <a href="#about" class="p-2 font-semibold hover:text-indigo-700">About</a>
         <a href="{{route('adddonations')}}" class="p-2 font-semibold hover:text-indigo-700">Donation</a>
         <a href="{{route('user.reservation')}}" class="p-2 font-semibold hover:text-indigo-700">Reservation</a>
-        <a href="#advisory" class="p-2 font-semibold hover:text-indigo-700">Advisory</a>
-        <a href="#contact" class="p-2 font-semibold hover:text-indigo-700">Contacts</a>
+        <a href="{{route('landing')}}#advisory" class="p-2 font-semibold hover:text-indigo-700">Advisory</a>
+        <a href="{{route('landing')}}#contact" class="p-2 font-semibold hover:text-indigo-700">Contacts</a>
         @auth
           <a href="{{route('user.account.view')}}" class="p-2 font-semibold hover:text-indigo-700">Edit Account</a>
           <a href="#" onclick="event.preventDefault();document.querySelector('#frmlogout').submit();" class="p-2 font-semibold hover:text-indigo-700">Logout</a>
