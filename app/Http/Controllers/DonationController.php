@@ -41,7 +41,7 @@ class DonationController extends Controller
             'photo'=>'',
         ];
         $user_id=null;
-        if(!auth()->check()||auth()->user()->isAdmin()){
+        if(!auth()->check()){
             $validations['first_name']='required';
             $validations['middle_name']='required';
             $validations['last_name']='required';
@@ -51,14 +51,27 @@ class DonationController extends Controller
             $validations['barangay']='required';
             $validations['email']=['required','email'];
             $validations['phone']=['required','numeric'];
-        }else 
+        }else if(auth()->user()->isAdmin()){
+            $validations['first_name']='required';
+            $validations['middle_name']='required';
+            $validations['last_name']='required';
+            $validations['province']='required';
+            $validations['city']='required';
+            $validations['zipcode']=['required','numeric'];
+            $validations['barangay']='required';
+            $validations['email']=['required','email'];
+            $validations['phone']=['required','numeric'];
+        }
+        else 
             $user_id=auth()->user()->id;  
         $data=$request->validate($validations);
-        if(!auth()->check()||auth()->user()->isAdmin()){
+        if(!auth()->check()){
             $guest=Guest::create($request->all());
             $user_id=$guest->id;
-            if(auth()->user()->isAdmin())
-                $data['status']='confirmed';
+        }else if(auth()->user()->isAdmin()){
+            $guest=Guest::create($request->all());
+            $user_id=$guest->id;
+            $data['status']='confirmed';
         }
         $donation=Donations::create(array_merge($data,
             [
