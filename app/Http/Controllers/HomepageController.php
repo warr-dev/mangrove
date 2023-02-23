@@ -79,14 +79,14 @@ class HomepageController extends Controller
                     if($reservation){
                         $reservations[$date->format('F')]=$reservation;
                     }
-                    $date=$date->endOfMonth();
+                    $date=$date->endOfMonth()->addDays(1);
                     break;
                 case 'yearly':
                     $reservation=Reservation::getCounts([$date->format('Y-m-d'),$date->endOfYear()->format('Y-m-d')],true);
                     if($reservation){
                         $reservations[$date->format('Y')]=$reservation;
                     }
-                    $date=$date->endOfYear();
+                    $date=$date->endOfYear()->addDays(1);
                     break;
             }
            
@@ -123,14 +123,14 @@ class HomepageController extends Controller
                     if($donation){
                         $donations[$date->format('F')]=$donation;
                     }
-                    $date=$date->endOfMonth();
+                    $date=$date->endOfMonth()->addDays(1);
                     break;
                 case 'yearly':
                     $donation=Donations::getCounts([$date->format('Y-m-d'),$date->endOfYear()->format('Y-m-d')]);
                     if($donation){
                         $donations[$date->format('Y')]=$donation;
                     }
-                    $date=$date->endOfYear();
+                    $date=$date->endOfYear()->addDays(1);
                     break;
             }
                
@@ -160,8 +160,52 @@ class HomepageController extends Controller
             Carbon::parse($end)
         ];
         $reservation=Reservation::whereBetween('date_visit',$dates)->where('status','confirmed')->count();
+        $donation=Donations::getCounts([$dates[0]->format('Y-m-d'),$dates[1]->endOfMonth()->format('Y-m-d')]);
         return response([
-            'reservation'=>$reservation
+            'reservation'=>$reservation,
+            'donation'=>$donation[0]->total??0
         ]);
+    }
+    
+    public function donationPrint($type,$start,$end)
+    {
+        $start=Carbon::parse($start);
+        $end=Carbon::parse($end);
+        $date = $start;
+        $donations=[];
+        while ($date <= $end) {
+            switch($type){
+                case 'daily':
+                    $donation=Donations::getCounts($date->format('Y-m-d'));
+                    if($donation){
+                        $donations[$date->format('Y-m-d')]=$donation;
+                    }
+                    $date->addDays(1);
+                    break;
+                case 'monthly':
+                    $donation=Donations::getCounts([$date->format('Y-m-d'),$date->endOfMonth()->format('Y-m-d')]);
+                    if($donation){
+                        $donations[$date->format('F Y')]=$donation;
+                    }
+                    $date=$date->endOfMonth()->addDays(1);
+                    break;
+                case 'yearly':
+                    $donation=Donations::getCounts([$date->format('Y-m-d'),$date->endOfYear()->format('Y-m-d')]);
+                    if($donation){
+                        $donations[$date->format('Y')]=$donation;
+                    }
+                    $date=$date->endOfYear()->addDays(1);
+                    break;
+            }
+            // echo $date->format('Y-m-d');
+        }
+        // dd('sda');
+            $data = [
+                'donations' => $donations,
+                'date' => date('m/d/Y'),
+                'type'=> $type
+            ];
+     
+        return view('reports.donation1', $data);
     }
 }

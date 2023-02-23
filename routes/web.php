@@ -64,6 +64,7 @@ Route::middleware(['myauth:admin'])
         Route::post('/reservations/reserve',['uses'=>'ReservationController@reserve','as'=>'reservations.reserve']);
         Route::get('/reservation/report/{type}/{start}/{end}',['uses'=>'HomepageController@reservationReport','as'=>'reservation.report']);
         Route::get('/donation/report/{type}/{start}/{end}',['uses'=>'HomepageController@donationReport','as'=>'donation.report']);
+        Route::get('/donation/print/{type}/{start}/{end}',['uses'=>'HomepageController@donationPrint','as'=>'donation.print']);
         Route::resource('user',UserController::class);
         Route::resource('reservations',ReservationController::class);
         Route::resource('events',EventController::class);

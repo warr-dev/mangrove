@@ -143,6 +143,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <button type="button" onclick="tryprint()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Print</button>
                         <button type="button" onclick="printDonation()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Report</button>
                     </div>
                         {{-- <span class="block text-center text-gray-500">Compared to last week 13</span> --}}
@@ -311,6 +312,8 @@
         </div>
     </div>
    
+    <div id="print" style="display:none"></div>
+    
 @endsection
 
 @push('scripts')
@@ -366,6 +369,7 @@
                 type: "get",
                 success: function(data){
                     $('#reservationcounter').text(data.reservation)
+                    $('#donationcounter').text(data.donation)
                 },
             });
 }
@@ -396,6 +400,34 @@
     }
     const printDonation=()=>{
         location.href= '{{route('admin.donation.report',[':type',':start',':end'])}}'.replace(':type',$('#don_report_type').val()).replace(':start',start.format('YYYY-MM-DD')).replace(':end',end.format('YYYY-MM-DD'))
+    }
+
+    function tryprint(st,en){
+        $.ajax({
+            url: '{{route('admin.donation.print',[':type',':start',':end'])}}'.replace(':type',$('#don_report_type').val()).replace(':start',start.format('YYYY-MM-DD')).replace(':end',end.format('YYYY-MM-DD')),
+            type: "get",
+            success: function(data){
+                $('#print').html(data)
+                printPage('print')
+            },
+        });
+    }
+    function printPage(id)
+    {
+        let html="<html>";
+        html+= document.getElementById(id).innerHTML;
+        html+="</html>";
+
+        let printWin = window.open();
+        printWin.document.write(html);
+        printWin.document.close();
+        printWin.focus();
+        setTimeout(() => {
+            printWin.print();
+            printWin.close();
+        }, 500);
+        // printWin.print();
+        // printWin.close();
     }
     </script>
 @endpush

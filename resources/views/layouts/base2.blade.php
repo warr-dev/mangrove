@@ -66,7 +66,7 @@
   </style>
 </head>
 <body>
-
+@stack('begin')
 <div x-data="{ menu: false }" class="relative right-0 top-0">
 
   <button @click="menu = !menu" class="z-20 fixed right-2 top-2 px-4 py-4 bg-green-500 md:hover:bg-green-200  transform duration-500 ease-in-out md:hover:scale-110 motion-reduce:transform-none text-white m-2 focus:outline-none" >
