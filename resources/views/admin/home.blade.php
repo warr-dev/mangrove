@@ -369,7 +369,7 @@
                 type: "get",
                 success: function(data){
                     $('#reservationcounter').text(data.reservation)
-                    $('#donationcounter').text(data.donation[0].total)
+                    $('#donationcounter').text(data.donation[0].total??0)
                 },
             });
 }
