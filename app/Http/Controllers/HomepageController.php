@@ -163,7 +163,7 @@ class HomepageController extends Controller
         $donation=Donations::getCounts([$dates[0]->format('Y-m-d'),$dates[1]->endOfMonth()->format('Y-m-d')]);
         return response([
             'reservation'=>$reservation,
-            'donation'=>$donation[0]->total??0
+            'donation'=>$donation
         ]);
     }
     
