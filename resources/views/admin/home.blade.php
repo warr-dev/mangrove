@@ -233,6 +233,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <button type="button" onclick="tryprintReservation()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Print</button>
                         <button type="button" onclick="printReservation()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Report</button>
                     </div>
                     {{-- <table class="mt-6 -mb-2 w-full text-gray-600">
@@ -402,9 +403,19 @@
         location.href= '{{route('admin.donation.report',[':type',':start',':end'])}}'.replace(':type',$('#don_report_type').val()).replace(':start',start.format('YYYY-MM-DD')).replace(':end',end.format('YYYY-MM-DD'))
     }
 
-    function tryprint(st,en){
+    function tryprint(){
         $.ajax({
             url: '{{route('admin.donation.print',[':type',':start',':end'])}}'.replace(':type',$('#don_report_type').val()).replace(':start',start.format('YYYY-MM-DD')).replace(':end',end.format('YYYY-MM-DD')),
+            type: "get",
+            success: function(data){
+                $('#print').html(data)
+                printPage('print')
+            },
+        });
+    }
+    function tryprintReservation(){
+        $.ajax({
+            url: '{{route('admin.reservation.print',[':type',':start',':end'])}}'.replace(':type',$('#don_report_type').val()).replace(':start',start.format('YYYY-MM-DD')).replace(':end',end.format('YYYY-MM-DD')),
             type: "get",
             success: function(data){
                 $('#print').html(data)
