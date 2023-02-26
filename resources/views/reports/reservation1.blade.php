@@ -137,7 +137,7 @@
        @php $totalForeign = $foreignCount * 50; @endphp
        @php $totalResident = $residentCount * 10; @endphp
 
-       @php $totalAmountOfReservation = $totalStudentCount + $totalRegualrCount + $totalSeniorCount + $totalForeignCount + $totalResidentCount; @endphp
+       @php $totalAmountOfReservation = $totalStudent + $totalRegualr + $totalSenior + $totalForeign + $totalResident; @endphp
 
       @php
           $totals['regular']+=$reservation['regular']??0;
