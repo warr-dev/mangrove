@@ -225,6 +225,8 @@ class HomepageController extends Controller
                     $reservation=Reservation::getCounts($date->format('Y-m-d'),true);
                     if($reservation){
                         $reservations[$date->format('Y-m-d')]=$reservation;
+                        // $totalReservation = DB::table('payments')->sum('total')->groupBy($reservation);
+
                     }
                     $date->addDays(1);
                     break;
@@ -232,14 +234,18 @@ class HomepageController extends Controller
                     $reservation=Reservation::getCounts([$date->format('Y-m-d'),$date->endOfMonth()->format('Y-m-d')],true);
                     if($reservation){
                         $reservations[$date->format('F')]=$reservation;
+                        // $totalReservation = DB::table('payments')->sum('total')->groupBy($reservation);
                     }
+
                     $date=$date->endOfMonth()->addDays(1);
                     break;
                 case 'yearly':
                     $reservation=Reservation::getCounts([$date->format('Y-m-d'),$date->endOfYear()->format('Y-m-d')],true);
                     if($reservation){
                         $reservations[$date->format('Y')]=$reservation;
+                        // $totalReservation = DB::table('payments')->sum('total')->groupBy($reservation);
                     }
+
                     $date=$date->endOfYear()->addDays(1);
                     break;
             }
@@ -248,13 +254,12 @@ class HomepageController extends Controller
 
         //get the sum of total income in reservation -binary01
         
-        $totalReservation = DB::table('payments')->sum('total')->groupBy(date('create_at','m'));
                 
         $data = [
             'reservations' => $reservations,
             'date' => date('m/d/Y'),
             'type'=> $type,
-            'totalRes' => $totalReservation
+            // 'totalRes' => $totalReservation
         ];
            
        return view('reports.reservation1', $data);
