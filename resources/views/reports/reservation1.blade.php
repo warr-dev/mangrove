@@ -101,7 +101,11 @@
           $totals['total']+=$reservation['total']??0;
       @endphp
       @endforeach
-    
+      <tr>
+      <td>TOTAL INCOME</td>
+        <td colspan="5"></td>
+        <td>{{$totalRes}}</td>
+      </tr>
     </table>
   </div>
   <div class="footerimg" style="margin-top: 10em;"></div>
