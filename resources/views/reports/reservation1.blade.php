@@ -102,17 +102,13 @@
       @endphp
       @endforeach
       <tr>
-        <td>Totals</td>
-        <td>{{$totals['regular']??0}}</td>
-        <td>{{$totals['student']??0}}</td>
-        <td>{{$totals['senior']??0}}</td>
-        <td>{{$totals['foreign']??0}}</td>
-        <td>{{$totals['resident']??0}}</td>
-        <td>{{$totals['total']??0}}</td>
+      <td>TOTAL INCOME</td>
+        <td colspan="5"></td>
+        <td>{{$totalRes}}</td>
       </tr>
     </table>
   </div>
-  <div class="footerimg"></div>
+  <div class="footerimg" style="margin-top: 10em;"></div>
 
 </body>
 

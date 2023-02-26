@@ -245,11 +245,15 @@ class HomepageController extends Controller
             }
            
         }
-        
+
+        //get the sum of total income in reservation -binary01
+        $totalReservation = DB::table('payments')->sum('total');
+
         $data = [
             'reservations' => $reservations,
             'date' => date('m/d/Y'),
-            'type'=> $type
+            'type'=> $type,
+            'totalRes' => $totalReservation
         ];
            
        return view('reports.reservation1', $data);
