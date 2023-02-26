@@ -82,61 +82,62 @@
           $totals['total']=0;
       @endphp
 
-      @php $regular = 0;@endphp
-      @php $student = 0;@endphp
-      @php $senior = 0;@endphp
-      @php $foreign = 0;@endphp
-      @php $resident = 0;@endphp
+      @php $regularCount = 0;@endphp
+      @php $studentCount = 0;@endphp
+      @php $seniorCount = 0;@endphp
+      @php $foreignCount = 0;@endphp
+      @php $residentCount = 0;@endphp
+
       @foreach ($reservations as $date=>$reservation)
       <tr>
         <td>{{$date}}</td>
         <td>{{$reservation['regular']??0}}</td>
-           @if(empty($reservation['regular']))
-            @php $regular = 0;@endphp
-          @else
-          @php $regular = $regular + $reservation['regular'];@endphp
+            @if(empty($reservation['regular']))
+                @php $regularCount = 0;@endphp
+            @else
+                @php $regularCount = $regularCount + $reservation['regular'];@endphp
+            @endif
 
-          @endif
         <td>{{$reservation['student']??0}}</td>
-         @if(empty($reservation['student']))
-            @php $student = 0;@endphp
-          @else
-          @php $student = $student + $reservation['student'];@endphp
-          @endif
+            @if(empty($reservation['student']))
+                @php $studentCount = 0;@endphp
+            @else
+                @php $studentCount = $studentCount + $reservation['student'];@endphp
+            @endif
 
 
         <td>{{$reservation['senior']??0}}</td>
 
           @if(empty($reservation['senior']))
-            @php $senior = 0;@endphp
+            @php $seniorCount = 0;@endphp
           @else
-            @php $senior = $senior + $reservation['senior'];@endphp
+            @php $seniorCount = $seniorCount + $reservation['senior'];@endphp
           @endif
 
         <td>{{$reservation['foreign']??0}}</td>
         @if(empty($reservation['foreign']))
-            @php $foreign = 0;@endphp
+            @php $foreignCount = 0;@endphp
           @else
-            @php $foreign = $foreign + $reservation['foreign'];@endphp
+            @php $foreignCount = $foreignCount + $reservation['foreign'];@endphp
           @endif
 
         <td>{{$reservation['resident']??0}}</td>
         @if(empty($reservation['resident']))
-            @php $resident = 0;@endphp
+            @php $residentCount = 0;@endphp
           @else
-            @php $resident = $resident + $reservation['resident'];@endphp
+            @php $residentCount = $residentCount + $reservation['resident'];@endphp
           @endif
 
         <td>{{$reservation['total']??0}}</td>
       </tr>
 
-       @php $totalStudent = $student * 20;@endphp
-       @php $totalRegualr = $regular * 50;@endphp
-       @php $totalSenior = $senior * 20;@endphp
-       @php $totalForeign = $foreign * 50;@endphp
-       @php $totalResident = $resident * 10;@endphp
+       @php $totalStudent = $studentCount * 20; @endphp
+       @php $totalRegualr = $regularCount * 50; @endphp
+       @php $totalSenior = $seniorCount * 20; @endphp
+       @php $totalForeign = $foreignCount * 50; @endphp
+       @php $totalResident = $residentCount * 10; @endphp
 
-       @php $totalAmountOfReservation = $totalStudent + $totalRegualr + $totalSenior + $totalForeign + $totalResident;@endphp
+       @php $totalAmountOfReservation = $totalStudentCount + $totalRegualrCount + $totalSeniorCount + $totalForeignCount + $totalResidentCount; @endphp
 
       @php
           $totals['regular']+=$reservation['regular']??0;
