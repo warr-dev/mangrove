@@ -247,7 +247,8 @@ class HomepageController extends Controller
         }
 
         //get the sum of total income in reservation -binary01
-        $totalReservation = DB::table('payments')->sum('total');
+        
+        $totalReservation = DB::table('payments')->sum('total')->groupBy(date('create_at','m'));
 
         $data = [
             'reservations' => $reservations,
