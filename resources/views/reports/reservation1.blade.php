@@ -82,38 +82,61 @@
           $totals['total']=0;
       @endphp
 
-      <?php $regular = 0;?>
-      <?php $student = 0;?>
-      <?php $senior = 0;?>
-      <?php $foreign = 0;?>
-      <?php $resident = 0;?>
+      @php $regular = 0;@endphp
+      @php $student = 0;@endphp
+      @php $senior = 0;@endphp
+      @php $foreign = 0;@endphp
+      @php $resident = 0;@endphp
       @foreach ($reservations as $date=>$reservation)
       <tr>
         <td>{{$date}}</td>
         <td>{{$reservation['regular']??0}}</td>
-          <?php $regular = $regular + $reservation['regular'];?>
+           @if(empty($reservation['regular']))
+            @php $regular = 0;@endphp
+          @else
+          @php $regular = $regular + $reservation['regular'];@endphp
 
+          @endif
         <td>{{$reservation['student']??0}}</td>
-        <?php $student = $student + $reservation['student'];?>
+         @if(empty($reservation['student']))
+            @php $student = 0;@endphp
+          @else
+          @php $student = $student + $reservation['student'];@endphp
+          @endif
+
 
         <td>{{$reservation['senior']??0}}</td>
-        <?php $senior = $senior + $reservation['senior'];?>
+
+          @if(empty($reservation['senior']))
+            @php $senior = 0;@endphp
+          @else
+            @php $senior = $senior + $reservation['senior'];@endphp
+          @endif
 
         <td>{{$reservation['foreign']??0}}</td>
-        <?php   $foreign = $foreign + $reservation['foreign'];?> 
+        @if(empty($reservation['foreign']))
+            @php $foreign = 0;@endphp
+          @else
+            @php $foreign = $foreign + $reservation['foreign'];@endphp
+          @endif
 
         <td>{{$reservation['resident']??0}}</td>
-        <?php  $resident = $resident + $reservation['resident'];?>
+        @if(empty($reservation['resident']))
+            @php $resident = 0;@endphp
+          @else
+            @php $resident = $resident + $reservation['resident'];@endphp
+          @endif
+
         <td>{{$reservation['total']??0}}</td>
       </tr>
 
-      <?php $totalStudent = $student * 20;?>
-      <?php $totalRegualr = $regular * 50;?>
-      <?php $totalSenior = $senior * 20;?>
-      <?php $totalForeign = $foreign * 50;?>
-      <?php $totalResident = $resident * 10;?>
+       @php $totalStudent = $student * 20;@endphp
+       @php $totalRegualr = $regular * 50;@endphp
+       @php $totalSenior = $senior * 20;@endphp
+       @php $totalForeign = $foreign * 50;@endphp
+       @php $totalResident = $resident * 10;@endphp
 
-      <?php $totalAmountOfReservation = $totalStudent + $totalRegualr + $totalSenior + $totalForeign + $totalResident;?>
+       @php $totalAmountOfReservation = $totalStudent + $totalRegualr + $totalSenior + $totalForeign + $totalResident;@endphp
 
       @php
           $totals['regular']+=$reservation['regular']??0;
