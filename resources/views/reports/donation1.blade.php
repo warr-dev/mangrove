@@ -72,15 +72,17 @@
             $total=0;
         @endphp
         @foreach ($donations as $date=>$donation)
-        <tr>
-          <td>{{$date}}</td>
-          {{-- <td>{{$donation->donator->getFullName()}}</td> --}}
-          <td>GCASH</td>
-          @php
-              $total+=$donation[0]['total'];
-          @endphp
-          <td>{{$donation[0]['total']}}</td>
-        </tr>
+          @if ($donation[0]['total']!=0)
+          <tr>
+            <td>{{$date}}</td>
+            {{-- <td>{{$donation->donator->getFullName()}}</td> --}}
+            <td>GCASH</td>
+            @php
+                $total+=$donation[0]['total'];
+            @endphp
+            <td>{{$donation[0]['total']}}</td>
+          </tr>
+          @endif
         @endforeach
         <tr>
           <td colspan="2">Total:</td>
