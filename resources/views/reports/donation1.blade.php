@@ -84,10 +84,10 @@
           </tr>
           @endif
         @endforeach
-        <tr>
+        {{-- <tr>
           <td colspan="2">Total:</td>
           <td>{{$total}}</td>
-        </tr>
+        </tr> --}}
         <tr>
         <td colspan="2">TOTAL INCOME:</td>
           <td>{{$total}}</td>
