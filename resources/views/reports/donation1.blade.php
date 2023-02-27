@@ -2,27 +2,27 @@
 <html>
 <head>
   <style>
-    #reservations {
+    #donations {
       font-family: Arial, Helvetica, sans-serif;
       border-collapse: collapse;
       width: 100%;
     }
 
-    #reservations td,
-    #reservations th {
+    #donations td,
+    #donations th {
       border: 1px solid #ddd;
       padding: 8px;
     }
 
-    #reservations tr:nth-child(even) {
+    #donations tr:nth-child(even) {
       background-color: #f2f2f2;
     }
 
-    #reservations tr:hover {
+    #donations tr:hover {
       background-color: #ddd;
     }
 
-    #reservations th {
+    #donations th {
       padding-top: 12px;
       padding-bottom: 12px;
       text-align: left;
