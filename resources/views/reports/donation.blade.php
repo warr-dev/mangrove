@@ -58,7 +58,7 @@
 
   <h1>Donation Report</h1>
   <h3>Statement of fundraising summary</h3>
-    <table id="reservations">
+    <table id="donation">
       <tr>
         <th>{{$type=='daily'?'Date':($type=='monthly'?'Month':($type=='yearly'?'Year':'Date'))}}</th>
         {{-- <th>Name</th> --}}

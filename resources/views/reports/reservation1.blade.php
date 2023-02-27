@@ -81,17 +81,58 @@
           $totals['resident']=0;
           $totals['total']=0;
       @endphp
+
+      @php $regularCount = 0;@endphp
+      @php $studentCount = 0;@endphp
+      @php $seniorCount = 0;@endphp
+      @php $foreignCount = 0;@endphp
+      @php $residentCount = 0;@endphp
+
       @foreach ($reservations as $date=>$reservation)
       <tr>
         <td>{{$date}}</td>
         <td>{{$reservation['regular']??0}}</td>
+            @if(!empty($reservation['regular']))
+                @php $regularCount = $regularCount + $reservation['regular'];@endphp
+            @endif
+
         <td>{{$reservation['student']??0}}</td>
+            @if(!empty($reservation['student']))
+               
+                @php $studentCount = $studentCount + $reservation['student'];@endphp
+            @endif
+
+
         <td>{{$reservation['senior']??0}}</td>
+
+          @if(!empty($reservation['senior']))
+
+            @php $seniorCount = $seniorCount + $reservation['senior'];@endphp
+          @endif
+
         <td>{{$reservation['foreign']??0}}</td>
+        @if(!empty($reservation['foreign']))
+            
+            @php $foreignCount = $foreignCount + $reservation['foreign'];@endphp
+          @endif
+
         <td>{{$reservation['resident']??0}}</td>
+        @if(!empty($reservation['resident']))
+          
+            @php $residentCount = $residentCount + $reservation['resident'];@endphp
+          @endif
+
         <td>{{$reservation['total']??0}}</td>
       </tr>
-      
+
+       @php $totalStudent = $studentCount * 20; @endphp
+       @php $totalRegualr = $regularCount * 50; @endphp
+       @php $totalSenior = $seniorCount * 20; @endphp
+       @php $totalForeign = $foreignCount * 50; @endphp
+       @php $totalResident = $residentCount * 10; @endphp
+
+       @php $totalAmountOfReservation = $totalStudent + $totalRegualr + $totalSenior + $totalForeign + $totalResident; @endphp
+
       @php
           $totals['regular']+=$reservation['regular']??0;
           $totals['student']+=$reservation['student']??0;
@@ -102,17 +143,12 @@
       @endphp
       @endforeach
       <tr>
-        <td>Totals</td>
-        <td>{{$totals['regular']??0}}</td>
-        <td>{{$totals['student']??0}}</td>
-        <td>{{$totals['senior']??0}}</td>
-        <td>{{$totals['foreign']??0}}</td>
-        <td>{{$totals['resident']??0}}</td>
-        <td>{{$totals['total']??0}}</td>
+        <td colspan="6">Total Income</td>
+        <td>{{$totalAmountOfReservation}}</td>
       </tr>
     </table>
   </div>
-  <div class="footerimg"></div>
+  <div class="footerimg" style="margin-top: 10em;"></div>
 
 </body>
 

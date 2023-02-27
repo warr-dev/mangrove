@@ -61,7 +61,7 @@
 
       <h1>Donation Report</h1>
       <h3>Statement of fundraising summary</h3>
-      <table id="reservations">
+      <table id="donations">
         <tr>
           <th>{{$type=='daily'?'Date':($type=='monthly'?'Month':($type=='yearly'?'Year':'Date'))}}</th>
           {{-- <th>Name</th> --}}
@@ -84,6 +84,10 @@
         @endforeach
         <tr>
           <td colspan="2">Total:</td>
+          <td>{{$total}}</td>
+        </tr>
+        <tr>
+        <td colspan="2">TOTAL INCOME:</td>
           <td>{{$total}}</td>
         </tr>
       </table>
