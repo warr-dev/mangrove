@@ -1,4 +1,5 @@
-
+<!DOCTYPE html>
+<html>
 <head>
   <style>
     #reservations {
@@ -92,3 +93,4 @@
 
 
 </body>
+</html>
