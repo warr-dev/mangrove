@@ -143,16 +143,7 @@
       @endphp
       @endforeach
       <tr>
-        <td>Totals</td>
-        <td>{{$regularCount}}</td>
-        <td>{{$studentCount}}</td>
-        <td>{{$seniorCount}}</td>
-        <td>{{$foreignCount}}</td>
-        <td>{{$residentCount}}</td>
-        <td>{{$regularCount+$studentCount+$seniorCount+$foreignCount+$residentCount}}</td>
-      </tr>
-      <tr>
-        <td colspan="6">Income</td>
+        <td colspan="6">Total Income</td>
         <td>{{$totalAmountOfReservation}}</td>
       </tr> 
     </table>
