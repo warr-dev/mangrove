@@ -152,7 +152,7 @@
         <td>{{$regularCount+$studentCount+$seniorCount+$foreignCount+$residentCount}}</td>
       </tr>
       {{-- <tr>
-        <td colspan="6">Total Income</td>
+        <td colspan="6">Income</td>
         <td>{{$totalAmountOfReservation}}</td>
       </tr> --}}
     </table>
