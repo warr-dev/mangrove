@@ -151,10 +151,10 @@
         <td>{{$residentCount}}</td>
         <td>{{$regularCount+$studentCount+$seniorCount+$foreignCount+$residentCount}}</td>
       </tr>
-      {{-- <tr>
+      <tr>
         <td colspan="6">Income</td>
         <td>{{$totalAmountOfReservation}}</td>
-      </tr> --}}
+      </tr> 
     </table>
   </div>
   <div class="footerimg" style="margin-top: 10em;"></div>
