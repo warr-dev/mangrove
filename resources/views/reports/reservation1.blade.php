@@ -51,6 +51,35 @@
       margin-top: 100px;
       margin-bottom: 100px;
     }
+
+    .nav-div{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-btn{
+      padding-block: 1em;
+      padding-inline: 1.5em;
+      margin-inline-end: .25em;
+      color: #04AA6D;
+      font-weight: 700;
+      background-color: #f2f2f2;
+      border: 1px solid #04AA6D;
+      cursor: pointer;
+    }
+
+    .nav-btn:hover{
+      color: #f2f2f2;
+      background-color: #04AA6D;
+      border: none;
+    }
+
+    @media print{
+      .btn-div{
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -60,7 +89,15 @@
   <div class="content">
 
   {{-- <h1>Month Report</h1> --}}
+  <div class="nav-div">
   <h3>Daily reservation classification report</h3>
+    <div class="btn-div">
+      <button class="nav-btn" onclick="window.print()">Print</button>
+      <button class="nav-btn" onclick="location.reload()">Dashboard</button>
+    </div>
+  </div>
+  <!-- <h3>Daily reservation classification report</h3> -->
+
     <table id="reservations">
       <tr>
         <th>{{$type=='daily'?'Date':($type=='monthly'?'Month':($type=='yearly'?'Year':'Date'))}}</th>

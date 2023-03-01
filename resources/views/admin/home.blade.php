@@ -143,8 +143,8 @@
                                 @endforeach
                             </select>
                         </div>
-                        <button type="button" onclick="tryprint()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Print</button>
-                        <button type="button" onclick="printDonation()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Report</button>
+                        <button type="button" onclick="tryprint()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">View Donations Report</button>
+                        <!-- <button type="button" onclick="printDonation()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Report</button> -->
                     </div>
                         {{-- <span class="block text-center text-gray-500">Compared to last week 13</span> --}}
                     </div>
@@ -233,8 +233,8 @@
                                 @endforeach
                             </select>
                         </div>
-                        <button type="button" onclick="tryprintReservation()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Print</button>
-                        <button type="button" onclick="printReservation()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Report</button>
+                        <button type="button" onclick="tryprintReservation()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">View Reservations Report</button>
+                        <!-- <button type="button" onclick="printReservation()" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-200 each-in-out">Report</button> -->
                     </div>
                     {{-- <table class="mt-6 -mb-2 w-full text-gray-600">
                         <tbody>
@@ -429,14 +429,14 @@
         html+= document.getElementById(id).innerHTML;
         html+="</html>";
 
-        let printWin = window.open();
+        let printWin = window.open("", "_parent");
         printWin.document.write(html);
         printWin.document.close();
-        printWin.focus();
-        setTimeout(() => {
-            printWin.print();
-            printWin.close();
-        }, 500);
+        // printWin.focus();
+        // setTimeout(() => {
+        //     printWin.print();
+        //     printWin.close();
+        // }, 500);
         // printWin.print();
         // printWin.close();
     }
