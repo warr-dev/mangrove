@@ -127,7 +127,7 @@
 
       @foreach ($reservations as $date=>$reservation)
       <tr>
-        <td>{{$date}}</td>
+        <td>{{date('F m, Y', strtotime($date))}}</td>
         <td>{{$reservation['regular']??0}}</td>
             @if(!empty($reservation['regular']))
                 @php $regularCount = $regularCount + $reservation['regular'];@endphp
@@ -181,7 +181,7 @@
       @endforeach
       <tr>
         <td colspan="6">Total Income</td>
-        <td>{{$totalAmountOfReservation}}</td>
+        <td>{{'₱ '. $totalAmountOfReservation.'.00'}}</td>
       </tr> 
     </table>
   </div>

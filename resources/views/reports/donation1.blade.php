@@ -109,7 +109,7 @@
         @foreach ($donations as $date=>$donation)
           @if ($donation[0]['total']!=0)
           <tr>
-            <td>{{$date}}</td>
+          <td>{{date('F m, Y', strtotime($date))}}</td>
             {{-- <td>{{$donation->donator->getFullName()}}</td> --}}
             <td>GCASH</td>
             @php
@@ -119,13 +119,9 @@
           </tr>
           @endif
         @endforeach
-        {{-- <tr>
-          <td colspan="2">Total:</td>
-          <td>{{$total}}</td>
-        </tr> --}}
         <tr>
         <td colspan="2">TOTAL INCOME:</td>
-          <td>{{$total}}</td>
+          <td>{{'₱ '.$total.'.00'}}</td>
         </tr>
       </table>
     </div>
